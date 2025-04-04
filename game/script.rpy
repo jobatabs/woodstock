@@ -21,14 +21,14 @@ label start:
     menu:
         "My name is Derek.":
             $ player_name = "Derek"
-        "My name is Eliza.":
-            $ player_name = "Eliza"
-        "My name is Jonatan.":
-            $ player_name = "Jonatan"
-        "My name is Juha.":
-            $ player_name = "Juha"
-        "My name is Tuukka.":
-            $ player_name = "Tuukka"
+        "My name is John.":
+            $ player_name = "John"
+        "My name is Samantha.":
+            $ player_name = "Samantha"
+        "My name is Shawn.":
+            $ player_name = "Shawn"
+        "My name is Lauryn.":
+            $ player_name = "Lauryn"
         "Just call me \"Player\".":
             $ player_name = "Player"
         "My name is... (choose your own name)":
@@ -37,7 +37,7 @@ label start:
             if player_name=="":
                 "Don't want to give a name after all, eh?"
                 "Fine. You shall be called..."
-                "\"Generic_gender-neutral_name_01!\""
+                "\"Generic_name_01!\""
                 $ player_name="generic_name_01"
         "My name is none of your business.":
             $ player_name = "Mr. Poopybutts"
@@ -62,6 +62,8 @@ label title:
         menu:
             "My name is Mr. Poopybutts. Let's start the game. (Start the game)":
                 jump starting_screen
+            "Actually, I think I made a mistake choosing my name. Let me go back. (Choose your name again)":
+                jump start
     else:
         menu:
             "Let's start the game! (Start the game)":
