@@ -34,11 +34,21 @@ default negotiation_faith = False
 # Has the player given the gold bar to the mayor? (Unlocking the neutral ending)
 default mayor_happy = False
 
+# Has the player been to the townhall before?
+default townhall_first_visit = True
+
 label townhall:
 
 
     scene bg townhall
     with fade
+    if townhall_first_visit==True:
+        $ townhall_first_visit = False
+        "The townhall is dusty and silent. You hear noises coming from the mayor's office."
+    jump townhallmenu
+
+label townhallmenu:
+    scene bg townhall
     menu:
         "Go to the mayor's office":
             if mayor_first_talk==True:
@@ -376,7 +386,7 @@ label townhall_items:
         jump vending_machine
     else:
         "The corridors of the town hall don't seem to contain much more than a single vending machine, which is now empty."
-        jump townhall
+        jump townhallmenu
 
 # Town hall vending machine
 
@@ -397,9 +407,9 @@ label vending_machine:
                         "You insert 50 cents in to the machine."
                         "The machine spits out the pack of batteries, and you pick them up."
                         $ have_batteries = True
-                        jump townhall
-                "Leave":
-                    jump townhall
+                        jump townhallmenu
+                "Walk away from the vending machine":
+                    jump townhallmenu
         "Punch the machine" if punched_machine==False:
             "You punch the machine, and a single coin drops from the coin-return slot."
             "You pick up the coin."
@@ -408,5 +418,5 @@ label vending_machine:
             "Although you aren't sure what you'll do with it, you take the car wash token with you."
             $ punched_machine = True
             jump vending_machine
-        "Leave":
-            jump townhall
+        "Walk away from the machine":
+            jump townhallmenu
