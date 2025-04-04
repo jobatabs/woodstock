@@ -97,7 +97,7 @@ label exit_fight_dialogue:
             "Sorry, I couldn't quite understand you. Could you repeat that, please?"
             $ exit_fight_dialogue_points += 1
             jump exit_fight_dialogue
-        "What I actually meant was that I'd like to keep playing this remarkable work of art that you so foolishly insist on referring to simply as \"the game\"." if exit_fight_dialogue_points>=5:
+        "What I actually meant was that I'd like to keep playing this remarkable work of art that you so foolishly insist on referring to simply as \"the game\"." if exit_fight_dialogue_points>=1:
             "Really?! Oh that's so great to hear that you like the game!"
             "Of course, we'll let you get on with the game now!"
             "Have fun!"
@@ -129,7 +129,7 @@ label trailer:
                                 if monster_dead==False:
                                     menu:
                                         "Try to fall asleep one more time.":
-                                            "You fall in to a deep, eternal slumber."
+                                            "You fall in to a deep, mystic slumber."
                                             jump monster_battle
                                         "Get up":
                                             jump trailer
