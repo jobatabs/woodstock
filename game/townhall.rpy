@@ -2,94 +2,64 @@
 # TOWN HALL
 #
 
-define m = Character("Mayor of Bethel", color="#cf112b")
-define a = Character("Mayor's Assistant", color="#a6a6a6")
-
-# Has the player seen the vending machine? (Determines if it's possible to ask Larry for money)
-default have_seen_vending_machine = False
-
-# The amount of money player has to buy the batteries and if they have bought them (Batteries needed to get gold bar from backstage area)
-default cents = 0
-default have_batteries = False
-
-# Determines if the safe is empty (so that nothing more can be found in the mayor's office)
-default safe_empty = False
-
-# Has the player talked to the mayor? (Determines if the mayor gives his angry rant)
-default mayor_first_talk = True
-
-# Has the player mentioned gold to the mayor, making him happy to see the player? (No gameplay effect, just changes the tone when visiting the mayor's office a second time)
-default mayor_wants_gold = False
-
-# Has the player found the stone in the safe? (Needed to travel to the dreamworld)
-default mystical_stone = False
-
-# Has the player punched the vending machine?
-default punched_machine = False
-
-# Which dialogue options the player has already chosen during the mayor negotiation?
-default negotiation_drugs = False
-default negotiation_faith = False
-
-# Has the player given the gold bar to the mayor? (Unlocking the neutral ending)
-default mayor_happy = False
-
-# Has the player been to the townhall before?
-default townhall_first_visit = True
-
 label townhall:
+    scene black with wiperight
 
+    show text "Town Hall" at truecenter with dissolve
+
+    pause 1.0
+
+    hide text with dissolve
+
+    pause 0.3
 
     scene bg townhall
     with fade
     if townhall_first_visit==True:
         $ townhall_first_visit = False
         "The townhall is dusty and silent. You hear noises coming from the mayor's office."
-    jump townhallmenu
+    jump actionsmenu
 
-label townhallmenu:
-    scene bg townhall
-    menu:
-        "Go to the mayor's office":
-            if mayor_first_talk==True:
-                jump townhall_first_dialogue
-            elif mayor_happy==False:
-                jump townhall_second_dialogue
-            else:
-                jump townhall_third_dialogue     
-        "Look around":
-            jump townhall_items
-        "Leave":
-            jump map_screen
+label office:
+    scene black with wiperight
+
+    show text "Mayor's office" at truecenter with dissolve
+
+    pause 1.0
+
+    hide text with dissolve
+
+    pause 0.3
+
+    scene bg office
+    with fade
+    if mayor_first_talk==True:
+        jump townhall_first_dialogue
+    elif mayor_happy==False:
+        jump townhall_second_dialogue
+    else:
+        jump townhall_third_dialogue
 
 # Townhall first dialogue
 
 
 label townhall_first_dialogue:
-
-
-    scene bg office
-    with fade
-    show mayor neutral
+    show chara mayor neutral
     with dissolve
     "As you open the door to the mayor's office, you see the mayor himself sitting behind his large desk."
     "He seems to be in the middle of a rather heated rant about something."
     m "Yes, that no-good bunch of draft-dodgers! They'll be thrown out of here as soon as Douglas and his boys come back from..."
     "The mayor stops himself mid-sentence as you enter the room."
-    show mayor angry
+    show chara mayor angry
     with dissolve
     m "[player_name]!"
     m "You ever heard of knocking before entering?!"
     m "You think it's any of your business what I talk about with my assistant?!"
     "You see another man in the room, sitting behind a much smaller desk."
-    hide mayor angry
-    with dissolve
-    show assistant neutral
+    show chara assistant neutral
     with dissolve
     "A bespectacled man quietly gazes at you. After a moment, he turns away and starts to sort through a pile of papers on his desk."
-    hide assistant neutral
-    with dissolve
-    show mayor angry
+    show chara mayor angry
     with dissolve
     "The mayor gets up from his chair and walks over to you, visibly angry."
     m "You and me have a problem!"
@@ -107,7 +77,7 @@ label townhall_first_dialogue:
                     menu:
                         "Yeah yeah, I hear you. You don't want us here.":
                             m "That's right! And you better hear it well!"
-                            show mayor neutral
+                            show chara mayor neutral
                             with dissolve
                             "The mayor walks back to his desk and sits down."
                             m "Well then, it's good that we have a mutual understanding. Now if you'll excuse me, I have other things to attend to!"
@@ -119,7 +89,7 @@ label townhall_first_dialogue:
                             m "A personal problem? What the hell are you talking about?!"
                             menu:
                                 "I'm thinking that it's just you who has a problem with us.":
-                                    show mayor furious
+                                    show chara mayor furious
                                     with dissolve
                                     "The mayor suddenly goes red in the face."
                                     m "Now you listen to me you little shit! I am the mayor of this here fine town, and I'm telling you to get your stuff and LEAVE!!"
@@ -130,30 +100,24 @@ label townhall_first_dialogue:
                                     jump townhall
                                 "Maybe we can find a solution that would prove to be beneficial for both parties? Especially for the... townsfolk?":
                                     "The mayor stares at you blankly for a second or two before giving a sideways glance to his assistant."
-                                    hide mayor
-                                    with dissolve
-                                    show assistant neutral
+                                    show chara assistant neutral
                                     with dissolve
                                     "The mayor's assistant does not react in any way, nor does he return his boss' glance."
-                                    hide assistant neutral
-                                    with dissolve
-                                    show mayor neutral
+                                    show chara mayor neutral
                                     with dissolve
                                     m "Erm... what exactly do you suggest?"
                                     jump mayor_negotiation             
                 "Sure, we'll pack our stuff and leave town.":
-                    show mayor laughing with dissolve
+                    show chara mayor laughing with dissolve
                     "The mayor is visibly pleased that his negotiation tactics have worked so effectively on you."
                     m "Ha! Good! I'll give you and your crew a couple of hours to pack up your things and leave town."
                     "The mayor walks back to his desk and triumphantly sits down on his chair."
                     m "See Sam? That's how it's done!"
-                    hide mayor
-                    with dissolve
-                    show assistant neutral
+                    show chara assistant neutral
                     with dissolve
                     "The mayor's assistant does not respond, but he gives a quick glance at you before going back to re-organizing his filing cabinet."
                     "You head for the door, feeling quite defeated."
-                    hide assistant
+                    hide chara
                     with dissolve
                     $ mayor_first_talk = False
                     jump townhall
@@ -178,19 +142,15 @@ menu:
         $ mayor_first_talk = False
         jump map_screen
     "I will find you a gold bar if you let us stay.":
-        show mayor laughing
+        show chara mayor laughing
         with dissolve
         "The mayor bursts in to laughter."
         m "A gold bar? You're going to find me a gold bar from this here field of mud and horse droppings?"
         m "You hear that, Sam? He's going to find us a gold bar! Ha ha ha ha!!"
-        hide mayor
-        with dissolve
-        show assistant neutral
+        show chara assistant neutral
         with dissolve
         "You see the mayors assistant continue his work, expressionless."
-        hide assistant neutral
-        with dissolve
-        show mayor laughing
+        show chara mayor laughing
         with dissolve
         m "All right, that sounds good to me! You find me a gold bar and I'll let you people stay and do your little festival! Ha ha ha!"
         "With tears in his eyes from laughter, the mayor walks you to the door and bids you farewell."
@@ -219,13 +179,9 @@ menu:
 
 
 label townhall_second_dialogue:
-
-
-    scene bg office
-    with fade
     "You enter the office. Immediately the mayor's eyes are on you."
     if mayor_wants_gold==False:
-        show mayor angry
+        show chara mayor angry
         with dissolve
         "He doesn't seem happy to see you."
         m "What the hell are you doing back here?! I thought I told you to leave!"
@@ -237,7 +193,7 @@ label townhall_second_dialogue:
             "Sorry, I was just about to leave.":
                 jump townhall
     else:
-        show mayor laughing
+        show chara mayor laughing
         with dissolve
         "The mayor starts laughing heartily."
         m "Ah, look who it is! My little golden retriever!"
@@ -256,7 +212,7 @@ label townhall_second_dialogue:
 
 label gold_dialogue:
     "You show the mayor your bar of gold."
-    show mayor surprised
+    show chara mayor surprised
     with dissolve
     "The mayors eyes widen and his expression goes blank."
     m "What is THAT?!"
@@ -266,24 +222,24 @@ label gold_dialogue:
             m "Where did you find this?!"
             menu:
                 "It doesn't really matter. Here, it's yours. (Give the bar of gold)":
-                    show mayor laughing
+                    show chara mayor laughing
                     with dissolve
                     m "YOU ACTUALLY FOUND A BAR OF GOLD?!"
                     m "Ha ha ha! I can't belive it!"
                     m "I'M RICH! I'M RICH, YOU HEAR ME?!"
-                    hide mayor
+                    hide chara
                     with dissolve
                     "The mayor runs out of his office with the gold bar in his hands."
                     "Outside, you hear a car starting. A rumble of an engine is heard as the mayor drives far away in to the distance."
                     "Seems like the mayor won't be giving you any more trouble."
                     "As you make your way toward the door, you hear a light shuffle of footsteps behind you."
-                    show assistant neutral
+                    show chara assistant neutral
                     with dissolve
                     a "Looks like you managed to finally get rid of him. Congratulations."
                     a "You can have your festival. But make sure all of your guests and crew have left town by Monday afternoon."
                     a "Our little town has... important business to attend to, and we do not like to be interfered with."
                     a "Goodbye."
-                    hide assistant neutral
+                    hide chara
                     with dissolve
                     "The mayor's assistant leaves the office."
                     "You follow him in to the hallway but he is nowhere to be seen."
@@ -295,22 +251,22 @@ label gold_dialogue:
                     m "No! It is mine!"
                     "Before you know it, the mayor has snatched the bar of gold from your hand."
                     m "It is..."
-                    show mayor gollum
+                    show chara mayor gollum
                     with dissolve
                     m "My precious..."
-                    hide mayor
+                    hide chara
                     with dissolve
                     "The mayor runs out of his office with the gold bar in his hands."
                     "Outside, you hear a car starting. A rumble of an engine is heard as the mayor drives far away in to the distance."
                     "Seems like the mayor won't be giving you any more trouble."
                     "As you make your way toward the door, you hear a light shuffle of footsteps behind you."
-                    show assistant neutral
+                    show chara assistant neutral
                     with dissolve
                     a "Looks like you managed to finally get rid of him. Congratulations."
                     a "You can have your festival. But make sure all of your guests and crew have left town by Monday afternoon."
                     a "Our little town has... very important business to attend to, and we do not like to be interfered with."
                     a "Goodbye."
-                    hide assistant neutral
+                    hide chara
                     with dissolve
                     "The mayor's assistant leaves the office."
                     "You follow him in to the hallway but he is nowhere to be seen."
@@ -326,10 +282,8 @@ label gold_dialogue:
 
 
 label townhall_third_dialogue:
+    "The office is empty."
 
-
-    scene bg office
-    with fade
     menu:
         "Look around":
             if safe_empty==False:
@@ -342,7 +296,7 @@ label townhall_third_dialogue:
             else:
                 "As you have emptied the safe, there is nothing more of interest in the room."
                 jump townhall_third_dialogue
-        "Leave":
+        "Leave the office":
             jump townhall
 
 # Safe mechanics
@@ -378,7 +332,7 @@ label safe:
 # Town hall searching for items
 
 
-label townhall_items:
+label looktownhall:
 
 
     if have_batteries==False:
@@ -386,7 +340,7 @@ label townhall_items:
         jump vending_machine
     else:
         "The corridors of the town hall don't seem to contain much more than a single vending machine, which is now empty."
-        jump townhallmenu
+        jump actionsmenu
 
 # Town hall vending machine
 
@@ -407,9 +361,9 @@ label vending_machine:
                         "You insert 50 cents in to the machine."
                         "The machine spits out the pack of batteries, and you pick them up."
                         $ have_batteries = True
-                        jump townhallmenu
+                        jump actionsmenu
                 "Walk away from the vending machine":
-                    jump townhallmenu
+                    jump actionsmenu
         "Punch the machine" if punched_machine==False:
             "You punch the machine, and a single coin drops from the coin-return slot."
             "You pick up the coin."
@@ -419,4 +373,4 @@ label vending_machine:
             $ punched_machine = True
             jump vending_machine
         "Walk away from the machine":
-            jump townhallmenu
+            jump actionsmenu

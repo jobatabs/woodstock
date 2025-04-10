@@ -2,42 +2,13 @@
 # BACKSTAGE
 #
 
-define t = Character("Larry the Technician", color="#9c341e")
-
-# Has the player talked to the technician? (Determines if the technician explains the situation when first talking to him)
-default technician_first_talk = True
-
-# Has the player gotten a coin from Larry? (Determines if it's possible to get the batteries from the vending machine)
-default have_larry_coin = False
-
-# Has the player found 4 coins in the backstage area? (The player needs to pick up 4 coins before the battery runs out)
-default have_coin = False
-default have_coin2 = False
-default have_coin3 = False
-default have_old_coin = False
-
-# Has the player found the chest in the backstage area? (Needed to be done before it's possible to find gold)
-default have_chest = False
-
-# Has the player found the gold bar? (Needs to be given to the mayor to make him happy)
-default have_gold = False
-
-# Has the player solved "the mayor problem", causing Larry to be happy (No gameplay change except unlocking the neutral ending)
-default technician_happy = False
-
-# Has the player talked to Larry to get his piece of paper? (Needed to unlock safe)
-default have_paper = False
-
-# After 10 tries of finding nothing in the backyard area, an easter egg is found
-default egg_counter = 0
-
 label backstage:
 
 
     scene bg backstage
     with fade
     if technician_first_talk==True:
-        show technician frightened
+        show chara technician frightened
         with dissolve
         t "[player_name]! You finally woke up!"
         t "We have a huge problem!"
@@ -45,24 +16,22 @@ label backstage:
         t "He's saying that he won't allow the festival to go on!"
         t "And even worse..."
         t "I'M OUT OF BEER!"
-        hide technician
+        hide chara
         with dissolve
-    jump backstagemenu
+        $ playertip = "What should I do?"
+    else:
+        "Backstage is full of activity, people running around, technicians unloading cases, and artists preparing for their shows."
+    jump actionsmenu
 
-label backstagemenu:
-    scene bg backstage
+label talkbackstage:
     menu:
-        "What should I do?"
-
-        "Talk to Larry":
+        "Larry":
             if technician_first_talk==True:
                 jump backstage_dialogue
             else:
                 jump backstage_dialogue_second
-        "Look around":
-            jump backstage_items
-        "Leave":
-            jump map_screen
+        "Back":
+            jump actionsmenu
 
 # Backstage first dialogue
 
@@ -71,14 +40,14 @@ label backstage_dialogue:
 
 
     $ technician_first_talk = False
-    show technician frightened
+    show chara technician frightened
     with dissolve
     t "We need to solve our issue with the mayor."
     t "What are we going to do?!"
     menu:
         "I'll go talk to the mayor. I'm sure we'll figure something out." if mayor_happy==False:
             t "Alright, that sounds like a good plan. Good luck!"
-            jump backstagemenu
+            jump actionsmenu
         "Screw the mayor. We'll continue forward with the festival." if mayor_happy==False:
             "Larry looks shocked."
             t "Are you sure?! He said he's going to come in here with the sheriff and shut everything down by force if we don't leave by 8 o'clock!"
@@ -88,10 +57,10 @@ label backstage_dialogue:
                 "Hmm... maybe it's better to go talk to him first.":
                     t "Yes, I think that's a good idea! Good luck!"
                     "You leave Larry alone as he lights up a cigarette with shaking hands."
-                    jump backstagemenu
+                    jump actionsmenu
         "The mayor won't be a problem for us anymore." if mayor_happy==True:
             $ technician_happy = True
-            show technician happy  
+            show chara technician happy  
             with dissolve
             t "Really? That's great news!"
             t "So, do you want to start the festival then?"
@@ -100,7 +69,7 @@ label backstage_dialogue:
                     jump ending
                 "Nah, let me actually make sure everything is in order before we start.":
                     t "Okay, sounds good. Let me know when you're ready to start the festival!"
-                    jump backstagemenu
+                    jump actionsmenu
 
 # Backstage second dialogue
 
@@ -109,11 +78,11 @@ label backstage_dialogue_second:
 
 
     if technician_happy==False:
-        show technician frightened
+        show chara technician frightened
         with dissolve
         t "[player_name]! Did you go talk to the mayor yet?"
     elif technician_happy==True:
-        show technician happy 
+        show chara technician happy 
         with dissolve
         if have_paper==False:
             t "Hey [player_name]! Thanks for taking care of that business with the mayor!"
@@ -126,21 +95,21 @@ label backstage_dialogue_second:
                     t "Time is relative, man! This will help you remember what year it is in case you forget!"
                     t "Alright, I have to go check that the ungrounded stage cables aren't submerged in puddles again."
                     t "Later, man!"
-                    jump backstagemenu
+                    jump actionsmenu
                 "This is just what I needed, thanks!":
                     t "No problemo, man!"
-                    jump backstagemenu
+                    jump actionsmenu
         else:
             t "Hey [player_name]! Are you ready to start the festival?"
             menu:
                 "Yep, let's get this show started! (End the day)":
                     jump ending
                 "Not just yet. Let me check on a couple of things first. (Leave)":
-                    jump backstagemenu
+                    jump actionsmenu
     menu:
         "Not yet. I'll go do that now." if mayor_first_talk==True:
             t "Alright, good luck!"
-            jump backstagemenu
+            jump actionsmenu
         "Screw the mayor. We'll continue forward with the festival." if mayor_happy==False:
             "The stage manager looks frightened."
             t "Are you sure?! He said he's going to come in here with the sheriff and shut everything down by force if we don't leave by 8 o'clock!"
@@ -150,11 +119,11 @@ label backstage_dialogue_second:
                 "Hmm... maybe it's better to go talk to him first.":
                     t "Yes, I think that's a good idea! Good luck!"
                     "You leave the stage manager as he lights up a cigarette with shaking hands."
-                    jump backstagemenu
+                    jump actionsmenu
         "Hey Larry do you want this bar of gold?" if have_gold==True:
             t "Nah I'm good, man."
             t "Thanks anyway."
-            jump backstagemenu
+            jump actionsmenu
         "Do you happen to have some extra change on you?" if have_seen_vending_machine==True:
             if have_larry_coin==False:
                 t "Uh... I don't really believe in money, man..."
@@ -165,7 +134,7 @@ label backstage_dialogue_second:
                 menu:
                     "Thanks!":
                         t "No problem, man!"
-                        jump backstagemenu
+                        jump actionsmenu
                     "...are those not your pants?":
                         t "Whoa man!"
                         t "That's kind of a capitalist mentality if you ask me!"
@@ -173,10 +142,10 @@ label backstage_dialogue_second:
                         menu:
                             "You're totally right. Nobody really \"owns\" anything. Especially when it comes to copyrighted music some students might want to use for their video game course project.":
                                 t "Right on, man!"
-                                jump backstagemenu
+                                jump actionsmenu
                             "I guess that means you don't need to get paid for this gig.":
                                 "You decide there are more important matters than a lengthy discussion about the nature of ownership to focus on right now. You thank Larry for the coin and leave."
-                                jump backstagemenu
+                                jump actionsmenu
             else:
                 t "Nah, I have no more coins on me, man."
                 t "I thought you were supposed to be good with money? How come you're totally broke?"
@@ -184,20 +153,20 @@ label backstage_dialogue_second:
                     "I'm not \"totally broke\"!":
                         t "I think you are if you're asking me for change..."
                         "You decide it's better to immediately end the conversation and leave."
-                        jump backstagemenu
+                        jump actionsmenu
                     "I made some bad investments.":
                         t "Yeah man, it happens!"
                         t "My brother and I went to the casino last year..."
                         t "I don't really know how the whole thing works, but my brother told me that if the ball lands on the red square two times in a row, the next time it'll land on the black one for sure!"
                         t "So, we eventually lost our mom's house..."
                         "You decide it's better to not continue this conversation any longer."
-                        jump backstagemenu
+                        jump actionsmenu
         "Yes, I talked to him. Don't worry, I'll get it sorted." if mayor_first_talk==False:
             t "O-okay! Let me know if anything changes!"
-            jump backstagemenu
+            jump actionsmenu
         "The mayor won't be a problem for us anymore." if mayor_happy==True:
             $ technician_happy = True
-            show technician happy  
+            show chara technician happy  
             with dissolve
             t "Really? That's great news!"
             t "So, do you want to start the festival then?"
@@ -206,28 +175,28 @@ label backstage_dialogue_second:
                     jump ending
                 "Nah, let me actually make sure everything is in order before we start.":
                     t "Okay, sounds good. Let me know when you're ready to start the festival!"  
-                    jump backstagemenu
+                    jump actionsmenu
 
 # Backstage search
 
 
-label backstage_items:
+label lookbackstage:
     
     
     if have_metal_detector==False:
         "You look around the discarded cardboard boxes and other pieces of garbage that permeate the backstage area."
         "There doesn't seem to be anything of interest here."
-        jump backstagemenu
+        jump actionsmenu
     else:
         menu:
             "Use your metal detector":
                 if egg_counter >= 11:
                     "You have walked through the whole backstage area with your metal detector. There doesn't seem to be anything more to find."
-                    jump backstage_items
+                    jump lookbackstage
                 elif have_old_coin==True:
                     if have_batteries==False:
                         "Your metal detector seems to have run out of batteries."
-                        jump backstage_items
+                        jump lookbackstage
                     elif have_batteries==True:
                         if have_chest==False:
                             "You change the batteries of your metal detector for new ones. Suddenly the machine seems to beep with newfound vigour."
@@ -249,21 +218,21 @@ label backstage_items:
                             "(Only $29.99)"
                             "(Restrictions apply)"
                             $ have_chest =  True
-                            jump backstagemenu
+                            jump actionsmenu
                         if have_gold==False:
                             "You dig around and find a bar of gold!"
                             $ have_gold = True
                             $ egg_counter += 1
-                            jump backstage_items
+                            jump lookbackstage
                         elif egg_counter==10:
                             "You dig around and find an easter egg!"
                             "Doesn't seem like you can do anything with it though..."
                             $ egg_counter += 1
-                            jump backstage_items
+                            jump lookbackstage
                         elif egg_counter>0:
                             "You dig around but find nothing."
                             $ egg_counter += 1
-                            jump backstage_items   
+                            jump lookbackstage   
                 else:
                     "You walk around the backstage area until your metal detector beeps."
                     if have_coin==False:
@@ -271,19 +240,19 @@ label backstage_items:
                         "This one is worth 25 cents."
                         $ cents += 25
                         $ have_coin = True
-                        jump backstage_items
+                        jump lookbackstage
                     elif have_coin2==False:
                         "You dig around and find a small coin!"
                         "This one is worth five cents."
                         $ cents += 5
                         $ have_coin2 = True
-                        jump backstage_items
+                        jump lookbackstage
                     elif have_coin3==False:
                         "You dig around and find a small coin!"
                         "This one is worth ten cents."
                         $ cents += 10
                         $ have_coin3 = True
-                        jump backstage_items
+                        jump lookbackstage
                     elif have_old_coin==False:
                         "You dig around and find a small coin!"
                         "This one seems to be late Anglo-Saxon, from the first half of the eleventh century."
@@ -291,6 +260,6 @@ label backstage_items:
                         "Of course, another obvious sign that it is from the reign of Cnut is that the obverse of the coin depicts a \"pointed helmet\" style of portrait, a trademark of Cnut's."
                         "But since you aren't particulary interested in old coins, you throw it away."
                         $ have_old_coin = True
-                        jump backstage_items   
-            "Stop looking around":
-                jump backstagemenu
+                        jump lookbackstage   
+            "Back":
+                jump actionsmenu

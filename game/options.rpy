@@ -12,7 +12,7 @@
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
-define config.name = _("Woodstock Game Prototype")
+define config.name = _("A Memory of Woodstock")
 
 
 ## Determines if the title given above is shown on the main menu screen. Set
@@ -23,13 +23,13 @@ define gui.show_name = True
 
 ## The version of the game.
 
-define config.version = "1.0"
+define config.version = "2.0"
 
 
 ## Text that is placed on the game's about screen. Place the text between the
 ## triple-quotes, and leave a blank line between paragraphs.
 
-define gui.about = _p("""Made by Tuukka Vatanen for Helsinki University course HISM-G514 Game Project: Mechanics and Designer Perspectives (spring 2025). Uses free-to-use images from Wikimedia Commons.
+define gui.about = _p("""Made for Helsinki University course HISM-G514 Game Project: Mechanics and Designer Perspectives (spring 2025). Uses free-to-use images from Wikimedia Commons.
 """)
 
 
@@ -37,7 +37,7 @@ define gui.about = _p("""Made by Tuukka Vatanen for Helsinki University course H
 ## distribution. This must be ASCII-only, and must not contain spaces, colons,
 ## or semicolons.
 
-define build.name = "WoodstockGamePrototype"
+define build.name = "AMemoryOfWoodstock"
 
 
 ## Sounds and music ############################################################
@@ -143,7 +143,7 @@ default preferences.afm_time = 15
 ## This generally should not be changed, and if it is, should always be a
 ## literal string, not an expression.
 
-define config.save_directory = "WoodstockGamePrototype-1743233180"
+define config.save_directory = "AMemoryOfWoodstock-1743233180"
 
 
 ## Icon ########################################################################
