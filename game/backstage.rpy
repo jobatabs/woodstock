@@ -12,7 +12,7 @@ label backstage:
         with dissolve
         t "[player_name]! You finally woke up!"
         t "We have a huge problem!"
-        t "The mayor came by this morning and was yelling at everyone, looking for you."
+        t "The town supervisor came by this morning and was yelling at everyone, looking for you."
         t "He's saying that he won't allow the festival to go on!"
         t "And even worse..."
         t "I'M OUT OF BEER!"
@@ -42,9 +42,19 @@ label backstage_dialogue:
     $ technician_first_talk = False
     show chara technician frightened
     with dissolve
-    t "We need to solve our issue with the mayor."
+    t "We need to solve our issue with the town supervisor."
+    t "He's saying we need some kind of permit or he'll shut down the festival."
     t "What are we going to do?!"
+    $ playertip = "I need to sort things out with the town supervisor."
+    jump talklarry
+
+label talklarry:
     menu:
+        "Weren't our permits okay before?" if mayor_happy==False:
+            t "I don't know anything about the permits, I'm just the stage manager."
+            t "Aren't you supposed to know this, being the producer and all?"
+            "(I guess he's right...)"
+            jump talklarry
         "I'll go talk to the mayor. I'm sure we'll figure something out." if mayor_happy==False:
             t "Alright, that sounds like a good plan. Good luck!"
             jump actionsmenu

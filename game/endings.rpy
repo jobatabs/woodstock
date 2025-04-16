@@ -68,33 +68,12 @@ label good_ending:
     return
 
 
-label jail_ending:
-
-
-    scene bg jail
-    with fade
-    "You spend the rest of your days in jail."
-    "(Seriously, what is wrong with you?)"
-    "(Do you really think we would add this sort of stuff to our game?)"
-    "(Shame on you!)"
-    "(I'm sorry, but we have no choice but to make this a game over for you.)"
-    "Game Over. (Ending D)"
-    menu:
-        "Try again":
-            if mayor_first_talk==True:
-                jump townhall_first_dialogue
-            elif mayor_first_talk==False:
-                jump townhall_second_dialogue
-        "Exit game":
-            return
-
-
 label death:
 
 
     scene bg death
     with fade
-    "Game Over. (Ending E)"
+    "You are dead. Game Over. (Ending E)"
     menu:
         "Try again":
             jump monster_battle

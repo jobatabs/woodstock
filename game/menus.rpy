@@ -3,7 +3,7 @@ label actionsmenu:
     menu:
         "[playertip]"
 
-        "Go to the mayor's office" if location == "townhall":
+        "Go to the town supervisor's office" if location == "townhall":
             jump office
         "Talk" if location == "backstage":
             jump talkmenu
