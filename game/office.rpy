@@ -99,7 +99,7 @@ label townhall_first_dialogue_second_part:
 
 
 label mayor_negotiation:
-
+$ mayor_election_concern = True
 
 menu:
     "I can donate to your campaign.":
@@ -107,11 +107,31 @@ menu:
         m "It's not money I need, it's my voters' trust."
         m "You need to leave."
         jump townhall
-    "I will give you the finest colombian powder if you let us stay." if negotiation_drugs == False:
-        "The mayor is not exactly thrilled by this proposition."
-        "Before you have a chance to say anything else, you are being escorted out of the town hall by two big men with even bigger shotguns."
-        $ negotiation_drugs = True
-        jump map_screen
+    "How about I give you this bottle of whisky?" if have_whisky == True:
+        $ mayor_happy = True
+        $ day_one_end = "whisky"
+        "The mayor is thrilled by this proposition."
+        show chara mayor happy
+        m "Thank you, [player_name]! This is quite a gift indeed."
+        m "Maybe we can just put this whole mess behind us?"
+        m "After all, it's just one weekend."
+        "You shake hands with the mayor."
+        "Your troubles solved, you leave."
+        jump townhall
+    "Can I pay to fast-track my permit application?" if have_chest == True:
+        $ mayor_happy = True
+        $ day_one_end = "money"
+        "You show your suitcase full of money to the mayor."
+        show chara mayor surprised
+        m "My golly gee! That sure is a hecking lot of money!"
+        show chara mayor happy
+        m "Hey, how about we put this whole thing between us?"
+        "The mayor reaches into a drawer and pulls out a slip of paper."
+        m "I'll give you this fast-tracked permit for your event."
+        m "How does that sound?"
+        "You shake hands with the mayor."
+        "Your troubles solved, you leave."
+        jump townhall
     "I will find you a gold bar if you let us stay.":
         show chara mayor laughing
         with dissolve
@@ -141,7 +161,7 @@ menu:
 
 label townhall_second_dialogue:
     "You enter the office. The town supervisor seems surprised to see you again."
-    m "Was there something you needed, [player_name]?":
+    m "Was there something you needed, [player_name]?"
     menu:
         "Your voters, huh?":
             m "Uh?! What do you mean?"

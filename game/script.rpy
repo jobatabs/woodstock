@@ -13,6 +13,18 @@ define a = Character("Mayor's Assistant", color="#a6a6a6")
 # PARAMETERS
 #
 
+# How did day one end?
+default day_one_end = ""
+
+# Does the player have the bottle of whisky?
+default have_whisky = False
+
+# Does the player have the axe?
+default have_axe = False
+
+# Has the player realised that the mayor is worried about re-election?
+default mayor_election_concern = False
+
 # Has the player seen the vending machine? (Determines if it's possible to ask Larry for money)
 default have_seen_vending_machine = False
 

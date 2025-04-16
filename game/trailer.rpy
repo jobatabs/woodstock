@@ -65,17 +65,33 @@ label looktrailer:
 
         "Under the bed":
             if have_metal_detector == False:
-                "Your trusty metal detector lies abandoned under your bed."
+                "Your trusty FEW57ER 9000 Mine Detector lies abandoned under your bed."
                 menu:
-                    "Take the metal detector":
-                        "You take the well-used metal detector with you."
+                    "Take the mine detector":
+                        "You take the well-used mine detector with you."
                         $ have_metal_detector = True
                         jump looktrailer
-                    "Leave the metal detector":
-                        "You leave the metal detector to its fate."
+                    "Leave the mine detector":
+                        "You leave the mine detector to its fate."
                         jump looktrailer
             else:
                 "Apart from a half-eaten hot-dog and an unopened pack of condoms that is past its expiry date, there is not much here."
+                jump looktrailer
+        
+        "Cabinet":
+            if have_whisky == False:
+                "You find a bottle of whisky in the cabinet."
+                menu:
+                    "Take it":
+                        "You take the bottle."
+                        $ have_whisky = True
+                        jump looktrailer
+                        
+                    "Leave it.":
+                        "There's no time to get drunk now."
+                        jump looktrailer
+            else:
+                "The cabinet is empty, and dirty. Geez, when did you clean here?"
                 jump looktrailer
 
         "Bed":

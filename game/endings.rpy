@@ -37,6 +37,10 @@ label neutral_ending:
     scene neutral_ending
     with fade
     "The festival is started."
+    if day_one_end == "whisky":
+        "You solved your problems with alcohol."
+    else:
+        "You solved your problems with money."
     "Everything goes according to plan and the festival is a great success."
     "More than 460,000 people visit the festival over the weekend."
     "The music and the political message of the festival attains a mythical status as a symbol of the 1960's counter-culture movement."

@@ -39,14 +39,14 @@ label looktownhall:
         
         "Fire axe case" if have_axe==False:
             "You see a fire axe in the unlocked case."
-
-            "Take the axe":
-                "Hmm... maybe I should try negotiating first..."
-                jump looktownhall
-            
-            "Leave":
-                "You leave the axe to its fate."
-                jump looktownhall
+            menu:
+                "Take the axe":
+                    "Hmm... maybe I should try negotiating first..."
+                    jump looktownhall
+                
+                "Leave":
+                    "You leave the axe to its fate."
+                    jump looktownhall
 
 # Town hall vending machine
 

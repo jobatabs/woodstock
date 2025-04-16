@@ -130,9 +130,15 @@ label backstage_dialogue_second:
                     t "Yes, I think that's a good idea! Good luck!"
                     "You leave the stage manager as he lights up a cigarette with shaking hands."
                     jump actionsmenu
-        "Hey Larry do you want this bar of gold?" if have_gold==True:
-            t "Nah I'm good, man."
-            t "Thanks anyway."
+        "Hey Larry do you want this bottle of whisky" if have_whisky==True:
+            show chara technician angry
+            with dissolve
+            "Larry gets visibly angry."
+            t "I said beer goddamnit!"
+            show chara technician happy
+            with dissolve
+            "Although you have never seen Larry this angry, he calms down just as quick."
+            t "Sorry."
             jump actionsmenu
         "Do you happen to have some extra change on you?" if have_seen_vending_machine==True:
             if have_larry_coin==False:
@@ -171,9 +177,19 @@ label backstage_dialogue_second:
                         t "So, we eventually lost our mom's house..."
                         "You decide it's better to not continue this conversation any longer."
                         jump actionsmenu
-        "Yes, I talked to him. Don't worry, I'll get it sorted." if mayor_first_talk==False:
-            t "O-okay! Let me know if anything changes!"
+        "Yes, I talked to him, but he won't budge." if mayor_first_talk==False:
+            t "Hmm. I hear he loves whisky. Maybe you could give some to him?"
+            $ playertip = "I could give whisky to the town supervisor."
             jump actionsmenu
+        "The mayor's worried about his re-election." if mayor_election_concern==True:
+            t "I know! We could give him some campaign money from our emergency funds!"
+            "What emergency funds?"
+            t "Don't you remember? The suitcase full of emergency money?"
+            "Oh! Where is it?"
+            t "We buried it! Like you told us, remember?"
+            "Well, where did you bury it?"
+            t "No idea, dude."
+            t "But maybe you could just give some whisky to the mayor? I hear he loves whisky."
         "The mayor won't be a problem for us anymore." if mayor_happy==True:
             $ technician_happy = True
             show chara technician happy  
@@ -214,19 +230,7 @@ label lookbackstage:
                             "You plunge your hands in to the mud, using your fingers to find the edges of the object." 
                             "Finally your hands find something that you can grab on to firmly."
                             "You pull with all your strength, and you manage to get the object out of the mud."
-                            "It is an old chest."
-                            "It has been waiting for decades for someone to finally unearth it."
-                            "As you break the lock, visions of vast riches fill your mind."
-                            "What could be inside?"
-                            "What will you buy with all of the riches that are contained within?"
-                            "Finally, you will be free from this eternal hell of organizing music festivals for a pittance!"
-                            "You'll be able to achieve all your dreams!"
-                            "You'll be able to go back home to your parents and declare \"Yes, I have returned! And I have come back to you a success!\""
-                            "You open up the chest."
-                            "Inside, you see..."
-                            "(To accesss this content, you need to purchase the \"Motherlode Add-On Content Pack\")"
-                            "(Only $29.99)"
-                            "(Restrictions apply)"
+                            "It is your suitcase of emergency funds!"
                             $ have_chest =  True
                             jump actionsmenu
                         if have_gold==False:
