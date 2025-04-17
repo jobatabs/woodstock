@@ -8,10 +8,12 @@ label ending:
 
     if mayor_happy==False:
         jump bad_ending
-    elif monster_dead==False:
-        jump neutral_ending
+    elif day_one_end=="whisky":
+        $ day = 2
+        jump d2b_start
     else:
-        jump good_ending
+        $ day = 2
+        jump d2a_start
 
 
 label bad_ending:
@@ -31,26 +33,25 @@ label bad_ending:
     return
 
 
-label neutral_ending:
+label d2b_start:
 
 
     scene neutral_ending
     with fade
-    "The festival is started."
-    if day_one_end == "whisky":
-        "You solved your problems with alcohol."
-    else:
-        "You solved your problems with money."
-    "Everything goes according to plan and the festival is a great success."
-    "More than 460,000 people visit the festival over the weekend."
-    "The music and the political message of the festival attains a mythical status as a symbol of the 1960's counter-culture movement."
-    "You are known as the person who made it all happen, and you spend the rest of your days organizing various successful music events."
-    "In 2019, a podcast series gains popularity all over the world."
-    "The series describes the history of Woodstock Music Festival and its cultural impact." 
-    "The final episode of the series focuses on the mysterious disappearance of all the townspeople of Bethel following the festival weekend."
-    "No rational reason is found as to how an entire town of 3,959 people can suddenly disappear between Monday 18th and Tuesday 19th of August, 1969."
-    "Game Over. (Ending B)"
-    return
+    "Day one is over."
+    "You solved your problems with alcohol."
+    "(Day one B)"
+    jump day2_trailer
+
+label d2a_start:
+
+
+    scene neutral_ending
+    with fade
+    "Day one is over."
+    "You solved your problems with money."
+    "(Day one A)"
+    jump day2_trailer
 
 
 label good_ending:

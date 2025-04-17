@@ -5,7 +5,7 @@ label actionsmenu:
 
         "Go to the town supervisor's office" if location == "townhall":
             jump office
-        "Talk" if location == "backstage":
+        "Talk" if location in talkable:
             jump talkmenu
         "Look":
             jump lookmenu
@@ -19,10 +19,6 @@ label talkmenu:
     if location == "backstage":
 
         jump talkbackstage
-
-    elif location == "townhall":
-
-        jump talktownhall
 
     elif location == "toilets":
 

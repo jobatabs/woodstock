@@ -111,7 +111,7 @@ menu:
         $ mayor_happy = True
         $ day_one_end = "whisky"
         "The mayor is thrilled by this proposition."
-        show chara mayor happy
+        show chara mayor laughing
         m "Thank you, [player_name]! This is quite a gift indeed."
         m "Maybe we can just put this whole mess behind us?"
         m "After all, it's just one weekend."
@@ -124,7 +124,7 @@ menu:
         "You show your suitcase full of money to the mayor."
         show chara mayor surprised
         m "My golly gee! That sure is a hecking lot of money!"
-        show chara mayor happy
+        show chara mayor laughing
         m "Hey, how about we put this whole thing between us?"
         "The mayor reaches into a drawer and pulls out a slip of paper."
         m "I'll give you this fast-tracked permit for your event."

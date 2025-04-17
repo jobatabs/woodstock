@@ -49,10 +49,69 @@ label trailerstart:
 label trailer:
     scene bg trailer
     with fade
-
-    "Your trailer is a mess. You can still smell the booze from last night."
+    if day == 1:
+        "Your trailer is a mess. You can still smell the booze from last night."
+    else:
+        "Ah, another day in this stinky trailer."
 
     jump actionsmenu
+
+
+label day2_trailer:
+    scene black with wiperight
+
+    show text "Day 2" at truecenter with dissolve
+
+    pause 1.0
+
+    hide text with dissolve
+
+    pause 0.3
+
+    $ location = "trailer"
+
+    jump day2_trailerstart
+
+label day2_trailerstart:
+    scene bg trailer
+    with fade
+    "You wake up with a renewed sense of focus."
+    if day_one_end == "whisky":
+        "You're glad you had kept that whisky bottle around, it really smoothed things over with the town supervisor."
+    else:
+        "You're relieved you had the foresight to keep those emergency funds around. If only you hadn't buried it at the party, though..."
+    "Suddenly, a knock comes on your door."
+    "Larry is there."
+    show chara technician frightened
+    with dissolve
+    t "[player_name]! Good, you're awake."
+    t "There's some kid Marty stuck in a toilet."
+    "What's the big deal?"
+    if day_one_end == "money":
+        t "You see, he's part of the film crew. You know, the guys making that documentary?"
+        "You vaguely recall something about a film crew."
+        "You realise that your pay will be docked if the film crew fails."
+        "Okay, what's up with him?"
+        t "The kid's carrying an expensive camera with him. Don't know what possessed him to take it with him to the toilet, though."
+        "I guess he was told not to let it out of his sight?"
+        t "Anyway, the camera is getting cooked by the heat. You gotta go get him out of there!"
+        "Okay."
+        $ playertip = "Let's see how the kid got stuck."
+    else:
+        t "Well, no, it's not a big deal, just though you should know."
+        t "But we do have a bigger problem!"
+        t "The helicopter landing area is no good!"
+        "What do you mean, no good?"
+        t "It's filled with cows!"
+        "..."
+        t "You gotta wrangle some cows today, [player_name]."
+        "Okay, I guess..."
+        $ playertip = "Let's see what can be done about these cows."
+    "Larry leaves."
+    hide chara
+    with dissolve
+    jump actionsmenu
+    
 
 
 label looktrailer:

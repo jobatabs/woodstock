@@ -60,6 +60,9 @@ default townhall_first_visit = True
 # Player's name
 default player_name = "Player"
 
+# Talkable location
+default talkable = ["toilets", "backstage"]
+
 # Location the player is in
 default location = "trailer"
 
@@ -111,7 +114,6 @@ image black = "#000000"
 image chara technician frightened = "technician frightened.png"
 image chara technician happy = "technician happy.png"
 
-image chara mayor happy = "mayor happy.png"
 image chara mayor angry = "mayor angry.png"
 image chara mayor neutral = "mayor neutral.png"
 image chara mayor furious = "mayor furious.png"
