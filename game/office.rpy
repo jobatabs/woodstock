@@ -5,7 +5,7 @@
 label office:
     scene black with wiperight
 
-    show text "Town supervisor's super cool office" at truecenter with dissolve
+    show text "Town supervisor's office" at truecenter with dissolve
 
     pause 1.0
 
