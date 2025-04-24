@@ -43,7 +43,7 @@ label map_screen:
         "Town Hall":
 
             $ location = "townhall"
-            $ talk_to = "Town supervisor"
+            $ talk_to = "town supervisor"
 
             jump townhall
         "Toilets" if day > 1:
@@ -59,7 +59,7 @@ label map_screen:
             pause 0.3
 
             $ location = "toilets"
-            $ talk_to = "Kid in toilet"
+            $ talk_to = "kid in toilet"
 
             jump toilets
         "Field" if day > 1:
