@@ -18,8 +18,6 @@ label backstage:
         t "And there's another, even bigger problem as well!"
         t "I'M OUT OF BEER!"
         t "What are we going to do?!"
-        "Note from Tuukka: should the dialogue continue, instead of throwing the player back to the backstage area?"
-        "Also, should the process of talking to Larry be simply \"Talk to Larry\" instead of \"Talk -> Larry\"?"
         $ playertip = "I need to sort things out with the town supervisor."
         jump talklarry
     else:
