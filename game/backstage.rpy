@@ -172,6 +172,7 @@ label backstage_dialogue_second:
             "Well, where did you bury it?"
             t "No idea, dude."
             t "But maybe you could just give some whisky to the town supervisor? I hear he loves whisky."
+            $ playertip = "Emergency money, huh..."
         "The mayor won't be a problem for us anymore." if mayor_happy==True:
             $ technician_happy = True
             show chara technician happy  
