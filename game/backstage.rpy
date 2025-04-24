@@ -11,11 +11,15 @@ label backstage:
         show chara technician frightened
         with dissolve
         t "[player_name]! You finally woke up!"
-        t "We have a huge problem!"
-        t "The town supervisor came by this morning and was yelling at everyone, looking for you."
-        t "He's saying that he won't allow the festival to go on!"
-        t "And even worse..."
+        t "Some party, huh?"
+        t "Listen, we have a huge problem!"
+        t "The town supervisor came by this morning and he was telling everyone that the festival is cancelled!"
+        t "He was saying that we need some kind of a permit!"
+        t "And there's another, even bigger problem as well!"
         t "I'M OUT OF BEER!"
+        t "What are we going to do?!"
+        "Note from Tuukka: should the dialogue continue, instead of throwing the player back to the backstage area?"
+        "Also, should the process of talking to Larry be simply \"Talk to Larry\" instead of \"Talk -> Larry\"?"
         hide chara
         with dissolve
         $ playertip = "What should I do?"
@@ -50,15 +54,16 @@ label backstage_dialogue:
 
 label talklarry:
     menu:
-        "Weren't our permits okay before?" if mayor_happy==False:
-            t "I don't know anything about the permits, I'm just the stage manager."
-            t "Aren't you supposed to know this, being the producer and all?"
-            "(I guess he's right...)"
+        "I thought all of this stuff with the town supervisor was already sorted?" if mayor_happy==False:
+            t "That's what you told me as well last night!"
+            t "But now they're shutting us down!"
+            t "What are we going to do?!"
             jump talklarry
-        "I'll go talk to the mayor. I'm sure we'll figure something out." if mayor_happy==False:
-            t "Alright, that sounds like a good plan. Good luck!"
+        "Just keep working, I'll go talk to the town supervisor." if mayor_happy==False:
+            t "Alright, that sounds good."
+            t "I'll go check if the stage cables are still shooting sparks all over the wooden flooring."
             jump actionsmenu
-        "Screw the mayor. We'll continue forward with the festival." if mayor_happy==False:
+        "Screw the town supervisor. We'll continue forward with the festival." if mayor_happy==False:
             "Larry looks shocked."
             t "Are you sure?! He said he's going to come in here with the sheriff and shut everything down by force if we don't leave by 8 o'clock!"
             menu:
@@ -68,7 +73,7 @@ label talklarry:
                     t "Yes, I think that's a good idea! Good luck!"
                     "You leave Larry alone as he lights up a cigarette with shaking hands."
                     jump actionsmenu
-        "The mayor won't be a problem for us anymore." if mayor_happy==True:
+        "The town supervisor won't be a problem for us anymore." if mayor_happy==True:
             $ technician_happy = True
             show chara technician happy  
             with dissolve
@@ -90,12 +95,12 @@ label backstage_dialogue_second:
     if technician_happy==False:
         show chara technician frightened
         with dissolve
-        t "[player_name]! Did you go talk to the mayor yet?"
+        t "[player_name]! Did you go talk to the town supervisor yet?"
     elif technician_happy==True:
         show chara technician happy 
         with dissolve
         if have_paper==False:
-            t "Hey [player_name]! Thanks for taking care of that business with the mayor!"
+            t "Hey [player_name]! Thanks for taking care of that business with the town supervisor!"
             t "I have a gift for you as a thank you!"
             "Larry hands you a folded piece of paper."
             "You unfold the paper and see that \"1969\" is written on it."
@@ -120,8 +125,8 @@ label backstage_dialogue_second:
         "Not yet. I'll go do that now." if mayor_first_talk==True:
             t "Alright, good luck!"
             jump actionsmenu
-        "Screw the mayor. We'll continue forward with the festival." if mayor_happy==False:
-            "The stage manager looks frightened."
+        "Screw the town supervisor. We'll continue forward with the festival." if mayor_happy==False:
+            "Larry looks frightened."
             t "Are you sure?! He said he's going to come in here with the sheriff and shut everything down by force if we don't leave by 8 o'clock!"
             menu:
                 "Yes I'm sure. C'mon, let's get this show started! (End the day)":
@@ -189,7 +194,7 @@ label backstage_dialogue_second:
             t "We buried it! Like you told us, remember?"
             "Well, where did you bury it?"
             t "No idea, dude."
-            t "But maybe you could just give some whisky to the mayor? I hear he loves whisky."
+            t "But maybe you could just give some whisky to the town supervisor? I hear he loves whisky."
         "The mayor won't be a problem for us anymore." if mayor_happy==True:
             $ technician_happy = True
             show chara technician happy  

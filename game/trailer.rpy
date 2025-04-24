@@ -12,13 +12,18 @@ label trailerstart:
     "Last night's launch party was really quite something..."
     "Quick flashbacks from various scenes of debauchery appear in your mind."
     "You eventually get up from your bed and put on some clothes."
+    p "Man... what a party last night."
+    p "I was hired to make sure this festival goes on without a hitch."
+    p "It was a lot of work, but we managed to get everything sorted."
+    p "The rest of the weekend should be pretty straightforward..."
     $ playertip = "I should talk to Larry backstage."
     menu:
         "Okay, let's get out there and get stuff done. (Leave the trailer)":
             "As you make your way towards the door, you notice a note taped to your wall."
             "Someone has left a message for you."
-            "\"[player_name]! I need to talk to you ASAP! It looks like we're not going to be able to go forward with the festival after all! Come talk to me backstage as soon as you wake up.\""
+            "\"[player_name]! Come talk to me ASAP when you wake up! It looks like we're not going to be able to go forward with the festival after all! I'll be in the backstage area.\""
             "The note has been signed by \"Larry\"."
+            "\"P.S. great party last night\""
             "You have a faint memory of hiring someone named Larry to be the lighting technician for the stage..."
             jump map_screen
         "Wait, who am I?":
@@ -27,8 +32,9 @@ label trailerstart:
                 "Oh, okay then. Well, let's get going! (Leave your trailer)":
                     "As you make your way towards the door, you notice a note taped to your wall."
                     "Someone has left a message for you."
-                    "\"[player_name]! I need to talk to you ASAP! It looks like we're not going to be able to go forward with the festival after all! Come talk to me backstage as soon as you wake up.\""
+                    "\"[player_name]! Come talk to me ASAP when you wake up! It looks like we're not going to be able to go forward with the festival after all! I'll be in the backstage area.\""
                     "The note has been signed by \"Larry\"."
+                    "\"P.S. great party last night\""
                     "You have a faint memory of hiring someone named Larry to be the lighting technician for the stage..."
                     jump map_screen
                 "Huh? What is \"The Woodstock Music Festival\"":
@@ -40,8 +46,9 @@ label trailerstart:
                         "Cool! Well, let's get going. (Leave your trailer)":
                             "As you make your way towards the door, you notice a note taped to your wall."
                             "Someone has left a message for you."
-                            "\"[player_name]! I need to talk to you ASAP! It looks like we're not going to be able to go forward with the festival after all! Come talk to me backstage as soon as you wake up.\""
+                            "\"[player_name]! Come talk to me ASAP when you wake up! It looks like we're not going to be able to go forward with the festival after all! I'll be in the backstage area.\""
                             "The note has been signed by \"Larry\"."
+                            "\"P.S. great party last night\""
                             "You have a faint memory of hiring someone named Larry to be the lighting technician for the stage..."
                             jump map_screen
 
@@ -118,8 +125,8 @@ label looktrailer:
     menu:
         "Note taped to the wall":
             "There is a note taped to your wall."
-            "\"[player_name]! I need to talk to you ASAP! It looks like we're not going to be able to go forward with the festival after all! Come talk to me backstage as soon as you wake up.\""
-            "The note has been signed by Larry."
+            "\"[player_name]! Come talk to me ASAP when you wake up! It looks like we're not going to be able to go forward with the festival after all! I'll be in the backstage area.\""
+            "The note has been signed by \"Larry\"."
             jump looktrailer
 
         "Under the bed":

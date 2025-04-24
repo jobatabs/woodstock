@@ -163,8 +163,11 @@ label start:
             "For the duration of this game, you shall be called..."
             "Mr. Poopybutts."
     "Pleasure to make your acquaintance, [player_name]!"
-    "We hope that you will enjoy your time with..."
-    "\"A Memory of Woodstock\"!"
+    "Let's get started..."
+    "On Aug 15th 1969, a group of really mellow dudes were organizing a music festival that was about to become the most famous festival ever."
+    "The following is inspired by their stories."
+    "Welcome to..."
+    "\"A MEMORY OF WOODSTOCK\"!"
     jump title
 
 # The player is given a chance to change their name before starting the game
