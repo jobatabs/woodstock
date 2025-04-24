@@ -18,6 +18,8 @@ label townhall:
     if townhall_first_visit==True:
         $ townhall_first_visit = False
         "The townhall is dusty and silent. You hear noises coming from the town supervisor's office."
+    else:
+        "The townhall is silent as ever."
     jump actionsmenu
 
 # Town hall searching for items
@@ -41,12 +43,18 @@ label looktownhall:
             "You see a fire axe in the unlocked case."
             menu:
                 "Take the axe":
-                    "Hmm... maybe I should try negotiating first..."
+                    if day == 1:
+                        "Hmm... maybe I should try negotiating first..."
+                    else:
+                        "You take the axe."
+                        $ have_axe = True
                     jump looktownhall
                 
                 "Leave":
                     "You leave the axe to its fate."
                     jump looktownhall
+        "Back":
+            jump actionsmenu
 
 # Town hall vending machine
 
@@ -63,9 +71,10 @@ label vending_machine:
                     if cents<50:
                         "You only have [cents] cents."
                         jump vending_machine
-                    elif cents==50:
+                    elif cents>=50:
                         "You insert 50 cents in to the machine."
                         "The machine spits out the pack of batteries, and you pick them up."
+                        $ cents -= 50
                         $ have_batteries = True
                         jump actionsmenu
                 "Walk away from the vending machine":

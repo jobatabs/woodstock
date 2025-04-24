@@ -9,6 +9,8 @@ define t = Character("Larry the Technician", color="#9c341e")
 define m = Character("Mayor of Bethel", color="#cf112b")
 define a = Character("Mayor's Assistant", color="#a6a6a6")
 
+define k = Character("Kid in the toilet", color="#f8fc30")
+
 #
 # PARAMETERS
 #
@@ -16,8 +18,17 @@ define a = Character("Mayor's Assistant", color="#a6a6a6")
 # How did day one end?
 default day_one_end = ""
 
+# How did day two end?
+default day_two_end = ""
+
 # Who to talk to?
 default talk_to = "Larry"
+
+# Is the winch at the toilet area?
+default winch_here = False
+
+# Is the winch hooked on the door?
+default winch_hooked = False
 
 # Does the player have the bottle of whisky?
 default have_whisky = False
