@@ -16,6 +16,9 @@ define a = Character("Mayor's Assistant", color="#a6a6a6")
 # How did day one end?
 default day_one_end = ""
 
+# Who to talk to?
+default talk_to = "Larry"
+
 # Does the player have the bottle of whisky?
 default have_whisky = False
 

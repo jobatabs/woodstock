@@ -20,37 +20,16 @@ label backstage:
         t "What are we going to do?!"
         "Note from Tuukka: should the dialogue continue, instead of throwing the player back to the backstage area?"
         "Also, should the process of talking to Larry be simply \"Talk to Larry\" instead of \"Talk -> Larry\"?"
-        hide chara
-        with dissolve
-        $ playertip = "What should I do?"
+        $ playertip = "I need to sort things out with the town supervisor."
+        jump talklarry
     else:
         "Backstage is full of activity, people running around, technicians unloading cases, and artists preparing for their shows."
     jump actionsmenu
 
 label talkbackstage:
-    menu:
-        "Larry":
-            if technician_first_talk==True:
-                jump backstage_dialogue
-            else:
-                jump backstage_dialogue_second
-        "Back":
-            jump actionsmenu
+    jump backstage_dialogue_second
 
 # Backstage first dialogue
-
-
-label backstage_dialogue:
-
-
-    $ technician_first_talk = False
-    show chara technician frightened
-    with dissolve
-    t "We need to solve our issue with the town supervisor."
-    t "He's saying we need some kind of permit or he'll shut down the festival."
-    t "What are we going to do?!"
-    $ playertip = "I need to sort things out with the town supervisor."
-    jump talklarry
 
 label talklarry:
     menu:
@@ -77,7 +56,7 @@ label talklarry:
             $ technician_happy = True
             show chara technician happy  
             with dissolve
-            t "Really? That's great news!"
+            t "Wow, you sorted it out already? That's great news!"
             t "So, do you want to start the festival then?"
             menu:
                 "Yeah, let's get this show started! (End the day)":

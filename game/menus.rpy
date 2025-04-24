@@ -5,13 +5,11 @@ label actionsmenu:
 
         "Go to the town supervisor's office" if location == "townhall":
             jump office
-        "Talk" if location in talkable:
+        "Talk to [talk_to]" if location in talkable:
             jump talkmenu
-        "Look":
+        "Look around":
             jump lookmenu
-        "Go somewhere" if location != "townhall":
-            jump map_screen
-        "Leave" if location == "townhall":
+        "Leave":
             jump map_screen
 
 label talkmenu:
