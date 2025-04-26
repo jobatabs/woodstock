@@ -59,7 +59,7 @@ label trailer:
     if day == 1:
         "Your trailer is a mess. You can still smell the booze from last night."
     else:
-        "Ah, another day in this stinky trailer."
+        p "Ah, another day in this stinky trailer."
 
     jump actionsmenu
 
@@ -91,28 +91,63 @@ label day2_trailerstart:
     "Larry is there."
     show chara technician frightened
     with dissolve
-    t "[player_name]! Good, you're awake."
-    t "There's some kid Marty stuck in a toilet."
-    "What's the big deal?"
+    t "[player_name]! Come on, man! It's almost noon!"
+    p "Oh man... I did it again."
+    t "There's some kid named Marty stuck in a toilet."
+    p "So? Why is this important?"
     if day_one_end == "money":
         t "You see, he's part of the film crew. You know, the guys making that documentary?"
-        "You vaguely recall something about a film crew."
-        "You realise that your pay will be docked if the film crew fails."
-        "Okay, what's up with him?"
-        t "The kid's carrying an expensive camera with him. Don't know what possessed him to take it with him to the toilet, though."
-        "I guess he was told not to let it out of his sight?"
-        t "Anyway, the camera is getting cooked by the heat. You gotta go get him out of there!"
-        "Okay."
+        "You vaguely recall something about a film crew..."
+        "Suddenly, you remember the fine print that caught your eye when you signed the work contract with the festival."
+        "It is stipulated in your contract that your pay for the weekend will be docked if the film crew - for whatever reason - fails to make a documantary about the festival."
+        p "Ah, shit!"
+        p "What's up with him?"
+        t "The kid's carrying the film crew's camera with him. Don't know why he took it with him to the toilet, though."
+        menu:
+            "Say \"I guess he was told not to let it out of his sight?\"":
+                p "I guess he was told not to let it out of his sight?"
+                t "Yeah, I guess so. Seems pretty extreme to me, though."
+            "Say \"I guess he was told to \"Go film some shit\" or something.":
+                p "I guess he was told to \"Go film some shit\" or something."
+                t "Really...?"
+                t "Man, these guys are really committed to capturing absolutely EVERYTHING from the festival..."
+        t "Anyway, I think the film inside the camera is slowly getting cooked by the heat. Those porta-potties get really hot if you keep the door closed for too long!"
+        t "I think you gotta get him out of there before the whole roll of film is destroyed!"
+        p "Yeah, you're totally right. I have to get him out of there as soon as possible!"
         $ playertip = "Let's see how the kid got stuck."
     else:
-        t "Well, no, it's not a big deal, just though you should know."
-        t "But we do have a bigger problem!"
-        t "The helicopter landing area is no good!"
-        "What do you mean, no good?"
+        t "You see, he's part of the film crew. You know, the guys making that documentary...?"
+        "You vaguely recall something about a film crew..."
+        t "But we have an even bigger problem!"
+        p "Let me guess, you're out of beer?"
+        t "What? No!"
+        t "I mean, yes! I'm out of beer! But that's not what I meant!"
+        p "What is it, then?"
+        t "The helicopter landing area has become unusable!"
+        p "Unusable? How has the helicopter landing area become \"unusable\"?"
         t "It's filled with cows!"
-        "..."
-        t "You gotta wrangle some cows today, [player_name]."
-        "Okay, I guess..."
+        p "Filled with cows?! A heard of cows?!"
+        t "Yes, of course I've heard of cows! I'm telling you about them at this very moment!!"
+        p "No Larry, I-"
+        p "Just... forget it."
+        p "How is there a bunch of cows in the helicopter landing site?"
+        p "They were supposed to be contained within their little cow pen!"
+        t "I know, I know! But somehow they've broken free and now they've launched an assault on the helicopter landing area!"
+        t "If you don't get the cows out of there, we have no way to bring in Jimi Hendrix to play his set today!"
+        t "A lot of people are looking forward to seeing him play!"
+        p "I know, he's today's main performer..."
+        t "You gotta wrangle some cows, [player_name]!"
+        menu:
+            "Go move the cows":
+                p "Okay. Time go move some bovine."
+                t "Good luck, man!"
+            "Ask Larry to move the cows":
+                p "Why can't you go deal with the cows?"
+                t "Sorry man, I'm legally not allowed to touch any cows that are still alive."
+                t "If they were dead, it'd be a totally different matter."
+                "You suddenly get the feeling that it would probably be best to not get Larry involved in this business with the cows."
+                p "Right. I'll go deal with the cows then."
+                t "Good luck, man!"
         $ playertip = "Let's see what can be done about these cows."
     "Larry leaves."
     hide chara

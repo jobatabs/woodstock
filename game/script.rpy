@@ -7,7 +7,6 @@ define p = Character("[player_name]")
 define t = Character("Larry the Technician", color="#9c341e")
 
 define m = Character("Mayor of Bethel", color="#cf112b")
-define a = Character("Mayor's Assistant", color="#a6a6a6")
 
 define k = Character("Kid in the toilet", color="#f8fc30")
 
@@ -134,8 +133,6 @@ image chara mayor furious = "mayor furious.png"
 image chara mayor laughing = "mayor laughing.png"
 image chara mayor surprised = "mayor surprised.png"
 image chara mayor gollum = "mayor gollum.png"
-
-image chara assistant neutral = "assistant neutral.png"
 
 image chara monster = "monster.png"
 
