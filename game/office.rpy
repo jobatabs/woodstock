@@ -50,7 +50,7 @@ label townhall_first_dialogue:
                     p "You can't be serious."
                     m "Sorry, my hands are tied."
                     menu:
-                        "COMPLETE SENTENCE OR NOT? Question the town supervisor on his sudden lack of support for the festival":
+                        "Question the town supervisor":
                             p "How come you've changed your mind so quickly about this?"
                             p "Last night you were giving grand speeches about how the festival will energize the community and bring in a lot of cash for the town?"
                             m "I know, I know..."
@@ -137,9 +137,6 @@ label townhall_first_dialogue_second_part:
             m "I-"
             m "Well..."
             p "Oh I see now... You don't want to upset the good folk of Bethel because you don't want to lose your precious little office!"
-            m "\"Precious?\""
-            m "My... precious?"
-            "After a moment of staring in to distance, the town supervisor snaps back to reality."
             m "This town would be thrown to shit if I wasn't here!"
             m "You know who had this job before me?"
             m "Bubba Wilkinson, the local tomato farmer!"
@@ -179,13 +176,20 @@ menu:
         p "How about I give you this bottle of whisky?"
         $ mayor_happy = True
         $ day_one_end = "whisky"
-        "The mayor is thrilled by this proposition."
+        "The town supervisor is thrilled by this proposition."
         show chara mayor laughing
-        m "Thank you, [player_name]! This is quite a gift indeed."
-        m "Maybe we can just put this whole mess behind us?"
-        m "After all, it's just one weekend."
-        "You shake hands with the mayor."
-        "Your troubles solved, you leave."
+        m "Oh wow!"
+        m "Thank you, [player_name]! This is quite a gift indeed!"
+        m "Let's just put this whole mess behind us, shall we?"
+        m "After all, it's just one weekend!"
+        m "I'll give you this fast-tracked permit. You'll have no more trouble from the townsfolk!"
+        "The mayor reaches into a drawer and pulls out a slip of paper."
+        m "Pleasure doing business with you! And good luck for your beautiful festival!"
+        "You shake hands with the town supervisor."
+        "Your troubles solved, you head for the door."
+        "You hear the town supervisor mutter to himself behind you."
+        m "Ahh, my favourite brand... I'm going to enjoy this!"
+        "You leave the office."
         jump townhall
     "Give the suitcase full of money" if have_chest == True:
         p "Would you be interested in this suitcase full of money by chance?" 
@@ -200,7 +204,8 @@ menu:
         m "I'll give you this fast-tracked permit for your event."
         m "How does that sound?"
         "You shake hands with the mayor."
-        "Your troubles solved, you leave."
+        m "Pleasure doing business with you!"
+        "Your troubles solved, you leave the office."
         jump townhall
     "Offer to give a gold bar to the town supervisor":
         p "I will find you a gold bar if you let us stay."
@@ -227,16 +232,58 @@ menu:
 
 label townhall_second_dialogue:
     "You enter the office. The town supervisor seems surprised to see you again."
-    m "Was there something you needed, [player_name]?"
+    m "Oh, it's you again. What can I do for you, [player_name]?"
     menu:
-        "Your voters, huh?":
-            m "Uh?! What do you mean?"
-            "You mentioned your voters earlier"
-            "The town supervisor falls silent."
-            m "Well you got me. As you probably know, it's election season."
-            m "I can't do anything to risk my reputation."
-            jump mayor_negotiation
-        "Sorry, I was just about to leave.":
+        "Try to negotiate with the town supervisor":
+            p "I think you and me should make some sort of a deal."
+            m "What do you mean?"
+            p "I think it's too late for us to start packing up the festival. The whole thing is supposed to kick off today."
+            m "*sigh*"
+            m "We've already talked about this. There's nothing I can do."
+            p "Surely there's something I could offer you? So that the festival could continue?"
+            m "You don't give up, do you?"
+            m "I'm very sorry, but my hands are tied."
+            m "Have a good day."
+            menu:
+                "Keep pushing for a deal":
+                    p "Surely there's something I can do so that the festival can continue?"
+                    m "I think the best thing for everyone would be that you pack up and leave town."
+                    m "I have another meeting coming up. Good day to you."
+                    "It seems you have failed to negotiate with the town supervisor."
+                    "You are escorted out of the office."
+                    jump townhall
+                "Tell the town supervisor he is full of shit":
+                    p "This is some grade-A bullshit you're telling me here."
+                    show mayor angry
+                    m "YOU WILL NOT CURSE IN MY OFFICE!"
+                    m "Who the hell do you think you are, using that kind of language?"
+                    m "You just waltz in and think you can do or say anything you want!"
+                    m "Why don't you leave me alone?!"
+                    m "I've got a re-election campaign to think about here!"
+                    p "A what campaign now?"
+                    show mayor neutral
+                    m "I-"
+                    m "Well..."
+                    p "Oh I see now... You don't want to upset the good folk of Bethel because you don't want to lose your precious little office!"
+                    m "\"Precious?\""
+                    m "My... precious?"
+                    "After a moment of staring in to distance, the town supervisor snaps back to reality."
+                    m "This town would be thrown to shit if I wasn't here!"
+                    m "You know who had this job before me?"
+                    m "Bubba Wilkinson, the local tomato farmer!"
+                    p "I didn't know tomatoes grew here."
+                    m "They don't!"
+                    m "Which is exactly why I need to have this office!"
+                    m "If I'm not here, some idiot that the townspeople randomly choose to elect because \"The Clergy\" told them to -"
+                    "You've never seen a grown man do the \"finger quotes\" move before."
+                    "The town supervisor sees you smirking at his gesture and stops himself from continuing with his rant."
+                    m "Why am I telling you this?! This is none of your business anyway!"
+                    "The town supervisor seems to calm down a bit."
+                    jump mayor_negotiation
+
+        "Leave the office":
+            p "Actually, never mind."
+            m "I see..."
             jump townhall
 
 # Talking about the bar of gold with the mayor

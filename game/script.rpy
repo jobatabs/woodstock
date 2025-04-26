@@ -6,9 +6,11 @@ define p = Character("[player_name]")
 
 define t = Character("Larry the Technician", color="#9c341e")
 
-define m = Character("Mayor of Bethel", color="#cf112b")
+define m = Character("Town Supervisor", color="#cf112b")
 
-define k = Character("Kid in the toilet", color="#f8fc30")
+define k = Character("Kid in the Toilet", color="#f8fc30")
+
+define mj = Character("Hippie Girl", color="#f8fc30")
 
 #
 # PARAMETERS
