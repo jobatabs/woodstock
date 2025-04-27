@@ -48,7 +48,7 @@ label talklarry:
             t "Are you sure?! He said he's going to come in here with the sheriff and shut everything down by force if we don't leave by 8 o'clock!"
             menu:
                 "Ignore Larry's concerns and start the festival (End the day)":
-                    p "Yes I'm sure. C'mon, let's get this show started!":
+                    p "Yes I'm sure. C'mon, let's get this show started!"
                     t "Okay, if you say so..."
                     jump ending
                 "Go talk to the town supervisor":
