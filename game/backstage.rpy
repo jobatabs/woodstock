@@ -161,7 +161,7 @@ label backstage_dialogue_second:
                         t "Whoa man!"
                         t "That's kind of a capitalist mentality if you ask me!"
                         t "I mean do we really ever \"own\" anything??"
-                        p "You're totally right. Nobody really \"owns\" anything. Especially when it comes to copyrighted music some students might want to use for their video game course project.":
+                        p "You're totally right. Nobody really \"owns\" anything. Especially when it comes to copyrighted music some students might want to use for their video game course project."
                         t "Right on, man! That's what I'm talking about!"
                         "You decide to leave Larry alone."
                         jump backstage
@@ -170,12 +170,12 @@ label backstage_dialogue_second:
                 t "I thought you were supposed to be good with money? How come you're totally broke?"
                 menu:
                     "Explain to Larry that you are not \"totally broke\"":
-                        p "I'm not \"totally broke\"!":
+                        p "I'm not \"totally broke\"!"
                         t "I think you are if you're asking me for change..."
                         "You decide it's better to immediately end the conversation and leave."
                         jump backstage
                     "Explain to Larry that you've essentially thrown all your money away":
-                        p "I made some bad investments.":
+                        p "I made some bad investments."
                         t "Yeah man, it happens!"
                         t "My brother and I went to the casino last year..."
                         t "I don't really know how the whole thing works, but my brother told me that if the ball lands on the red square two times in a row, the next time it'll land on the black one for sure!"
