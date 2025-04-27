@@ -14,17 +14,20 @@ label trailerstart:
     "You eventually get up from your bed and put on some clothes."
     p "Man... what a party last night."
     p "I was hired to make sure this festival goes on without a hitch."
-    p "It was a lot of work, but we managed to get everything sorted."
+    p "It was a lot of work, but I think we managed to get everything sorted."
     p "The rest of the weekend should be pretty straightforward..."
-    $ playertip = "I should talk to Larry backstage."
+    p "I should head out and go make sure everything is running smoothly."
+    $ playertip = "I should go talk to Larry backstage."
     menu:
         "Okay, let's get out there and get stuff done. (Leave the trailer)":
             "As you make your way towards the door, you notice a note taped to your wall."
             "Someone has left a message for you."
-            "\"[player_name]! Come talk to me ASAP when you wake up! It looks like we're not going to be able to go forward with the festival after all! I'll be in the backstage area.\""
+            "\"[player_name]! The town supervisor came by earlier and was asking about some permit!"
+            "\"Come talk to me as soon as you wake up! I'll be in the backstage area.\""
             "The note has been signed by \"Larry\"."
             "\"P.S. great party last night\""
             "You have a faint memory of hiring someone named Larry to be the lighting technician for the stage..."
+            "Looks like you need to go find Larry."
             jump map_screen
         "Wait, who am I?":
             "Your name is [player_name], and you are the producer in charge of putting together the Woodstock Music Festival."
@@ -32,10 +35,12 @@ label trailerstart:
                 "Oh, okay then. Well, let's get going! (Leave your trailer)":
                     "As you make your way towards the door, you notice a note taped to your wall."
                     "Someone has left a message for you."
-                    "\"[player_name]! Come talk to me ASAP when you wake up! It looks like we're not going to be able to go forward with the festival after all! I'll be in the backstage area.\""
+                    "\"[player_name]! The town supervisor came by earlier and was asking about some permit!"
+                    "\"Come talk to me as soon as you wake up! I'll be in the backstage area.\""
                     "The note has been signed by \"Larry\"."
                     "\"P.S. great party last night\""
                     "You have a faint memory of hiring someone named Larry to be the lighting technician for the stage..."
+                    "Looks like you need to go find Larry."
                     jump map_screen
                 "Huh? What is \"The Woodstock Music Festival\"":
                     "The Woodstock Music and Art Fair, commonly referred to as Woodstock, was a music festival held from August 15 to 18, 1969, on a dairy farm in Bethel, New York, 40 miles (65 km) southwest of the town of Woodstock."
@@ -46,10 +51,12 @@ label trailerstart:
                         "Cool! Well, let's get going. (Leave your trailer)":
                             "As you make your way towards the door, you notice a note taped to your wall."
                             "Someone has left a message for you."
-                            "\"[player_name]! Come talk to me ASAP when you wake up! It looks like we're not going to be able to go forward with the festival after all! I'll be in the backstage area.\""
+                            "\"[player_name]! The town supervisor came by earlier and was asking about some permit!"
+                            "\"Come talk to me as soon as you wake up! I'll be in the backstage area.\""
                             "The note has been signed by \"Larry\"."
                             "\"P.S. great party last night\""
                             "You have a faint memory of hiring someone named Larry to be the lighting technician for the stage..."
+                            "Looks like you need to go find Larry."
                             jump map_screen
 
 
@@ -158,15 +165,17 @@ label day2_trailerstart:
 
 label looktrailer:
     menu:
-        "Note taped to the wall":
-            "There is a note taped to your wall."
-            "\"[player_name]! Come talk to me ASAP when you wake up! It looks like we're not going to be able to go forward with the festival after all! I'll be in the backstage area.\""
+        "Note taped to the wall" if day == 1:
+            "Someone has left a message for you."
+            "\"[player_name]! The town supervisor came by earlier and was asking about some permit!"
+            "\"Come talk to me as soon as you wake up! I'll be in the backstage area.\""
             "The note has been signed by \"Larry\"."
+            "\"P.S. great party last night\""
             jump looktrailer
 
         "Under the bed":
             if have_metal_detector == False:
-                "Your trusty FEW57ER 9000 Mine Detector lies abandoned under your bed."
+                "Your trusty FEW57ER-9000 Mine Detector lies abandoned under your bed."
                 menu:
                     "Take the mine detector":
                         "You take the well-used mine detector with you."
@@ -182,17 +191,19 @@ label looktrailer:
         "Cabinet":
             if have_whisky == False:
                 "You find a bottle of whisky in the cabinet."
+                "This particular whisky is pretty top-shelf stuff. You've been saving it for a special occasion."
                 menu:
-                    "Take it":
-                        "You take the bottle."
+                    "Take the bottle":
+                        "You take the bottle with you."
                         $ have_whisky = True
                         jump looktrailer
                         
-                    "Leave it.":
-                        "There's no time to get drunk now."
+                    "Leave the bottle":
+                        p "There's no time to get drunk now."
+                        "You leave the bottle."
                         jump looktrailer
             else:
-                "The cabinet is empty, and dirty. Geez, when did you clean here?"
+                "The cabinet is smelly, empty, and dirty."
                 jump looktrailer
 
         "Bed":
@@ -209,10 +220,10 @@ label looktrailer:
                             "You feel more rested."
                             menu:
                                 "Try to fall asleep.":
-                                    "(Don't you have a festival to save?)"
+                                    "You keep relaxing, even though you have a festival to save."
                                     "You try to fall asleep."
                                     "Time passes."
-                                    "You succesfully stare at the ceiling for some time."
+                                    "You have succesfully stared at the ceiling for some time."
                                     if mystical_stone==True:
                                         if monster_dead==False:
                                             menu:
@@ -239,7 +250,7 @@ label looktrailer:
                             "With a sigh, you wrench yourself up."
                             jump looktrailer
                 "Stay up":
-                    "It's not time to rest now."
+                    "This isn't the time to rest."
                     jump looktrailer
 
 
