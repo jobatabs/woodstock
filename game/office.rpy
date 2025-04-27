@@ -36,6 +36,17 @@ label townhall_first_dialogue:
     m "Well, I'm afraid the situation has changed a bit with the townsfolk."
 
     menu:
+        "Give the briefcase full of money" if have_chest == True:
+            p "Here's a briefcase full of money for you."
+            $ have_chest = False
+            $ mayor_happy = True
+            $ day_one_end = "money"
+            m "Oh wow!"
+            m "I see you are speedrunning through the game!"
+            m "That's alright with me! The problem with the permit is all sorted now!"
+            "You leave the office."
+            $ playertip = "The problem with the permit has been sorted. Time to start the festival."
+            jump townhall
         "Ask for more information":
             p "Okay? How so?"
             m "Well, the people of Bethel have decided that our community does not want a big hippie festival to happen here."
@@ -275,8 +286,61 @@ menu:
 
 
 label townhall_second_dialogue:
-    "You enter the office. The town supervisor seems surprised to see you again."
+    if mayor_wants_chest == True:
+        m "Ah, it's you!"
+        m "Do you have the money?"
+        menu:
+            "Offer whisky to the town supervisor" if have_whisky == True:
+                p "How about I give you this bottle of whisky?"
+                $ have_whisky = False
+                $ mayor_happy = True
+                $ day_one_end = "whisky"
+                "The town supervisor is thrilled by this proposition."
+                show chara mayor laughing
+                m "Oh wow!"
+                m "Thank you, [player_name]! This is a pretty fancy bottle I must say!"
+                "The town supervisor seems enchanted by the bottle of whisky."
+                m "Well then! Let's just put this whole mess behind us, shall we?"
+                m "I'll give you a fast-tracked permit! You'll have no more trouble from the townsfolk!"
+                "The mayor reaches into his desk drawer and pulls out a small slip of paper."
+                m "Here you go! One fast-tracked permit!"
+                m "Pleasure doing business with you! And good luck to your beautiful festival!"
+                "You and the town supervisor shake hands, and you head for the door."
+                "As you reach for the door handle, you hear the town supervisor mutter to himself behind you."
+                m "Ahh yes, that's the good stuff... I'm going to enjoy this!"
+                "You leave the town supervisor alone with his bottle."
+                $ playertip = "The problem with the permit has been sorted. Time to tell Larry to start the festival."
+                jump townhall
+            "Give the town supervisor the briefcase full of money" if have_chest == True:
+                if mayor_wants_chest == True:
+                    p "Here's your briefcase full of money."
+                    "You give the briefcase full of money to the town supervisor."
+                    $ have_chest = False
+                    $ mayor_happy = True
+                    $ day_one_end = "money"
+                    m "Oh wow! You actually managed to pull it off!"
+                    m "I must say, I was a bit sceptical at first at your proposition!"
+                elif mayor_wants_chest == False:
+                    p "Here's a briefcase full of money, just for you!"
+                    m "Oh, wow! All of this is for me??"
+                    p "Yep, it's all yours. But only if you make our little problem go away..."
+                    m "Sure, sure! Anything you say!"
+                p "So the problem with the permit is all sorted now, yeah?"
+                m "Yes, yes of course! Here, I'll give you a fast-tracked permit right away!"
+                "The town supervisor reaches into his desk drawer and pulls out a small slip of paper."
+                m "Here you go! One fast-tracked permit!"
+                "The town supervisor hands you a fast-tracked permit. It looks like the trouble with the permit is all sorted now."
+                m "Pleasure doing business with you! And good luck to your beautiful festival!"
+                "You and the town supervisor shake hands, and you head for the door."
+                $ playertip = "The problem with the permit has been sorted. Time to tell Larry to start the festival."
+                jump townhall
+            "Say you need more time to get the money":
+                p "I don't have the money yet. I need a little more time."
+                m "No problem, I'll be here."
+                "You leave the office."
+                jump townhall
 
+    "You enter the office. The town supervisor seems surprised to see you again."
     m "Oh, it's you again. What can I do for you, [player_name]?"
     menu:
         "Offer to help with the re-election campaign" if mayor_election_concern == True:

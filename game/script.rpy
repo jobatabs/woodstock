@@ -93,10 +93,9 @@ default technician_first_talk = True
 # Has the player gotten a coin from Larry? (Determines if it's possible to get the batteries from the vending machine)
 default have_larry_coin = False
 
-# Has the player found 4 coins in the backstage area? (The player needs to pick up 4 coins before the battery runs out)
+# Has the player found 3 coins in the backstage area? (The player needs to pick up 3 coins before the battery runs out)
 default have_coin = False
 default have_coin2 = False
-default have_coin3 = False
 default have_old_coin = False
 
 # Has the player offered the briefcase full of money to the town supervisor?

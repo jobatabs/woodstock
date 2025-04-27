@@ -20,7 +20,7 @@ label talktoilets:
         "Ask Mary Jane to start up the winch" if winch_hooked:
             "The kid is free."
             k "Thank you so much! Even my camera's fine!"
-            $ day_two_ending = "winch"
+            $ day_two_end = "winch"
             jump day2_ending
         "Leave":
             k "Hey, don't leave me here!"
@@ -34,7 +34,7 @@ label looktoilets:
             "You break down the door. The kid is free."
             k "Thank you so much!"
             k "But my camera broke..."
-            $ day_two_ending = "axe"
+            $ day_two_end = "axe"
             jump day2_ending
         "Pull on the door":
             "The door holds firm."

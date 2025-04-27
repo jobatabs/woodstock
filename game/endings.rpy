@@ -99,7 +99,7 @@ label death:
 
 
 label d2_bad:
-    "Bad ending. Hendrix doesn't play. The festival is quickly forgotten from history."
+    "The cows rough you up. Bad ending. Hendrix doesn't play. The festival is quickly forgotten from history."
     return
 
 label d2_best:
@@ -110,5 +110,5 @@ label d2_neutral_a:
     return
 
 label d2_neutral_b:
-    "Hendrix plays, Marty still in toilet."
+    "Hendrix plays, Marty still in toilet so no film made."
     return

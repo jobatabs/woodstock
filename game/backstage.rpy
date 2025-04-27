@@ -46,10 +46,16 @@ label talklarry:
             t "But now they're shutting us down!"
             t "What are we going to do?!"
             jump talklarry
-        "Tell Larry you'll talk to the town supervisor" if mayor_happy==False:
+        "Tell Larry you'll talk to the town supervisor" if mayor_first_talk==True:
             p "Just keep working, I'll go talk to the town supervisor."
             t "Alright, that sounds good."
             t "I'll go check if the stage cables are still shooting sparks all over the wooden flooring."
+            jump backstage
+        "Tell Larry you've already spoken to the town supervisor" if mayor_first_talk==False:
+            p "I've already went and talked to the guy."
+            t "And? What did he say?"
+            p "There's some confusion about the permits we need to do the festival. I'll try to sort it out with him."
+            t "Okay, good luck!"
             jump backstage
         "Ignore the town supervisor and start the festival" if mayor_happy==False:
             p "Screw the town supervisor. We'll continue forward with the festival."
@@ -195,7 +201,7 @@ label backstage_dialogue_second:
             t "Hmm. I hear he loves whisky. Maybe you could give some to him?"
             p "Whisky?"
             t "Yeah, the guy apparently loves whisky like nothing else."
-            p "OK, that sounds like a good idea! I'll go find him some whisky."
+            p "OK, that sounds like a good idea! I'll go find some for him!"
             "You leave Larry to go find some whisky."
             $ playertip = "I should find some whisky for the town supervisor."
             jump backstage
@@ -232,17 +238,18 @@ label backstage_dialogue_second:
                     t "You know, the briefcase full of cash we have in case of an emergency?"
                     p "Larry, for the love of God -"
                     p "THIS IS AN EMERGENCY!!"
-                    p "Where is this briefcase full of money, then?!"
+                    p "There's a briefcase full of money somewhere?!"
+                    p "Where is it, then?!"
                     t "It's buried somewhere underground."
                     "You start to feel as if someone is playing a mean prank on you."
                     t "I thought you'd know all this stuff, since you were the one who told us to bury it!"
-                    P "Why can't I remember any of this?!"
+                    p "I told you to bury a briefcase full of money? Why can't I remember any of this?!"
                     t "You were hitting the sauce pretty hard last night man, same as everyone else."
                     "You try to remember anything about a briefcase getting buried last night..."
-                    "But no clear memory appears in your mind."
+                    "But no clear memory appears."
                     p "So the thinking clearly was that the money would be safe if buried underground. Problem is, we don't seem to have any memory of where we buried it."
                     p "I need to find some way to find where this briefcase is buried. Any ideas?"
-                    t "Me and my brother used to have a water-dowsing stick. But I'm not sure if that's any help in this case?"
+                    t "Me and my brother used to have a water-dowsing stick."
                     p "No Larry, I'm pretty sure a water-dowsing stick would be of no use right now."
                     p "I'll just have to find some way to locate this briefcase buried underground."
                     $ playertip = "I need to find a way to locate the briefcase buried underground."
@@ -254,7 +261,7 @@ label backstage_dialogue_second:
                     t "Hmm. I hear he loves whisky. Maybe you could give some to him?"
                     p "Whisky?"
                     t "Yeah, the guy apparently loves whisky like nothing else."
-                    p "OK, that sounds like a good idea! I'll go find him some whisky."
+                    p "OK, that sounds like a good idea! I'll go find him some."
                     "You leave Larry to go find some whisky."
                     $ playertip = "I should find some whisky for the town supervisor."
                     jump backstage
@@ -304,11 +311,13 @@ label lookbackstage:
                             $ have_chest =  True
                             jump actionsmenu
                         elif egg_counter==10:
+                            "You walk around the backstage area until your metal detector beeps."
                             "You dig around and find an easter egg!"
                             "Doesn't seem like you can do anything with it though..."
                             $ egg_counter += 1
                             jump lookbackstage
-                        elif egg_counter>0:
+                        elif egg_counter>=0:
+                            "You walk around the backstage area until your metal detector beeps."
                             "You dig around but find nothing."
                             $ egg_counter += 1
                             jump lookbackstage   
@@ -333,8 +342,9 @@ label lookbackstage:
                         "Of course, another obvious sign that it is from the reign of Cnut is that the obverse of the coin depicts a \"pointed helmet\" style of portrait, a trademark of Cnut's."
                         "But since you aren't particulary interested in old coins, you throw it away."
                         $ have_old_coin = True
-                        jump lookbackstage   
-            "Back":
+                        jump lookbackstage
+
+            "Leave":
                 jump actionsmenu
 
 label backstage_d2a:
