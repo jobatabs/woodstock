@@ -154,7 +154,7 @@ label townhall_first_dialogue_second_part:
                     p "You really are a spineless politician who only cares about his self-interests."
                     "It does not take long for the town supervisor to leap over his desk and perform some kind of a judo move on you, throwing you out of his office."
                     jump townhall
-                "Try to negotiate with the town supervisor":
+                "Offer to help with the re-election campaign":
                     jump mayor_negotiation
 
 # Negotiating with the mayor
@@ -238,9 +238,12 @@ menu:
 
 label townhall_second_dialogue:
     "You enter the office. The town supervisor seems surprised to see you again."
+
     m "Oh, it's you again. What can I do for you, [player_name]?"
     menu:
-        "Try to make a deal with the town supervisor":
+        "Offer to help with the re-election campaign" if mayor_election_concern == True:
+            jump mayor_negotiation
+        "Try to make a deal with the town supervisor" if mayor_election_concern == False:
             p "I think you and me should make some sort of a deal."
             m "What do you mean?"
             p "I think it's too late for us to start packing up the festival. The whole thing is supposed to kick off today."
@@ -252,9 +255,9 @@ label townhall_second_dialogue:
             m "Have a good day."
             menu:
                 "Keep pushing for a deal":
-                    p "Surely there's something I can do so that the festival can continue?"
-                    m "I think the best thing for everyone would be that you pack up and leave town."
-                    m "I have another meeting coming up. Good day to you."
+                    p "I really think we should make some sort of a deal here!"
+                    m "And *I* think the best thing for everyone would be that you pack up and leave town."
+                    m "This meeting is over. Good day to you."
                     "It seems you have failed to negotiate with the town supervisor."
                     "You are escorted out of the office."
                     jump townhall
@@ -291,7 +294,7 @@ label townhall_second_dialogue:
                             p "You really are a spineless politician who only cares about his self-interests."
                             "It does not take long for the town supervisor to leap over his desk and perform some kind of a judo move on you, throwing you out of his office."
                             jump townhall
-                        "Try to negotiate with the town supervisor":
+                        "Offer to help with the re-election campaign":
                             jump mayor_negotiation
 
         "Leave the office":
