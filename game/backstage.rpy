@@ -3,7 +3,14 @@
 #
 
 label backstage:
-
+    if day == 2:
+        if day_one_end == "money":
+            jump backstage_d2a
+        elif day_one_end == "whisky":
+            jump backstage_d2b
+        else:
+            "Something has gone wrong."
+            jump map_screen
 
     scene bg backstage
     with fade
@@ -329,3 +336,11 @@ label lookbackstage:
                         jump lookbackstage   
             "Back":
                 jump actionsmenu
+
+label backstage_d2a:
+    "This is backstage area day 2 if the town supervisor got paid on the first day. Not much more here yet."
+    jump map_screen
+
+label backstage_d2b:
+    "This is backstage area day 2 if the town supervisor got whisky on the first day. Not much more here yet."
+    jump map_screen
