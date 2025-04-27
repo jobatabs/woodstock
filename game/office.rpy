@@ -31,16 +31,16 @@ label townhall_first_dialogue:
     with dissolve
     "As you open the door to the supervisor's office, you see him sitting behind his large desk."
     m "Ah, [player_name]! How are you doing?"
-    p "I'm good. What's this about a permit?"
+    p "I'm good. What's this I hear about a problem with some permit?"
     m "Right..."
     m "Well, I'm afraid the situation has changed a bit with the townsfolk."
 
     menu:
-        "Ask how the situation has changed":
+        "Ask for more information":
             p "Okay? How so?"
             m "Well, the people of Bethel have decided that our community does not want a big hippie festival to happen here."
             menu:
-                "Ask about the sudden change in the mood of the townspeople":
+                "Ask why the townsfolk have suddenly changed their mind":
                     p "I thought you worked all of this out with them already?"
                     m "I did."
                     m "But now the clergymen of the town have started preaching that your festival will bring a literal hell on earth if this \"Satan's music\" will be played here."
@@ -50,7 +50,7 @@ label townhall_first_dialogue:
                     p "You can't be serious."
                     m "Sorry, my hands are tied."
                     menu:
-                        "Question the town supervisor":
+                        "Question the town supervisor about his lack of support":
                             p "How come you've changed your mind so quickly about this?"
                             p "Last night you were giving grand speeches about how the festival will energize the community and bring in a lot of cash for the town?"
                             m "I know, I know..."
@@ -59,7 +59,7 @@ label townhall_first_dialogue:
                             show chara mayor angry
                             m "Now look here, you can't talk to me like that!"
                             m "I'm very sorry, but there is really nothing I can do!"
-                            m "Last night, the townsfolk hurriedly passed a legislation that all festivals need a special I-LV-JC permit to be able to use these fields for events!"
+                            m "Last night, the townsfolk hurriedly passed a legislation that all festivals need a special I-LV-JC permit to be able to use these fields for any events!"
                             menu:
                                 "Accept the situation and start packing up the festival":
                                     p "Fine, I guess that's it then."
@@ -136,6 +136,7 @@ label townhall_first_dialogue_second_part:
             show mayor neutral
             m "I-"
             m "Well..."
+            $ mayor_election_concern = True
             p "Oh I see now... You don't want to upset the good folk of Bethel because you don't want to lose your precious little office!"
             m "This town would be thrown to shit if I wasn't here!"
             m "You know who had this job before me?"
@@ -144,17 +145,22 @@ label townhall_first_dialogue_second_part:
             m "They don't!"
             m "Which is exactly why I need to have this office!"
             m "If I'm not here, some idiot that the townspeople randomly choose to elect because \"The Clergy\" told them to -"
-            "You've never seen a grown man do the \"finger quotes\" move before."
-            "The town supervisor sees you smirking at his gesture and stops himself from continuing with his rant."
+            "You've never seen a grown man do \"finger quotes\" before."
+            "The town supervisor sees you smirking and stops himself from continuing with his rant."
             m "Why am I telling you this?! This is none of your business anyway!"
             "The town supervisor seems to calm down a bit."
-            jump mayor_negotiation
+            menu:
+                "Tell the town supervisor he's a spineless politician":
+                    p "You really are a spineless politician who only cares about his self-interests."
+                    "It does not take long for the town supervisor to leap over his desk and perform some kind of a judo move on you, throwing you out of his office."
+                    jump townhall
+                "Try to negotiate with the town supervisor":
+                    jump mayor_negotiation
 
 # Negotiating with the mayor
 
 
 label mayor_negotiation:
-$ mayor_election_concern = True
 
 p "Look, I respect your commitment to the town of Bethel. What if our festival would offer a nice gift to your re-election campaign? To possibly speed the application process as well?"
 "The town supervisor thinks for a moment."
@@ -234,7 +240,7 @@ label townhall_second_dialogue:
     "You enter the office. The town supervisor seems surprised to see you again."
     m "Oh, it's you again. What can I do for you, [player_name]?"
     menu:
-        "Try to negotiate with the town supervisor":
+        "Try to make a deal with the town supervisor":
             p "I think you and me should make some sort of a deal."
             m "What do you mean?"
             p "I think it's too late for us to start packing up the festival. The whole thing is supposed to kick off today."
@@ -264,6 +270,7 @@ label townhall_second_dialogue:
                     show mayor neutral
                     m "I-"
                     m "Well..."
+                    $ mayor_election_concern = True
                     p "Oh I see now... You don't want to upset the good folk of Bethel because you don't want to lose your precious little office!"
                     m "\"Precious?\""
                     m "My... precious?"
@@ -275,11 +282,17 @@ label townhall_second_dialogue:
                     m "They don't!"
                     m "Which is exactly why I need to have this office!"
                     m "If I'm not here, some idiot that the townspeople randomly choose to elect because \"The Clergy\" told them to -"
-                    "You've never seen a grown man do the \"finger quotes\" move before."
+                    "You've never seen a grown man do \"finger quotes\" before."
                     "The town supervisor sees you smirking at his gesture and stops himself from continuing with his rant."
                     m "Why am I telling you this?! This is none of your business anyway!"
                     "The town supervisor seems to calm down a bit."
-                    jump mayor_negotiation
+                    menu:
+                        "Tell the town supervisor he's a spineless politician":
+                            p "You really are a spineless politician who only cares about his self-interests."
+                            "It does not take long for the town supervisor to leap over his desk and perform some kind of a judo move on you, throwing you out of his office."
+                            jump townhall
+                        "Try to negotiate with the town supervisor":
+                            jump mayor_negotiation
 
         "Leave the office":
             p "Actually, never mind."

@@ -17,7 +17,7 @@ label trailerstart:
     p "It was a lot of work, but I think we managed to get everything sorted."
     p "The rest of the weekend should be pretty straightforward..."
     p "I should head out and go make sure everything is running smoothly."
-    $ playertip = "I should go talk to Larry backstage."
+    $ playertip = "I should go backstage and talk to Larry."
     menu:
         "Okay, let's get out there and get stuff done. (Leave the trailer)":
             "As you make your way towards the door, you notice a note taped to your wall."

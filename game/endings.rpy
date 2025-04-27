@@ -40,7 +40,7 @@ label bad_ending:
     "If you had insurance, it would have covered all damages."
     "As it stands, Woodstock Music Festival disappears in to the waves of history."
     "56 years from now, no-one remembers what happened on that weekend of August 15th to 18th, 1969."
-    "Game Over. (Ending C)"
+    "Game Over."
     return
 
 
@@ -51,7 +51,6 @@ label d2b_start:
     with fade
     "Day one is over."
     "You solved your problems with alcohol."
-    "(Day one B)"
     jump day2_trailer
 
 label d2a_start:
@@ -61,7 +60,6 @@ label d2a_start:
     with fade
     "Day one is over."
     "You solved your problems with money."
-    "(Day one A)"
     jump day2_trailer
 
 
@@ -70,6 +68,7 @@ label good_ending:
 
     scene good_ending
     with fade
+    "Hendrix plays, film gets made."
     "The festival is started."
     "Everything goes according to plan and the festival is a great success."
     "More than 460,000 people visit the festival over the weekend."
@@ -89,7 +88,7 @@ label death:
 
     scene bg death
     with fade
-    "You are dead. Game Over. (Ending E)"
+    "You are dead. Game Over."
     menu:
         "Try again":
             jump monster_battle
@@ -98,7 +97,7 @@ label death:
 
 
 label d2_bad:
-    "Bad ending."
+    "Bad ending. Hendrix doesn't play. The festival is quickly forgotten from history."
     return
 
 label d2_best:

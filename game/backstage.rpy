@@ -18,7 +18,7 @@ label backstage:
         t "And there's another, even bigger problem as well!"
         t "I'M OUT OF BEER!"
         t "What are we going to do?!"
-        $ playertip = "I need to sort things out with the town supervisor."
+        $ playertip = "I should go talk to the town supervisor."
         jump talklarry
     else:
         "Backstage is full of activity, people running around, technicians unloading cases, and artists preparing for their shows."
@@ -31,35 +31,45 @@ label talkbackstage:
 
 label talklarry:
     menu:
-        "I thought all of this stuff with the town supervisor was already sorted?" if mayor_happy==False:
+        "Ask about the town supervisor" if mayor_happy==False:
+            p "I thought all of this stuff with the town supervisor was already sorted?"
             t "That's what you told me as well last night!"
             t "But now they're shutting us down!"
             t "What are we going to do?!"
             jump talklarry
-        "Just keep working, I'll go talk to the town supervisor." if mayor_happy==False:
+        "Tell Larry you'll talk to the town supervisor" if mayor_happy==False:
+            p "Just keep working, I'll go talk to the town supervisor."
             t "Alright, that sounds good."
             t "I'll go check if the stage cables are still shooting sparks all over the wooden flooring."
             jump actionsmenu
-        "Screw the town supervisor. We'll continue forward with the festival." if mayor_happy==False:
+        "Ignore the town supervisor and start the festival" if mayor_happy==False:
+            p "Screw the town supervisor. We'll continue forward with the festival."
             "Larry looks shocked."
             t "Are you sure?! He said he's going to come in here with the sheriff and shut everything down by force if we don't leave by 8 o'clock!"
             menu:
-                "Yes I'm sure. C'mon, let's get this show started! (End the day)":
+                "Ignore Larry's concerns and start the festival (End the day)":
+                    p "Yes I'm sure. C'mon, let's get this show started!":
+                    t "Okay, if you say so..."
                     jump ending
-                "Hmm... maybe it's better to go talk to him first.":
+                "Go talk to the town supervisor":
+                    p "Hmm... maybe it's better to go talk to him first?"
                     t "Yes, I think that's a good idea! Good luck!"
                     "You leave Larry alone as he lights up a cigarette with shaking hands."
                     jump actionsmenu
-        "The town supervisor won't be a problem for us anymore." if mayor_happy==True:
+        "Tell Larry you've solved the problem with the permits" if mayor_happy==True:
+            p "The town supervisor won't be a problem for us anymore."
             $ technician_happy = True
             show chara technician happy  
             with dissolve
             t "Wow, you sorted it out already? That's great news!"
             t "So, do you want to start the festival then?"
             menu:
-                "Yeah, let's get this show started! (End the day)":
+                "Start the festival (End the day)":
+                    p "Yeah, let's get this show started! (End the day)"
+                    t "Alright! Rock'n'roll, man!"
                     jump ending
-                "Nah, let me actually make sure everything is in order before we start.":
+                "Don't start the festival yet":
+                    p "Nah, let me actually make sure everything is in order before we start."
                     t "Okay, sounds good. Let me know when you're ready to start the festival!"
                     jump actionsmenu
 
