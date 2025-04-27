@@ -170,58 +170,95 @@ m "What are you offering me?"
 
 menu:
     "Offer a donation of money":
+        $ mayor_wants_chest = True
         p "I'll give a nice donation of money to your campaign."
-        m "Sounds good!"
+        m "Well, that's a very nice offer!"
+        $ playertip = "I need to find a briefcase full of money for the town supervisor."
+        m "But I'm afraid the amount would need to be quite substantial."
+        m "After all, I would be directly going against the will of the townsfolk in this business with the permit."
         m "If you can find me a briefcase full of money, I'll make sure you'll get your permit today."
-        "It seems like this is the best deal you're going to get today."
-        "You decide to go look for a briefcase full of money."
-        p "Nice doing business with you."
-        m "Likewise!"
-        jump townhall
-    "Offer whisky" if have_whisky == True:
+        menu:
+            "Tell the town supervisor that you don't have that kind of money":
+                p "I don't really have a briefcase full of money just laying around..."
+                p "Could a little less be OK?"
+                m "Sorry, but I'm putting my neck on the line here."
+                m "It's going to be a briefcase full of money, or nothing."
+                "It seems like this is the best deal you're going to get today."
+                "You decide to go look for a briefcase full of money."
+                p "Nice doing business with you."
+                m "Likewise!"
+                jump townhall
+            "Tell the town supervisor that he'll get his money soon":
+                p "Alrighty then, one briefcase full of money, coming right up."
+                m "Excellent! I'll see you soon!"
+                "You leave the office and go look for a briefcase full of money."
+                jump townhall
+    "Offer the town supervisor a gift of whisky" if have_whisky == True:
         p "How about I give you this bottle of whisky?"
         $ mayor_happy = True
         $ day_one_end = "whisky"
         "The town supervisor is thrilled by this proposition."
         show chara mayor laughing
         m "Oh wow!"
-        m "Thank you, [player_name]! This is quite a gift indeed!"
-        m "Let's just put this whole mess behind us, shall we?"
-        m "After all, it's just one weekend!"
-        m "I'll give you this fast-tracked permit. You'll have no more trouble from the townsfolk!"
-        "The mayor reaches into a drawer and pulls out a slip of paper."
-        m "Pleasure doing business with you! And good luck for your beautiful festival!"
-        "You shake hands with the town supervisor."
-        "Your troubles solved, you head for the door."
-        "You hear the town supervisor mutter to himself behind you."
-        m "Ahh, my favourite brand... I'm going to enjoy this!"
-        "You leave the office."
+        m "Thank you, [player_name]! This is a pretty fancy bottle I must say!"
+        "The town supervisor seems enchanted by the bottle of whisky."
+        m "Well then! Let's just put this whole mess behind us, shall we?"
+        m "I'll give you a fast-tracked permit! You'll have no more trouble from the townsfolk!"
+        "The mayor reaches into his desk drawer and pulls out a small slip of paper."
+        m "Here you go! One fast-tracked permit!"
+        m "Pleasure doing business with you! And good luck to your beautiful festival!"
+        "You and the town supervisor shake hands, and you head for the door."
+        "As you reach for the door handle, you hear the town supervisor mutter to himself behind you."
+        m "Ahh yes, that's the good stuff... I'm going to enjoy this!"
+        "You leave the town supervisor alone with his bottle."
+        $ playertip = "The problem with the permit has been sorted. Time to start the festival."
         jump townhall
-    "Give the suitcase full of money" if have_chest == True:
-        p "Would you be interested in this suitcase full of money by chance?" 
-        $ mayor_happy = True
-        $ day_one_end = "money"
-        "You show your suitcase full of money to the mayor."
-        show chara mayor surprised
-        m "My golly gee! That sure is a hecking lot of money!"
-        show chara mayor laughing
-        m "Hey, how about we put this whole thing between us?"
-        "The mayor reaches into a drawer and pulls out a slip of paper."
-        m "I'll give you this fast-tracked permit for your event."
-        m "How does that sound?"
-        "You shake hands with the mayor."
-        m "Pleasure doing business with you!"
-        "Your troubles solved, you leave the office."
-        jump townhall
-    "Offer to give a gold bar to the town supervisor":
+    "Give the briefcase full of money" if have_chest == True:
+        if mayor_election_concern == False:
+            p "Would you be interested in this briefcase full of money by chance?" 
+            $ mayor_happy = True
+            $ day_one_end = "money"
+            "You show your briefcase full of money to the town supervisor."
+            show chara mayor surprised
+            m "Oh wow! You're offering this to me?"
+            p "Yep, it's yours. The only thing I need from you is that our problem with the permit is solved immediately."
+            show chara mayor laughing
+            m "Ha ha! Of course, of course! I'll give you a fast-tracked permit right away!"
+            "The town supervisor reaches into his desk drawer and pulls out a small slip of paper."
+            m "Here you go! One fast-tracked permit!"
+            "The town supervisor hands you a fast-tracked permit. It looks like the trouble with the permit is all sorted now."
+            m "Pleasure doing business with you! And good luck to your beautiful festival!"
+            "You and the town supervisor shake hands, and you head for the door."
+            $ playertip = "The problem with the permit has been sorted. Time to start the festival."
+            jump townhall
+        elif mayor_election_concern == True:
+            p "Here's your briefcase full of money."
+            "You give the briefcase full of money to the town supervisor."
+            $ have_chest = False
+            $ mayor_happy = True
+            $ day_one_end = "money"
+            m "Oh wow! You actually managed to pull it off!"
+            m "I must say, I was a bit sceptical at first at your proposition!"
+            p "So the problem with the permit is all sorted now, yeah?"
+            m "Yes, yes of course! Here, I'll give you a fast-tracked permit right away!"
+            "The town supervisor reaches into his desk drawer and pulls out a small slip of paper."
+            m "Here you go! One fast-tracked permit!"
+            "The town supervisor hands you a fast-tracked permit. It looks like the trouble with the permit is all sorted now."
+            m "Pleasure doing business with you! And good luck to your beautiful festival!"
+            "You and the town supervisor shake hands, and you head for the door."
+            $ playertip = "The problem with the permit has been sorted. Time to start the festival."
+            jump townhall
+    "Offer to give a gold bar to the town supervisor" if mayor_wants_gold == False:
         p "I will find you a gold bar if you let us stay."
         show chara mayor laughing
         with dissolve
-        "The mayor bursts in to laughter."
+        "The town supervisor bursts in to laughter."
         m "A gold bar? You're going to find me a gold bar from this here field of mud and horse droppings?"
         m "All right, that sounds good to me! You find me a gold bar and I'll let you people stay and do your little festival! Ha ha ha!"
         "With tears in his eyes from laughter, the mayor walks you to the door and bids you farewell."
         m "A gold bar, ha ha ha! Why don't you find me a goose that lays golden eggs while your at it? Ha ha ha!!"
+        "You leave the town supervisor's office to go look for gold."
+        $ playertip = "I need to go find a bar of gold for the town supervisor."
         $ mayor_wants_gold = True
         jump townhall
     "Offer to devote your life to the servitude of the local church" if negotiation_faith == False:
@@ -301,77 +338,6 @@ label townhall_second_dialogue:
             p "Actually, never mind."
             m "I see..."
             jump townhall
-
-# Talking about the bar of gold with the mayor
-
-
-label gold_dialogue:
-    "You show the mayor your bar of gold."
-    show chara mayor surprised
-    with dissolve
-    "The mayors eyes widen and his expression goes blank."
-    m "What is THAT?!"
-    menu:
-        "Here's a bar of gold for you.":
-            m "Are you... what?!"
-            m "Where did you find this?!"
-            menu:
-                "It doesn't really matter. Here, it's yours. (Give the bar of gold)":
-                    show chara mayor laughing
-                    with dissolve
-                    m "YOU ACTUALLY FOUND A BAR OF GOLD?!"
-                    m "Ha ha ha! I can't belive it!"
-                    m "I'M RICH! I'M RICH, YOU HEAR ME?!"
-                    hide chara
-                    with dissolve
-                    "The mayor runs out of his office with the gold bar in his hands."
-                    "Outside, you hear a car starting. A rumble of an engine is heard as the mayor drives far away in to the distance."
-                    "Seems like the mayor won't be giving you any more trouble."
-                    "As you make your way toward the door, you hear a light shuffle of footsteps behind you."
-                    show chara assistant neutral
-                    with dissolve
-                    a "Looks like you managed to finally get rid of him. Congratulations."
-                    a "You can have your festival. But make sure all of your guests and crew have left town by Monday afternoon."
-                    a "Our little town has... important business to attend to, and we do not like to be interfered with."
-                    a "Goodbye."
-                    hide chara
-                    with dissolve
-                    "The mayor's assistant leaves the office."
-                    "You follow him in to the hallway but he is nowhere to be seen."
-                    "You wonder about the assistant for a moment, but then decide to make your way outside."
-                    $ mayor_happy = True
-                    $ have_gold = False
-                    jump map_screen
-                "I found it in your mother's bed. And you know what? I'm not going to give you this.":
-                    m "No! It is mine!"
-                    "Before you know it, the mayor has snatched the bar of gold from your hand."
-                    m "It is..."
-                    show chara mayor gollum
-                    with dissolve
-                    m "My precious..."
-                    hide chara
-                    with dissolve
-                    "The mayor runs out of his office with the gold bar in his hands."
-                    "Outside, you hear a car starting. A rumble of an engine is heard as the mayor drives far away in to the distance."
-                    "Seems like the mayor won't be giving you any more trouble."
-                    "As you make your way toward the door, you hear a light shuffle of footsteps behind you."
-                    show chara assistant neutral
-                    with dissolve
-                    a "Looks like you managed to finally get rid of him. Congratulations."
-                    a "You can have your festival. But make sure all of your guests and crew have left town by Monday afternoon."
-                    a "Our little town has... very important business to attend to, and we do not like to be interfered with."
-                    a "Goodbye."
-                    hide chara
-                    with dissolve
-                    "The mayor's assistant leaves the office."
-                    "You follow him in to the hallway but he is nowhere to be seen."
-                    "You wonder about the assistant for a moment, but then decide to make your way outside."
-                    $ mayor_happy = True
-                    $ have_gold = False
-                    jump map_screen
-        "Oops, actually it's nothing. Never mind.":
-            "You hide the bar of gold from the mayor's view and decide to quickly make your way towards the door."
-            jump townhall        
 
 # Town hall empty room with safe
 

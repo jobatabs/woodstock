@@ -2,15 +2,15 @@
 # CHARACTERS
 #
 
-define p = Character("[player_name]")
+define p = Character("[player_name]", color="#4690ff")
 
-define t = Character("Larry the Technician", color="#9c341e")
+define t = Character("Larry the Technician", color="#af5847ff")
 
-define m = Character("Town Supervisor", color="#cf112b")
+define m = Character("Town Supervisor", color="#e2e2e2")
 
-define k = Character("Kid in the Toilet", color="#f8fc30")
+define k = Character("Kid in the Toilet", color="#f8fa88")
 
-define mj = Character("Hippie Girl", color="#f8fc30")
+define mj = Character("Hippie Girl", color="#6eff75")
 
 #
 # PARAMETERS
@@ -98,6 +98,9 @@ default have_coin = False
 default have_coin2 = False
 default have_coin3 = False
 default have_old_coin = False
+
+# Has the player offered the briefcase full of money to the town supervisor?
+default mayor_wants_chest = False
 
 # Has the player found the chest in the backstage area? (Needed to be done before it's possible to find gold)
 default have_chest = False
