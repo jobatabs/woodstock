@@ -65,16 +65,16 @@ label vending_machine:
     $ have_seen_vending_machine = True
     menu:
         "Press the button for the batteries":
-            "The display of the vending machine flashes \"50 cents\"."
+            "The display of the vending machine flashes \"20 cents\"."
             menu:
-                "Insert 50 cents in to the machine":
-                    if cents<50:
+                "Insert 20 cents in to the machine":
+                    if cents<20:
                         "You only have [cents] cents."
                         jump vending_machine
-                    elif cents>=50:
-                        "You insert 50 cents in to the machine."
+                    elif cents>=20:
+                        "You insert 20 cents in to the machine."
                         "The machine spits out the pack of batteries, and you pick them up."
-                        $ cents -= 50
+                        $ cents -= 20
                         $ have_batteries = True
                         jump actionsmenu
                 "Walk away from the vending machine":

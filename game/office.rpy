@@ -195,6 +195,7 @@ menu:
                 jump townhall
     "Offer the town supervisor a gift of whisky" if have_whisky == True:
         p "How about I give you this bottle of whisky?"
+        $ have_whisky = False
         $ mayor_happy = True
         $ day_one_end = "whisky"
         "The town supervisor is thrilled by this proposition."

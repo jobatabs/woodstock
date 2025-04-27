@@ -137,9 +137,9 @@ label backstage_dialogue_second:
             show chara technician angry
             with dissolve
             t "I SAID I'M OUT OF *BEER* GODDAMNIT!!"
+            "You have never seen Larry this angry before."
             show chara technician happy
             with dissolve
-            "You have never seen Larry this angry before."
             "But just as quick, he returns to his usual relaxed self."
             t "Whisky's not really my thing, man!"
             jump actionsmenu
@@ -148,9 +148,9 @@ label backstage_dialogue_second:
             if have_larry_coin==False:
                 t "Uh... I don't really believe in money, man..."
                 t "But here, I found this in the pocket of these sweet pants!"
-                "Larry hands you a coin worth ten cents."
+                "Larry hands you a coin worth five cents."
                 $ have_larry_coin = True
-                $ cents += 10
+                $ cents += 5
                 menu:
                     "Thank Larry for the coin":
                         p "Thanks!"
@@ -252,7 +252,8 @@ label backstage_dialogue_second:
                     $ playertip = "I should find some whisky for the town supervisor."
                     jump backstage
 
-        "The mayor won't be a problem for us anymore." if mayor_happy==True:
+        "Tell Larry that the problem with the permit has been sorted." if mayor_happy==True:
+            p "The mayor won't be a problem for us anymore." 
             $ technician_happy = True
             show chara technician happy  
             with dissolve
@@ -292,7 +293,7 @@ label lookbackstage:
                             "You plunge your hands in to the mud, using your fingers to find the edges of the object." 
                             "Finally your hands find something that you can grab on to firmly."
                             "You pull with all your strength, and you manage to get the object out of the mud."
-                            "It is your briefcase of emergency funds!"
+                            "You find a briefcase full of money!"
                             $ have_chest =  True
                             jump actionsmenu
                         elif egg_counter==10:
@@ -308,8 +309,8 @@ label lookbackstage:
                     "You walk around the backstage area until your metal detector beeps."
                     if have_coin==False:
                         "You dig around and find a small coin!"
-                        "This one is worth 25 cents."
-                        $ cents += 25
+                        "This one is worth 10 cents."
+                        $ cents += 10
                         $ have_coin = True
                         jump lookbackstage
                     elif have_coin2==False:
@@ -317,12 +318,6 @@ label lookbackstage:
                         "This one is worth five cents."
                         $ cents += 5
                         $ have_coin2 = True
-                        jump lookbackstage
-                    elif have_coin3==False:
-                        "You dig around and find a small coin!"
-                        "This one is worth ten cents."
-                        $ cents += 10
-                        $ have_coin3 = True
                         jump lookbackstage
                     elif have_old_coin==False:
                         "You dig around and find a small coin!"

@@ -10,9 +10,11 @@ label ending:
         jump bad_ending
     elif day_one_end=="whisky":
         $ day = 2
+        $ mayor_happy = False
         jump d2b_start
     else:
         $ day = 2
+        $ mayor_happy = False
         jump d2a_start
 
 label day2_ending:
