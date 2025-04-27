@@ -9,6 +9,12 @@ label map_screen:
     scene bg map
     with fade
     menu:
+        "Town Hall":
+
+            $ location = "townhall"
+            $ talk_to = "town supervisor"
+
+            jump townhall
         "Backstage":
 
             scene black with wiperight
@@ -40,12 +46,7 @@ label map_screen:
             $ location = "trailer"
 
             jump trailer
-        "Town Hall":
-
-            $ location = "townhall"
-            $ talk_to = "town supervisor"
-
-            jump townhall
+        
         "Toilets" if day > 1:
 
             scene black with wiperight
@@ -59,9 +60,16 @@ label map_screen:
             pause 0.3
 
             $ location = "toilets"
-            $ talk_to = "kid in toilet"
+            if day_one_end == "money":
+                $ talk_to = "kid in the toilet"
+            elif day_one_end == "whisky":
+                $ talk_to = "hippie girl"
+            else:
+                "Problem with determining who to talk to in the toilet area."
+                $ talk_to = "kid in the toilet"
 
             jump toilets
+
         "Field" if day > 1:
 
             scene black with wiperight
@@ -75,6 +83,6 @@ label map_screen:
             pause 0.3
 
             $ location = "field"
-            $ talk_to = "cow"
+            $ talk_to = "cows"
 
             jump field

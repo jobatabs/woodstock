@@ -3,7 +3,9 @@
 #
 
 label toilets:
-    "The toilet area is surprisingly clean. You hear shouting and banging coming from one of the stalls"
+    "The toilet area is surprisingly clean."
+    if day_one_end == "money":
+        "You hear shouting and banging coming from one of the stalls."
     jump actionsmenu
 
 label talktoilets:

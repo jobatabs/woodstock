@@ -93,25 +93,27 @@ label day2_trailerstart:
     with fade
     "You wake up with a renewed sense of focus."
     if day_one_end == "whisky":
-        "You're glad you had kept that whisky bottle around, it really smoothed things over with the town supervisor."
+        "You're glad you had kept that bottle of whisky around, it really smoothed things over with the town supervisor."
     else:
         "You're relieved you had the foresight to keep those emergency funds around. If only you hadn't buried it at the party, though..."
     "Suddenly, a knock comes on your door."
-    "Larry is there."
     show chara technician frightened
     with dissolve
+    "You open the door to find Larry outside."
     t "[player_name]! Come on, man! It's almost noon!"
-    p "Oh man... I did it again."
-    t "There's some kid named Marty stuck in a toilet."
-    p "So? Why is this important?"
+    t "We've got another problem!"
+    p "Oh man... What now?"
+    t "Marty's stuck in a toilet!"
+    p "Who's \"Marty\"??"
+    t "He's that kid from the film crew! You know, the guys making that documentary?"
     if day_one_end == "money":
-        t "You see, he's part of the film crew. You know, the guys making that documentary?"
-        "You vaguely recall something about a film crew..."
-        "Suddenly, you remember the fine print that caught your eye when you signed the work contract with the festival."
-        "It is stipulated in your contract that your pay for the weekend will be docked if the film crew - for whatever reason - fails to make a documantary about the festival."
+        "You vaguely recall something about a documentary being filmed of the festival..."
+        "Suddenly, you remember the fine print in your work contract."
+        "\"All bonuses paid for the producer of the festival will be docked if the film crew - for whatever reason - fails to successfully make a documantary about the festival.\""
         p "Ah, shit!"
-        p "What's up with him?"
-        t "The kid's carrying the film crew's camera with him. Don't know why he took it with him to the toilet, though."
+        p "That poor kid Manny!"
+        t "No, it's \"Marty\"!"
+        t "Marty's carrying the film crew's camera with him. Don't know why he took it with him to the toilet, though."
         menu:
             "Say \"I guess he was told not to let it out of his sight?\"":
                 p "I guess he was told not to let it out of his sight?"
@@ -122,12 +124,21 @@ label day2_trailerstart:
                 t "Man, these guys are really committed to capturing absolutely EVERYTHING from the festival..."
         t "Anyway, I think the film inside the camera is slowly getting cooked by the heat. Those porta-potties get really hot if you keep the door closed for too long!"
         t "I think you gotta get him out of there before the whole roll of film is destroyed!"
-        p "Yeah, you're totally right. I have to get him out of there as soon as possible!"
+        p "Yeah, you're right. We have to get him out of there as soon as possible!"
+        p "C'mon, let's go!"
+        t "Oh... sorry, but I think you have to deal with this on your own."
+        p "Why, what's wrong?"
+        t "I've got like a million other things to do!"
+        p "Yesterday you were telling me that one of the huge problems we have is that you ran out of beer."
+        p "How busy can you be?"
+        t "Too busy to go get more beer!"
+        t "I'm telling you, this is unsustainable in the long term!"
+        p "Fine. You do what you want. I'm going to get Michael out of the toilet by myself, then."
+        t "It's \"Marty\"!"
         $ playertip = "Let's see how the kid got stuck."
     else:
-        t "You see, he's part of the film crew. You know, the guys making that documentary...?"
         "You vaguely recall something about a film crew..."
-        t "But we have an even bigger problem!"
+        t "But we have an even bigger problem!!"
         p "Let me guess, you're out of beer?"
         t "What? No!"
         t "I mean, yes! I'm out of beer! But that's not what I meant!"
@@ -138,13 +149,14 @@ label day2_trailerstart:
         p "Filled with cows?! A heard of cows?!"
         t "Yes, of course I've heard of cows! I'm telling you about them at this very moment!!"
         p "No Larry, I-"
-        p "Just... forget it."
+        p "Forget it."
         p "How is there a bunch of cows in the helicopter landing site?"
         p "They were supposed to be contained within their little cow pen!"
-        t "I know, I know! But somehow they've broken free and now they've launched an assault on the helicopter landing area!"
+        t "I know! But somehow they've broken free!"
+        t "and now they've launched an assault on the helicopter landing area!"
         t "If you don't get the cows out of there, we have no way to bring in Jimi Hendrix to play his set today!"
-        t "A lot of people are looking forward to seeing him play!"
-        p "I know, he's today's main performer..."
+        t "All the roads are blocked, so the only way to get people in is by helicopter!"
+        p "I know. Jimi's our main performer for today..."
         t "You gotta wrangle some cows, [player_name]!"
         menu:
             "Go move the cows":
@@ -158,7 +170,7 @@ label day2_trailerstart:
                 p "Right. I'll go deal with the cows then."
                 t "Good luck, man!"
         $ playertip = "Let's see what can be done about these cows."
-    "Larry leaves."
+    "Larry leaves and you get ready for another day."
     hide chara
     with dissolve
     jump actionsmenu
