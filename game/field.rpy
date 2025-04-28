@@ -15,7 +15,7 @@ label talkfield:
         "Ask farmer to move cows" if farmer_awake:
             p "Could you move the cows, Max?"
             "The farmer moves the cows."
-            $ day_two_ending = "happycows"
+            $ day_two_end = "happycows"
             jump day2_ending
         "Back":
             jump actionsmenu
@@ -29,9 +29,9 @@ label lookfield:
             jump lookfield
         "Shout":
             p "Okay, come on cows! Let's move!"
-            "LET'S MOVE!"
-            "SHOO! SHOO!"
-            "Jimi Hendrix is supposed to come here to play!!"
+            p "LET'S MOVE!"
+            p "SHOO! SHOO!"
+            p "Jimi Hendrix is supposed to come here to play!!"
             "The cows don't seem to fully appreciate what you're saying."
             jump lookfield
         "Shove the cows":
@@ -44,7 +44,7 @@ label lookfield:
                     "The cows form a ring around you, and you see a big cow make its way towards you."
                     "The rest of the herd starts mooing loudly, and you have hardly any time to react as the big bad cow launches its attack on you."
                     "The last thing you remember before waking up in the hospital is a massive hoof approaching your face."
-                    $ day_two_ending = "cowfight"
+                    $ day_two_end = "cowfight"
                     jump day2_ending
                 "Leave the cows alone":
                     p "Okay, chill! Don't have a cow..."

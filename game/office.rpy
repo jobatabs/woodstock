@@ -15,6 +15,11 @@ label office:
 
     scene bg office
     with fade
+    if day == 2:
+        if day_one_end == "money":
+            jump office_day2_a
+        elif day_one_end == "whisky":
+            jump office_day2_b
     if mayor_first_talk==True:
         jump townhall_first_dialogue
     elif mayor_happy==False:
@@ -454,3 +459,61 @@ label safe:
             jump safe
         "Leave the safe alone":
             jump townhall_third_dialogue
+
+# Day 2 stuff
+
+label office_day2_a:
+    show chara mayor neutral
+    with dissolve
+    if town_supervisor_toilettalk == False:
+        m "Hey, come in!"
+        m "Thanks again for the campaign contribution. It'll come in handy!"
+        m "The people seem to be pretty pissed off at me for allowing the festival to continue."
+        p "Good luck with all that! I've got my own problems to sort out, too."
+        "You sit down on one of the chairs of the office."
+        m "I'm not giving the money back if that's what you've come here to ask me!"
+        p "No, no, it's not that."
+        m "Good!"
+        p "I'm having this weird problem. You don't even want to know."
+        m "Okay. Well, I'll see you around I suppose?"
+        p "I mean you wouldn't even believe me if I told you."
+        m "I trust you! Hmm, is it lunch-time yet...?"
+        p "It's just that the documentary is so important for our festival... and me!"
+        m "Now where did I put that magazine...?"
+        p "And it's not just about the money! This kid called Matthew might pass out soon if we don't get him out of the toilet."
+        m "Toilet? What's this about a toilet?"
+        p "There's this kid stuck in a sweltering hot toilet, and I don't have any ideas on how to get him out."
+        m "Wow... that's pretty serious actually!"
+        m "Being stuck in a toilet is one of the worst experiences a man can have!"
+        m "Believe me, I know!"
+        m "I suppose this kid is stuck in one of those porta-potties you are using?"
+        p "Yes! How did you know?"
+        m "Ohh I spotted those things from a mile away when I visited your festival site yesterday."
+        m "That specific model you have is very prone to malfunctioning in this heat!"
+        m "The door won't open, am I right?"
+        p "That's exactly the problem!"
+        m "Typical... I've been trying to tell people for years that those things are dangerous!"
+        m "Anyway, what you need to do is either break down the door with something..."
+        m "Or, you can also use a winch to rip the roof off the toilet."
+        p "Okay, those are some pretty good ideas..."
+        p "Any ideas on how I could break down the door?"
+        m "The doors on those blasted things are pretty strong. It would probably require something sharp that you can really get your weight behind."
+        p "Okay... and how would I go about ripping the roof off the toilet?"
+        m "Well, like I said, the best would be to use a winch."
+        p "And where would I find a winch?"
+        m "You're hosting your festival at Max Yasgur's farm!"
+        m "I'm sure he has a truck that's equipped with a winch."
+        p "Okay, sounds good! Thanks for you help, truly!"
+        m "No problem. Just make sure you get that kid out!"
+        m "I still have nightmares about a certain gas-station toilet..."
+        "You leave the town supervisor to reminisce about his adventures."
+        $ town_supervisor_toilettalk = True
+        jump townhall
+    else:
+        show chara mayor neutral
+        with dissolve
+        m "Did you get that kid out yet?!"
+        p "Not yet, still working on it."
+        m "Use a shap object or use the winch!"
+        m "You better hurry! Otherwise he'll be scarred for life!!"
+        jump townhall

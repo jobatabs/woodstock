@@ -119,8 +119,14 @@ default egg_counter = 0
 # Has the player picked up the metal detector from the trailer? (Determines if it's possible to find items in the backstage area)
 default have_metal_detector = False
 
-# Determines how many times the player has clicked the different options in the starting "fourth-wall breaking joke"
-default exit_fight_dialogue_points = 0
+# Is the toilet area open?
+default toilet_area_open = False
+
+# Is the landing site area open?
+default field_area_open = False
+
+# Has the town supervisor told you about the winch?
+default town_supervisor_toilettalk == False
 
 #
 # IMAGES

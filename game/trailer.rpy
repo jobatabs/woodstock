@@ -107,12 +107,13 @@ label day2_trailerstart:
     p "Who's \"Marty\"??"
     t "He's that kid from the film crew! You know, the guys making that documentary?"
     if day_one_end == "money":
-        "You vaguely recall something about a documentary being filmed of the festival..."
+        $ toilet_area_open = True
+        "You vaguely recall something about a documentary of the festival being filmed..."
         "Suddenly, you remember the fine print in your work contract."
         "\"All bonuses paid for the producer of the festival will be docked if the film crew - for whatever reason - fails to successfully make a documantary about the festival.\""
         p "Ah, shit!"
         p "That poor kid Manny!"
-        t "No, it's \"Marty\"!"
+        t "No, his name is \"Marty\"."
         t "Marty's carrying the film crew's camera with him. Don't know why he took it with him to the toilet, though."
         menu:
             "Say \"I guess he was told not to let it out of his sight?\"":
@@ -134,10 +135,12 @@ label day2_trailerstart:
         t "Too busy to go get more beer!"
         t "I'm telling you, this is unsustainable in the long term!"
         p "Fine. You do what you want. I'm going to get Michael out of the toilet by myself, then."
-        t "It's \"Marty\"!"
+        t "His name is \"Marty\"!"
         $ playertip = "Let's see how the kid got stuck."
     else:
+        $ field_area_open = True
         "You vaguely recall something about a film crew..."
+        "Before you have a chance to finish your thought, Larry speaks up."
         t "But we have an even bigger problem!!"
         p "Let me guess, you're out of beer?"
         t "What? No!"
@@ -153,11 +156,12 @@ label day2_trailerstart:
         p "How is there a bunch of cows in the helicopter landing site?"
         p "They were supposed to be contained within their little cow pen!"
         t "I know! But somehow they've broken free!"
-        t "and now they've launched an assault on the helicopter landing area!"
+        t "And now they've launched an assault on the helicopter landing area!"
         t "If you don't get the cows out of there, we have no way to bring in Jimi Hendrix to play his set today!"
         t "All the roads are blocked, so the only way to get people in is by helicopter!"
         p "I know. Jimi's our main performer for today..."
-        t "You gotta wrangle some cows, [player_name]!"
+        p "A lot of people are waiting to see him play."
+        t "Yeah, so you gotta wrangle some cows, [player_name]!"
         menu:
             "Go move the cows":
                 p "Okay. Time go move some bovine."

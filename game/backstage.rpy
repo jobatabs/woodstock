@@ -266,7 +266,7 @@ label backstage_dialogue_second:
                     $ playertip = "I should find some whisky for the town supervisor."
                     jump backstage
 
-        "Tell Larry that the problem with the permit has been sorted." if mayor_happy==True:
+        "Tell Larry that the problem with the permit has been sorted" if mayor_happy==True:
             p "The mayor won't be a problem for us anymore." 
             $ technician_happy = True
             show chara technician happy  
