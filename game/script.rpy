@@ -126,7 +126,14 @@ default toilet_area_open = False
 default field_area_open = False
 
 # Has the town supervisor told you about the winch?
-default town_supervisor_toilettalk == False
+default town_supervisor_toilettalk = False
+
+# Have you talked to the kid in the toilet?
+default talked_to_kid = False
+
+# Have you talked to MJ?
+
+default have_talked_mj = False
 
 #
 # IMAGES

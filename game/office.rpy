@@ -514,6 +514,6 @@ label office_day2_a:
         with dissolve
         m "Did you get that kid out yet?!"
         p "Not yet, still working on it."
-        m "Use a shap object or use the winch!"
+        m "Use a shap object or the winch!"
         m "You better hurry! Otherwise he'll be scarred for life!!"
         jump townhall
