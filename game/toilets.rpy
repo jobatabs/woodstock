@@ -3,6 +3,8 @@
 #
 
 label toilets:
+    scene bg toilets
+    with fade
     if day_one_end == "money":
         if talked_to_kid == False:
             $ talked_to_kid = True
@@ -48,8 +50,6 @@ label talktoilets:
             jump actionsmenu
 
 label looktoilets:
-    if truck_fixed == True:
-        "The truck is in the toilet area, ready to be used."
     if have_talked_mj == False:
         $ have_talked_mj = True
         "You look around for a bit and notice a girl looking back at you."
@@ -59,7 +59,7 @@ label looktoilets:
         mj "Hey, why are you shouting at someone inside a toilet?"
         mj "I'm sure another one will be free to use soon."
         menu:
-            "Tell the girl to piss off":
+            "Tell the girl to mind her own business":
                 p "Mind your own business!"
                 mj "Damn, you've gotta go that bad, huh?"
                 mj "Alright, I'll leave you to it."
@@ -126,6 +126,8 @@ label looktoilets:
                         jump actionsmenu
     else:
         "The kid is still stuck in the toilet."
+        if truck_fixed == True:
+            "The truck is in the toilet area, ready to be used."
         "Also, the girl you talked to before is still hanging around the toilet area."
         menu:
             "Use the winch on the truck to open the toilet" if winch_here == True:

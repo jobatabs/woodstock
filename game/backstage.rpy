@@ -289,7 +289,9 @@ label backstage_dialogue_second:
 
 label lookbackstage:
     
-    
+    if day > 1:
+        "There doesn't seem to be anything of note here."
+        jump actionsmenu
     if have_metal_detector==False:
         "You look around the discarded cardboard boxes and other pieces of garbage that permeate the backstage area."
         "There doesn't seem to be anything of interest here."

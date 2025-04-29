@@ -3,6 +3,8 @@
 #
 
 label field:
+    scene bg field
+    with fade
     if day_one_end == "whisky":
         "You arrive to the landing site that's full of cows grazing."
     jump actionsmenu
@@ -77,7 +79,9 @@ label lookfield:
                                 elif truck_fixed == True:
                                     "The engine starts with a cough."
                                     "You drive the truck to the toilet area."
-                                    $ winch_here == True
+                                    $ location = "toilets"
+                                    $ talk_to = "kid in the toilet"
+                                    $ winch_here = True
                                     jump toilets
                             "Leave the truck alone":
                                 "You put the keys back in to the glove compartment and leave the car alone."
