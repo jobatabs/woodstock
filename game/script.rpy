@@ -25,6 +25,12 @@ default day_two_end = ""
 # Who to talk to?
 default talk_to = "Larry"
 
+# Have you tried to start the truck?
+default truck_started = False
+
+# Has Larry fixed the truck?
+default truck_fixed = False
+
 # Is the winch at the toilet area?
 default winch_here = False
 

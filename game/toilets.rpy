@@ -48,6 +48,8 @@ label talktoilets:
             jump actionsmenu
 
 label looktoilets:
+    if truck_fixed == True:
+        "The truck is in the toilet area, ready to be used."
     if have_talked_mj == False:
         $ have_talked_mj = True
         "You look around for a bit and notice a girl looking back at you."
@@ -126,6 +128,10 @@ label looktoilets:
         "The kid is still stuck in the toilet."
         "Also, the girl you talked to before is still hanging around the toilet area."
         menu:
+            "Use the winch on the truck to open the toilet" if winch_here == True:
+                "You try to use the winch-system on the truck, but unfortunately you have no idea how to use it."
+                "Feeling quite frustrated by your lack of skills with machinery, you leave the winch alone."
+                jump actionsmenu
             "Talk to the girl":
                 show chara girl neutral
                 mj "Ah, it's you!"

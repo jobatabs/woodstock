@@ -58,4 +58,29 @@ label lookfield:
                 jump actionsmenu
     elif day_one_end == "money":
         "You see a lonely truck sitting in the middle of a field."
+        if town_supervisor_toilettalk == True:
+            p "Maybe this was the truck the town supervisor was talking about?"
+            "You take a closer look at the truck, and you notice that there is a winch-pulley system attached to it."
+            menu:
+                "Drive the truck to the toilet area":
+                    "The truck seems to be unlocked."
+                    "You get in and find the keys inside the glove compartment."
+                    menu:
+                        "Drive the truck to the toilet area":
+                            if truck_fixed == False:
+                                "You try to start the engine, but nothing happens."
+                                $ truck_started = True
+                                "Someone with some experience with cars might know what's the problem."
+                                "As it stands, you leave the truck alone."
+                                jump field
+                            elif truck_fixed == True:
+                                "You start the engine and drive the truck to the toilet area."
+                                $ winch_here == True
+                                jump toilets
+                        "Leave the truck alone":
+                            "You put the keys back in to the glove compartment and leave the car alone."
+                            jump field
+                "Leave the truck alone":
+                    "You let the truck sit idly in the field."
+                    jump actionsmenu
         jump actionsmenu

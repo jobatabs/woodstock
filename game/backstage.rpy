@@ -3,6 +3,8 @@
 #
 
 label backstage:
+    scene bg backstage
+    with fade
     if day == 2:
         if day_one_end == "money":
             jump backstage_d2a
@@ -12,8 +14,7 @@ label backstage:
             "Something has gone wrong."
             jump map_screen
 
-    scene bg backstage
-    with fade
+    
     if technician_first_talk==True:
         "The backstage area is full of activity. People are running around, technicians are unloading cases, and artists are preparing for their shows."
         "An interesting looking man notices you and hurriedly makes his way towards you."
@@ -34,6 +35,8 @@ label backstage:
     jump actionsmenu
 
 label talkbackstage:
+    if day_two_end == "money":
+        jump backstage_dialogue_d2a
     jump backstage_dialogue_second
 
 # Backstage first dialogue
@@ -348,9 +351,35 @@ label lookbackstage:
                 jump actionsmenu
 
 label backstage_d2a:
-    "This is backstage area day 2 if the town supervisor got paid on the first day. Not much more here yet."
-    jump map_screen
+    jump actionsmenu
 
 label backstage_d2b:
     "This is backstage area day 2 if the town supervisor got whisky on the first day. Not much more here yet."
     jump map_screen
+
+label backstage_dialogue_d2a:
+    show chara technician happy 
+    with dissolve
+    if truck_fixed == True:
+        t "Hey, I managed to fix that truck in the field!"
+        t "You should be able to start it now."
+        p "Nice! Thanks Larry."
+        t "No problemo!"
+    t "How's it going with the toilet problem?"
+    menu:
+        "Ask Larry to fix the truck in the field" if truck_started == True:
+            p "Larry, do you know how to fix a broken truck?"
+            t "It depends, how new is it?"
+            p "It's pretty old and used. It's in the field."
+            p "I need to use the winch in the truck to open the toilet."
+            t "Wow, that's pretty elaborate!"
+            t "But yeah, I can go take a look at the truck!"
+            p "Thanks."
+            "You see Larry walking off towards the field."
+            $ truck_fixed = True
+            $ truck_started = False
+            jump map_screen
+        "Tell Larry you're still working on it":
+            p "It's going. I'll let you know if I need anything."
+            t "Cool man, see you later!"
+            jump actionsmenu
