@@ -384,11 +384,11 @@ label backstage_d2b:
             p "Thanks, I'll go there now."
             "(The toilet area is now available in the map)"
             $ larry_farmer_talk = True
-            jump backstage
+            jump map_screen
         "Tell Larry you're still working on it":
             p "It's going. I'll let you know if I need anything."
             t "Cool man, see you later!"
-            jump backstage
+            jump map_screen
 
 label backstage_dialogue_d2a:
     show chara technician happy 
@@ -415,4 +415,4 @@ label backstage_dialogue_d2a:
         "Tell Larry you're still working on it":
             p "It's going. I'll let you know if I need anything."
             t "Cool man, see you later!"
-            jump actionsmenu
+            jump backstage
