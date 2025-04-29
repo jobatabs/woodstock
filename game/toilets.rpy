@@ -168,9 +168,6 @@ label toilets_d2b:
                     "Nothing":
                         "You leave."
                         jump actionsmenu
-                else:
-                    "You talk to the hippie girl but you learn nothing."
-                    jump actionsmenu
             "Leave":
                 jump toilets
     else:
