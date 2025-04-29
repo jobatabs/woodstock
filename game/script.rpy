@@ -157,6 +157,15 @@ image chara mayor laughing = "mayor laughing.png"
 image chara mayor surprised = "mayor surprised.png"
 image chara mayor gollum = "mayor gollum.png"
 
+image whisky = "mayor surprised.png"
+image metal detector = "mayor gollum.png"
+image axe = "mayor angry.png"
+image batteries = "mayor neutral.png"
+image chest = "technician happy.png"
+image gold = "technician frightened.png"
+image paper = "mayor furious.png"
+image mystical stone = "monster.png"
+
 image chara monster = "monster.png"
 
 #

@@ -1,5 +1,5 @@
 label actionsmenu:
-
+    $ update_inventory()
     menu:
         "[playertip]"
 
@@ -27,8 +27,6 @@ label talkmenu:
         jump talkfield
 
 label lookmenu:
-
-    hide chara with dissolve
 
     if location == "backstage":
 

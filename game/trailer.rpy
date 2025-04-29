@@ -198,6 +198,7 @@ label looktrailer:
                     "Take the mine detector":
                         "You take the well-used mine detector with you."
                         $ have_metal_detector = True
+                        $ update_inventory()
                         jump looktrailer
                     "Leave the mine detector":
                         "You leave the mine detector to its fate."
@@ -214,6 +215,7 @@ label looktrailer:
                     "Take the bottle":
                         "You take the bottle with you."
                         $ have_whisky = True
+                        $ update_inventory()
                         jump looktrailer
                         
                     "Leave the bottle":

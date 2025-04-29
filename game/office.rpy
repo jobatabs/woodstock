@@ -15,6 +15,7 @@ label office:
 
     scene bg office
     with fade
+    $ update_inventory()
     if day == 2:
         if day_one_end == "money":
             jump office_day2_a
@@ -44,6 +45,7 @@ label townhall_first_dialogue:
         "Give the briefcase full of money" if have_chest == True:
             p "Here's a briefcase full of money for you."
             $ have_chest = False
+            $ update_inventory()
             $ mayor_happy = True
             $ day_one_end = "money"
             m "Oh wow!"
@@ -212,6 +214,7 @@ menu:
     "Offer the town supervisor a gift of whisky" if have_whisky == True:
         p "How about I give you this bottle of whisky?"
         $ have_whisky = False
+        $ update_inventory()
         $ mayor_happy = True
         $ day_one_end = "whisky"
         "The town supervisor is thrilled by this proposition."
@@ -252,6 +255,7 @@ menu:
             p "Here's your briefcase full of money."
             "You give the briefcase full of money to the town supervisor."
             $ have_chest = False
+            $ update_inventory()
             $ mayor_happy = True
             $ day_one_end = "money"
             m "Oh wow! You actually managed to pull it off!"
@@ -291,6 +295,7 @@ menu:
 
 
 label townhall_second_dialogue:
+    show chara mayor neutral
     if mayor_wants_chest == True:
         m "Ah, it's you!"
         m "Do you have the money?"
@@ -298,6 +303,7 @@ label townhall_second_dialogue:
             "Offer whisky to the town supervisor" if have_whisky == True:
                 p "How about I give you this bottle of whisky?"
                 $ have_whisky = False
+                $ update_inventory()
                 $ mayor_happy = True
                 $ day_one_end = "whisky"
                 "The town supervisor is thrilled by this proposition."
@@ -321,6 +327,7 @@ label townhall_second_dialogue:
                     p "Here's your briefcase full of money."
                     "You give the briefcase full of money to the town supervisor."
                     $ have_chest = False
+                    $ update_inventory()
                     $ mayor_happy = True
                     $ day_one_end = "money"
                     m "Oh wow! You actually managed to pull it off!"
@@ -451,6 +458,7 @@ label safe:
             "As you grab the stone a dark, dangerous feeling comes over you."
             "For some reason, you start to feel quite sleepy."
             $ mystical_stone = True
+            $ update_inventory()
             "You close the door of the safe and leave."
             $ safe_empty = True
             jump townhall 

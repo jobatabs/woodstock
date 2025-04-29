@@ -110,6 +110,7 @@ label backstage_dialogue_second:
             "Larry hands you a folded piece of paper."
             "You unfold the paper and see that \"1969\" is written on it."
             $ have_paper = True
+            $ update_inventory()
             menu:
                 "Why are you giving me a piece of paper that has the current year written on it?":
                     t "Time is relative, man! This will help you remember what year it is in case you forget!"
@@ -303,7 +304,7 @@ label lookbackstage:
                     if have_batteries==False:
                         "Your metal detector seems to have run out of batteries."
                         jump lookbackstage
-                    elif have_batteries==True:
+                    elif have_batteries==True or have_chest==True:
                         if have_chest==False:
                             "You change the batteries of your metal detector for new ones. Suddenly the machine seems to beep with newfound vigour."
                             "Something heavy hides beneath the mud of the backstage area."
@@ -312,6 +313,7 @@ label lookbackstage:
                             "You pull with all your strength, and you manage to get the object out of the mud."
                             "You find a briefcase full of money!"
                             $ have_chest =  True
+                            $ update_inventory()
                             jump actionsmenu
                         elif egg_counter==10:
                             "You walk around the backstage area until your metal detector beeps."

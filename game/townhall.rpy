@@ -48,6 +48,7 @@ label looktownhall:
                     else:
                         "You take the axe."
                         $ have_axe = True
+                        $ update_inventory()
                     jump looktownhall
                 
                 "Leave":
@@ -76,6 +77,7 @@ label vending_machine:
                         "The machine spits out the pack of batteries, and you pick them up."
                         $ cents -= 20
                         $ have_batteries = True
+                        $ update_inventory()
                         jump actionsmenu
                 "Walk away from the vending machine":
                     jump actionsmenu
