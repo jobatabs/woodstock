@@ -27,7 +27,13 @@ label lookfield:
     if day_one_end == "whisky":
         menu:
             "The cows seem udderly uninterested in you or the socio-political importance of Woodstock."
-
+            "Call for Bessie the cow" if mj_farmer_talk == True:
+                "You call for Bessie the cow."
+                "She leads you to the farmer, who's sleeping in the toilets."
+                $ farmer_found = True
+                $ location = "toilets"
+                $ talk_to = "farmer"
+                jump toilets
             "Carefully try to move the cows":
                 "Nothing happens."
                 jump lookfield
@@ -58,6 +64,7 @@ label lookfield:
                         jump lookfield
             "Back":
                 jump actionsmenu
+
     elif day_one_end == "money":
         if winch_here == False:
             "You see a lonely truck sitting in the middle of a field."

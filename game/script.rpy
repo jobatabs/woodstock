@@ -138,8 +138,16 @@ default town_supervisor_toilettalk = False
 default talked_to_kid = False
 
 # Have you talked to MJ?
-
 default have_talked_mj = False
+
+# Have you talked to the town supervisor about the cows?
+default supervisor_cow_talk = False
+
+# Have you talked to MJ about the farmer?
+default mj_farmer_talk = False
+
+# Has Bessie the cow found the farmer?
+default farmer_found = False
 
 #
 # IMAGES

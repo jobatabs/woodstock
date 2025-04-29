@@ -25,8 +25,7 @@ label toilets:
         else:
             jump actionsmenu
     else:
-        "Toilet stuff, whisky path."
-        jump actionsmenu
+        jump toilets_d2b
     
 
 label talktoilets:
@@ -130,10 +129,19 @@ label looktoilets:
             "The truck is in the toilet area, ready to be used."
         "Also, the girl you talked to before is still hanging around the toilet area."
         menu:
+            "Try to pull the door open":
+                "The door doesn't budge."
+                jump looktoilets
             "Use the winch on the truck to open the toilet" if winch_here == True:
                 "You try to use the winch-system on the truck, but unfortunately you have no idea how to use it."
                 "Feeling quite frustrated by your lack of skills with machinery, you leave the winch alone."
                 jump actionsmenu
+            "Use the axe to break the toilet door" if have_axe == True:
+                "You break down the door. The kid is free."
+                k "Thank you so much!"
+                k "But my camera broke..."
+                $ day_two_end = "axe"
+                jump day2_ending
             "Talk to the girl":
                 show chara girl neutral
                 mj "Ah, it's you!"
@@ -158,23 +166,18 @@ label looktoilets:
                         mj "Right on! I'll see you around!"
                         jump actionsmenu
             "Don't talk to the girl":
-                jump actionsmenu 
+                jump actionsmenu
 
-
-    menu:
-
-        "Break down the door with the axe" if have_axe:
-            "You break down the door. The kid is free."
-            k "Thank you so much!"
-            k "But my camera broke..."
-            $ day_two_end = "axe"
-            jump day2_ending
-        "Pull on the door":
-            "The door holds firm."
-            jump looktoilets
-        "Attach the winch to the toilet door" if winch_here:
-            "You hook up the winch to the door of the stall."
-            $ winch_hooked = True
-            jump actionsmenu
-        "Back":
-            jump actionsmenu
+label toilets_d2b:
+    if farmer_found == False:
+        "Talking with the hippy chick about the farmer."
+        "She tells you that Bessie the cow can find the farmer from anywhere by smell."
+        "You can call for Bessie in the field now."
+        $ mj_farmer_talk = True
+        jump actionsmenu
+    else:
+        "Bessie find the farmer."
+        "The farmer can help you move the cows."
+        "You go to the field and the cows leave."
+        $ day_two_end = "happycows"
+        jump day2_ending

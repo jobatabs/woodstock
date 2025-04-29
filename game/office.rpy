@@ -525,3 +525,11 @@ label office_day2_a:
         m "Use a shap object or the winch in the truck!"
         m "You better hurry! Otherwise he'll be scarred for life!!"
         jump townhall
+
+label office_day2_b:
+    show chara mayor neutral
+    with dissolve
+    m "Sorry, I got super drunk last night and released the cows."
+    m "The only person who can move the cows is the farmer."
+    $ supervisor_cow_talk = True
+    jump map_screen
