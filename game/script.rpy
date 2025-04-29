@@ -2,15 +2,17 @@
 # CHARACTERS
 #
 
-define p = Character("[player_name]", color="#4690ff")
+define p = Character("[player_name]", color="#ffffff")
 
-define t = Character("Larry the Technician", color="#af5847ff")
+define t = Character("Larry the Technician", color="#571306ff")
 
-define m = Character("Town Supervisor", color="#e2e2e2")
+define m = Character("Town Supervisor", color="#fa787e")
 
 define k = Character("Kid in the Toilet", color="#f8fa88")
 
 define mj = Character("Hippie Girl", color="#6eff75")
+
+define f = Character("Farmer", color="#6d594b")
 
 #
 # PARAMETERS

@@ -157,6 +157,8 @@ label toilets_d2b:
         "Not much here except a girl."
         menu:
             "Talk to the girl":
+                show chara girl neutral
+                with dissolve
                 mj "What's up?"
                 menu:
                     "Ask about the farmer" if larry_farmer_talk == True:
@@ -172,6 +174,8 @@ label toilets_d2b:
                 jump toilets
     else:
         "You find the farmer with Bessie."
+        show chara farmer neutral
+        with dissolve
         "You ask the farmer to help."
         "The cows leave."
         $ day_two_end = "happycows"
