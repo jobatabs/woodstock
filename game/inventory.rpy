@@ -13,7 +13,7 @@ init python:
             renpy.hide("whisky")
         if have_axe:
             drew = True
-            renpy.show("axe", at_list=[axe_tranform], zorder=2)
+            renpy.show("axe", at_list=[axe_transform], zorder=2)
         else:
             renpy.hide("axe")
         if have_batteries:

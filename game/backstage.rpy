@@ -35,7 +35,7 @@ label backstage:
     jump actionsmenu
 
 label talkbackstage:
-    if day_two_end == "money":
+    if day_one_end == "money":
         jump backstage_dialogue_d2a
     jump backstage_dialogue_second
 
