@@ -79,7 +79,9 @@ label looktoilets:
                         p "So what's your name?"
                         mj "My name's Mary Jane! Nice to meet you!"
                         p "Likewise. Are you here for the whole weekend?"
-                        mj "Yeah, I actually live in this town! It's pretty exciting how all of these people from around the country have come here just for this..."
+                        mj "Yeah, I actually live in this town!" 
+                        mj "I spend the summers working on this farm actually."
+                        mj "It's pretty exciting how all of these people from around the country have come here just for this..."
                         mj "I think it's good for the people in the town to see that there are a lot of us young people who think the same way."
                         menu:
                             "Ask Mary Jane what she means":
