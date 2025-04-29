@@ -31,14 +31,26 @@ init python:
             renpy.show("paper", at_list=[paper_transform], zorder=2)
         else:
             renpy.hide("paper")
-        if have_gold:
+        if cents > 0:
             drew = True
-            renpy.show("gold", at_list=[gold_transform], zorder=2)
+            if cents == 5:
+                renpy.show("cents5", at_list=[gold_transform], zorder=2)
+            elif cents == 10:
+                renpy.show("cents10", at_list=[gold_transform], zorder=2)
+            elif cents == 15:
+                renpy.show("cents15", at_list=[gold_transform], zorder=2)
+            elif cents == 20:
+                renpy.show("cents20", at_list=[gold_transform], zorder=2)
         else:
-            renpy.hide("gold")
-        if mystical_stone:
+            renpy.hide("cents5")
+            renpy.hide("cents10")
+            renpy.hide("cents15")
+            renpy.hide("cents20")
+        if punched_machine == True:
             drew = True
-            renpy.show("mystical stone", at_list=[stone_transform], zorder=2)
+            renpy.show("hotcoin", at_list=[stone_transform], zorder=2)
+        else:
+            renpy.hide("hotcoin")
         if drew:
             renpy.show("inventory bg", what=Solid("#4b4b4b93"), at_list=[inventory_bg], zorder=1)
 
@@ -54,7 +66,7 @@ transform whisky_transform:
 
 transform axe_transform:
     offset (810, 360)
-    pos (100, 100)
+    pos (300, 100)
     zoom 0.15
 
 transform battery_transform:
@@ -69,17 +81,17 @@ transform chest_transform:
 
 transform gold_transform:
     offset (810, 360)
-    pos (200, 100)
+    pos (200, 0)
     zoom 0.15
 
 transform paper_transform:
     offset (810, 360)
-    pos (300, 100)
+    pos (200, 100)
     zoom 0.15
 
 transform stone_transform:
     offset (810, 360)
-    pos (200, 100)
+    pos (300, 0)
     zoom 0.15
 
 transform inventory_bg:

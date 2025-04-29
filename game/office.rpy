@@ -3,15 +3,15 @@
 #
 
 label office:
-    scene black with wiperight
+    #scene black with wiperight
 
-    show text "Town supervisor's office" at truecenter with dissolve
+    #show text "Town supervisor's office" at truecenter with dissolve
 
-    pause 1.0
+    #pause 1.0
 
-    hide text with dissolve
+    #hide text with dissolve
 
-    pause 0.3
+    #pause 0.3
 
     scene bg office
     with fade
@@ -147,7 +147,7 @@ label townhall_first_dialogue_second_part:
             jump townhall
         "Tell the town supervisor he is full of shit":
             p "This is some grade-A bullshit you're telling me here."
-            show mayor angry
+            show chara mayor angry
             m "I TOLD YOU TO NOT CUSS IN MY OFFICE!"
             m "Besides, I've got a re-election campaign to think about here!"
             p "A what campaign now?"
@@ -354,6 +354,8 @@ label townhall_second_dialogue:
 
     "You enter the office. The town supervisor seems surprised to see you again."
     m "Oh, it's you again. What can I do for you, [player_name]?"
+    if mayor_wants_gold == True:
+        m "Any luck finding gold??"
     menu:
         "Offer to help with the re-election campaign" if mayor_election_concern == True:
             jump mayor_negotiation
@@ -377,14 +379,14 @@ label townhall_second_dialogue:
                     jump townhall
                 "Tell the town supervisor he is full of shit":
                     p "This is some grade-A bullshit you're telling me here."
-                    show mayor angry
+                    show chara mayor angry
                     m "YOU WILL NOT CURSE IN MY OFFICE!"
                     m "Who the hell do you think you are, using that kind of language?"
                     m "You just waltz in and think you can do or say anything you want!"
                     m "Why don't you leave me alone?!"
                     m "I've got a re-election campaign to think about here!"
                     p "A what campaign now?"
-                    show mayor neutral
+                    show chara mayor neutral
                     m "I-"
                     m "Well..."
                     $ mayor_election_concern = True
@@ -441,10 +443,6 @@ label townhall_third_dialogue:
 
 
 label safe:
-
-
-    scene bg safe
-    with fade
     menu:
         "Enter \"1967\"":
             "Nothing happens."
@@ -454,9 +452,9 @@ label safe:
             jump safe
         "Enter \"1969\"" if have_paper==True:
             "The safe clicks and opens."
-            "Inside, you find a small glowing stone."
-            "As you grab the stone a dark, dangerous feeling comes over you."
-            "For some reason, you start to feel quite sleepy."
+            "Inside, you find a small piece of paper."
+            "A short message has been written on it."
+            "\"Meet me in the dreamworld\""
             $ mystical_stone = True
             $ update_inventory()
             "You close the door of the safe and leave."

@@ -48,7 +48,7 @@ label looktoilets:
                 mj "Alright, I'll leave you to it."
                 mj "Have a nice festival!"
                 "The girl leaves you alone."
-                jump actionsmenu
+                jump toilets
             "Explain the situation":
                 p "No, it's not that. There's someone stuck in one of the toilets."
                 p "It's my responsibility to get them out."
@@ -96,17 +96,17 @@ label looktoilets:
                                 p "Yeah..."
                                 p "I've got to get this kid out. Hope you have a nice festival."
                                 mj "You too! Good luck!"
-                                jump actionsmenu
+                                jump toilets
                             "Say bye to the girl":
                                 p "I've gotta go find a way to get this kid out."
                                 p "Have a nice festival."
                                 mj "Good luck!"
-                                jump actionsmenu
+                                jump toilets
                     "Say goodbye to the girl":
                         p "I'm going to go find a way to get this kid out."
                         p "I hope you have a nice festival."
                         mj "You too! And good luck!"
-                        jump actionsmenu
+                        jump toilets
     else:
         "The kid is still stuck in the toilet."
         if truck_fixed == True:
@@ -144,13 +144,16 @@ label looktoilets:
                         p "I bet. Let's get this winch started then!"
                         mj "Sure thing!"
                         "You connect the winch and use it. Marty gets out and the camera is OK."
+                        show chara kid neutral
+                        with dissolve
+                        k "Thanks!"
                         jump day2_ending
                     "Say bye to the girl":
                         p "Good. I need to get some stuff done."
                         mj "Right on! I'll see you around!"
-                        jump actionsmenu
+                        jump toilets
             "Leave":
-                jump actionsmenu
+                jump map_screen
 
 label toilets_d2b:
     if farmer_found == False:
@@ -164,19 +167,20 @@ label toilets_d2b:
                     "Ask about the farmer" if larry_farmer_talk == True:
                         "Talking with the hippy chick about the farmer."
                         "She tells you that Bessie the cow can find the farmer from anywhere by smell."
-                        "You can call for Bessie in the field now."
+                        "(You can call for Bessie in the field now.)"
                         $ mj_farmer_talk = True
-                        jump actionsmenu
+                        jump toilets
                     "Nothing":
                         "You leave."
-                        jump actionsmenu
+                        jump toilets
             "Leave":
-                jump toilets
+                jump map_screen
     else:
         "You find the farmer with Bessie."
         show chara farmer neutral
         with dissolve
         "You ask the farmer to help."
+        f "Happy to help!"
         "The cows leave."
         $ day_two_end = "happycows"
         jump day2_ending

@@ -29,6 +29,8 @@ label lookfield:
             "The cows seem udderly uninterested in you or the socio-political importance of Woodstock."
             "Call for Bessie the cow" if mj_farmer_talk == True:
                 "You call for Bessie the cow."
+                show chara bessie neutral
+                with dissolve
                 "She leads you to the farmer, who's sleeping in the toilets."
                 $ farmer_found = True
                 $ location = "toilets"

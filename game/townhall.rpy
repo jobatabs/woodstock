@@ -31,20 +31,19 @@ label looktownhall:
     else:
         "The corridors of the town hall don't seem to contain much more than a single vending machine. The fire axe case lies empty."
     menu:
+        
         "Vending machine":
-            if have_batteries==False:
-                "The only item left for sale is a pack of batteries."
-                jump vending_machine
-            else:
-                "The vending machine is empty."
-                jump looktownhall
+            scene bg vending_machine
+            with dissolve
+            jump vending_machine
         
         "Fire axe case" if have_axe==False:
             "You see a fire axe in the unlocked case."
             menu:
                 "Take the axe":
                     if day == 1:
-                        "Hmm... maybe I should try negotiating first..."
+                        p "Hmm... maybe I should try negotiating first..."
+                        jump looktownhall
                     else:
                         "You take the axe."
                         $ have_axe = True
@@ -61,9 +60,13 @@ label looktownhall:
 
 
 label vending_machine:
-
-
+    
     $ have_seen_vending_machine = True
+    if have_batteries==False:
+        "The only item left for sale is a pack of batteries."
+    else:
+        "The vending machine is empty."
+        jump looktownhall
     menu:
         "Press the button for the batteries":
             "The display of the vending machine flashes \"20 cents\"."
@@ -80,14 +83,19 @@ label vending_machine:
                         $ update_inventory()
                         jump actionsmenu
                 "Walk away from the vending machine":
-                    jump actionsmenu
+                    scene bg townhall
+                    with dissolve
+                    jump looktownhall
         "Punch the machine" if punched_machine==False:
             "You punch the machine, and a single coin drops from the coin-return slot."
             "You pick up the coin."
             "One one side of the coin, it says \"ONE CAR WASH\"."
             "On the other side, there is a logo of a car on fire and underneath a text, \"Texas Pete's Flaming Hot Car Wash\"."
-            "Although you aren't sure what you'll do with it, you take the car wash token with you."
             $ punched_machine = True
+            $ update_inventory()
+            "Although you aren't sure what you'll do with it, you take the car wash token with you."
             jump vending_machine
         "Walk away from the machine":
-            jump actionsmenu
+            scene bg townhall
+            with dissolve
+            jump looktownhall

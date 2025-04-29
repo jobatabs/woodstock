@@ -124,7 +124,7 @@ label backstage_dialogue_second:
                     jump backstage
                 "This is just what I needed, thanks!":
                     t "No problemo, man!"
-                    jump talklarry
+                    jump backstage
         else:
             t "Hey [player_name]! Are you ready to start the festival?"
             menu:
@@ -170,14 +170,15 @@ label backstage_dialogue_second:
             if have_larry_coin==False:
                 t "Uh... I don't really believe in money, man..."
                 t "But here, I found this in the pocket of these sweet pants!"
-                "Larry hands you a coin worth five cents."
                 $ have_larry_coin = True
                 $ cents += 5
+                $ update_inventory()
+                "Larry hands you a coin worth five cents."
                 menu:
                     "Thank Larry for the coin":
                         p "Thanks!"
                         t "No problem, man!"
-                        jump actionsmenu
+                        jump backstage
                     "Ask Larry about his pants":
                         p "Are those not your pants?"
                         t "Whoa man!"
@@ -249,6 +250,12 @@ label backstage_dialogue_second:
                     p "THIS IS AN EMERGENCY!!"
                     p "There's a briefcase full of money somewhere?!"
                     p "Where is it, then?!"
+                    if have_chest == True:
+                        t "Dude... you already have it!"
+                        p "Oh! Right!"
+                        p "Sorry, never mind then!"
+                        t "Okay..."
+                        jump backstage
                     t "It's buried somewhere underground."
                     "You start to feel as if someone is playing a mean prank on you."
                     t "I thought you'd know all this stuff, since you were the one who told us to bury it!"
@@ -287,7 +294,7 @@ label backstage_dialogue_second:
                     jump ending
                 "Nah, let me actually make sure everything is in order before we start.":
                     t "Okay, sounds good. Let me know when you're ready to start the festival!"  
-                    jump actionsmenu
+                    jump backstage
 
 # Backstage search
 
@@ -325,7 +332,8 @@ label lookbackstage:
                         elif egg_counter==10:
                             "You walk around the backstage area until your metal detector beeps."
                             "You dig around and find an easter egg!"
-                            "Doesn't seem like you can do anything with it though..."
+                            "You decide to eat it right away."
+                            "Nothing happens..."
                             $ egg_counter += 1
                             jump lookbackstage
                         elif egg_counter>=0:
@@ -336,16 +344,18 @@ label lookbackstage:
                 else:
                     "You walk around the backstage area until your metal detector beeps."
                     if have_coin==False:
-                        "You dig around and find a small coin!"
-                        "This one is worth 10 cents."
                         $ cents += 10
                         $ have_coin = True
+                        $ update_inventory()
+                        "You dig around and find a small coin!"
+                        "This one is worth 10 cents."
                         jump lookbackstage
                     elif have_coin2==False:
-                        "You dig around and find a small coin!"
-                        "This one is worth five cents."
                         $ cents += 5
                         $ have_coin2 = True
+                        $ update_inventory()
+                        "You dig around and find a small coin!"
+                        "This one is worth five cents."
                         jump lookbackstage
                     elif have_old_coin==False:
                         "You dig around and find a small coin!"
@@ -374,11 +384,11 @@ label backstage_d2b:
             p "Thanks, I'll go there now."
             "(The toilet area is now available in the map)"
             $ larry_farmer_talk = True
-            jump actionsmenu
+            jump backstage
         "Tell Larry you're still working on it":
             p "It's going. I'll let you know if I need anything."
             t "Cool man, see you later!"
-            jump actionsmenu
+            jump backstage
 
 label backstage_dialogue_d2a:
     show chara technician happy 

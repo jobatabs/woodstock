@@ -4,7 +4,7 @@
 
 define p = Character("[player_name]", color="#ffffff")
 
-define t = Character("Larry the Technician", color="#571306ff")
+define t = Character("Larry the Technician", color="#926a61ff")
 
 define m = Character("Town Supervisor", color="#fa787e")
 
@@ -13,6 +13,10 @@ define k = Character("Kid in the Toilet", color="#f8fa88")
 define mj = Character("Hippie Girl", color="#6eff75")
 
 define f = Character("Farmer", color="#6d594b")
+
+define c = Character("Bessie", color="#c774ca")
+
+define j = Character("Monster", color="#62e489", what_color="#62e489")
 
 #
 # PARAMETERS
@@ -163,21 +167,29 @@ image black = "#000000"
 image chara technician frightened = "technician frightened.png"
 image chara technician happy = "technician happy.png"
 
-image chara mayor angry = "mayor angry.png"
+image chara mayor angry = "mayor neutral.png"
 image chara mayor neutral = "mayor neutral.png"
-image chara mayor furious = "mayor furious.png"
-image chara mayor laughing = "mayor laughing.png"
-image chara mayor surprised = "mayor surprised.png"
-image chara mayor gollum = "mayor gollum.png"
+image chara mayor furious = "mayor neutral.png"
+image chara mayor laughing = "mayor neutral.png"
+image chara mayor surprised = "mayor neutral.png"
+image chara mayor gollum = "mayor neutral.png"
+image chara kid neutral = "kid neutral.png"
+image chara bessie neutral = "bessie neutral.png"
 
-image whisky = "whisky.jpg"
+image chara girl neutral = "girl neutral.png"
+image chara farmer neutral = "farmer neutral.png"
+
+image whisky = "whisky.png"
 image metal detector = "mine_detector.png"
 image axe = "axe.png"
 image batteries = "battery.png"
 image chest = "briefcase.png"
-image gold = "technician frightened.png"
-image paper = "mayor furious.png"
-image mystical stone = "monster.png"
+image cents5 = "cents5.png"
+image cents10 = "cents10.png"
+image cents15 = "cents15.png"
+image cents20 = "cents20.png"
+image paper = "paper.png"
+image hotcoin = "hotcoin.png"
 
 image chara monster = "monster.png"
 
@@ -188,8 +200,9 @@ image chara monster = "monster.png"
 # First, we ask the player their name.
 label start:
 
-
-    "Hello and thank you for trying out our prototype!"
+    scene bg intro1
+    with fade
+    "Hello and thank you for trying out our prototype! (click to move forward)"
     "What is your name?"
     menu:
         "My name is Derek.":
@@ -223,7 +236,10 @@ label start:
     "On Aug 15th 1969, a group of really mellow dudes were organizing a music festival that was about to become the most famous festival ever."
     "The following is inspired by their stories."
     "Welcome to..."
-    "\"A MEMORY OF WOODSTOCK\"!"
+    scene bg intro3
+    with dissolve
+    pause 6.0
+    
     jump title
 
 # The player is given a chance to change their name before starting the game
