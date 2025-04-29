@@ -175,6 +175,10 @@ label day2_trailerstart:
                 t "Good luck, man!"
         $ playertip = "Let's see what can be done about these cows."
     "Larry leaves and you get ready for another day."
+    if toilet_area_open:
+        "(The toilet area is now available in the map.)"
+    if field_area_open:
+        "(The field area is now available in the map.)"
     hide chara
     with dissolve
     jump actionsmenu

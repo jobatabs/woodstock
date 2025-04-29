@@ -29,24 +29,8 @@ label toilets:
     
 
 label talktoilets:
-    menu:
-        "Talk to the kid in the toilet":
-            p "Is there a problem?"
-            k "What do you think?!"
-            k "I'm stuck in here!"
-            k "It's sweltering!"
-            jump talktoilets
-        "Can you unlock the door?":
-            k "Do you think I haven't tried?!"
-            jump talktoilets
-        "Ask Mary Jane to start up the winch" if winch_hooked:
-            "The kid is free."
-            k "Thank you so much! Even my camera's fine!"
-            $ day_two_end = "winch"
-            jump day2_ending
-        "Leave":
-            k "Hey, don't leave me here!"
-            jump actionsmenu
+    k "Get me out of here!"
+    jump actionsmenu
 
 label looktoilets:
     if have_talked_mj == False:
@@ -165,19 +149,33 @@ label looktoilets:
                         p "Good. I need to get some stuff done."
                         mj "Right on! I'll see you around!"
                         jump actionsmenu
-            "Don't talk to the girl":
+            "Leave":
                 jump actionsmenu
 
 label toilets_d2b:
     if farmer_found == False:
-        "Talking with the hippy chick about the farmer."
-        "She tells you that Bessie the cow can find the farmer from anywhere by smell."
-        "You can call for Bessie in the field now."
-        $ mj_farmer_talk = True
-        jump actionsmenu
+        "Not much here except a girl."
+        menu:
+            "Talk to the girl":
+                mj "What's up?"
+                menu:
+                    "Ask about the farmer" if larry_farmer_talk == True:
+                        "Talking with the hippy chick about the farmer."
+                        "She tells you that Bessie the cow can find the farmer from anywhere by smell."
+                        "You can call for Bessie in the field now."
+                        $ mj_farmer_talk = True
+                        jump actionsmenu
+                    "Nothing":
+                        "You leave."
+                        jump actionsmenu
+                else:
+                    "You talk to the hippie girl but you learn nothing."
+                    jump actionsmenu
+            "Leave":
+                jump toilets
     else:
-        "Bessie find the farmer."
-        "The farmer can help you move the cows."
-        "You go to the field and the cows leave."
+        "You find the farmer with Bessie."
+        "You ask the farmer to help."
+        "The cows leave."
         $ day_two_end = "happycows"
         jump day2_ending

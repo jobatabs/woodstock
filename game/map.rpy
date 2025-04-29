@@ -47,7 +47,7 @@ label map_screen:
 
             jump trailer
         
-        "Toilets" if day > 1:
+        "Toilets" if toilet_area_open == True:
 
             scene black with wiperight
 
@@ -70,7 +70,7 @@ label map_screen:
 
             jump toilets
 
-        "Field" if day > 1:
+        "Field" if field_area_open == True:
 
             scene black with wiperight
 

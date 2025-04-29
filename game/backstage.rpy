@@ -5,7 +5,7 @@
 label backstage:
     scene bg backstage
     with fade
-    if day == 2:
+    if day > 1:
         if day_one_end == "money":
             jump backstage_d2a
         elif day_one_end == "whisky":
@@ -36,7 +36,12 @@ label backstage:
 
 label talkbackstage:
     if day_one_end == "money":
-        jump backstage_dialogue_d2a
+        if day > 1:
+            jump backstage_dialogue_d2a
+    elif day_one_end == "whisky":
+        if day > 1:
+            jump backstage_d2b
+    
     jump backstage_dialogue_second
 
 # Backstage first dialogue
@@ -358,8 +363,22 @@ label backstage_d2a:
     jump actionsmenu
 
 label backstage_d2b:
-    "This is backstage area day 2 if the town supervisor got whisky on the first day. Not much more here yet."
-    jump map_screen
+    show chara technician happy
+    with dissolve
+    t "How's it going with the cow problem?"
+    menu:
+        "Ask Larry about the farmer" if supervisor_cow_talk == True:
+            p "I need to find the farmer to get the cows out. Have you seen him?"
+            t "Yeah, I saw him by the toilets."
+            $ toilet_area_open = True
+            p "Thanks, I'll go there now."
+            "(The toilet area is now available in the map)"
+            $ larry_farmer_talk = True
+            jump actionsmenu
+        "Tell Larry you're still working on it":
+            p "It's going. I'll let you know if I need anything."
+            t "Cool man, see you later!"
+            jump actionsmenu
 
 label backstage_dialogue_d2a:
     show chara technician happy 

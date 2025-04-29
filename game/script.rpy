@@ -143,6 +143,9 @@ default have_talked_mj = False
 # Have you talked to the town supervisor about the cows?
 default supervisor_cow_talk = False
 
+# Have you asked Larry where the farmer is?
+default larry_farmer_talk = False
+
 # Have you talked to MJ about the farmer?
 default mj_farmer_talk = False
 

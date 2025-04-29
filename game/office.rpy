@@ -510,11 +510,13 @@ label office_day2_a:
         m "Well, like I said, the best would be to use a winch."
         p "And where would I find a winch?"
         m "You're hosting your festival at Max Yasgur's farm!"
-        m "I'm sure he has a truck that's equipped with a winch."
+        m "I'm sure he has a truck that's equipped with a winch in his field."
         p "Okay, sounds good! Thanks for you help, truly!"
         m "No problem. Just make sure you get that kid out!"
         m "I still have nightmares about a certain gas-station toilet..."
         "You leave the town supervisor to reminisce about his adventures."
+        "(The field is now available in the map)"
+        $ field_area_open = True
         $ town_supervisor_toilettalk = True
         jump townhall
     else:
@@ -529,7 +531,10 @@ label office_day2_a:
 label office_day2_b:
     show chara mayor neutral
     with dissolve
-    m "Sorry, I got super drunk last night and released the cows."
-    m "The only person who can move the cows is the farmer."
-    $ supervisor_cow_talk = True
-    jump map_screen
+    if supervisor_cow_talk == False:
+        m "Sorry, I got super drunk last night and released the cows."
+        m "The only person who can move the cows is the farmer."
+        m "You could always use some violence but they are pretty tough."
+        m "Maybe someone has seen the farmer?"
+        $ supervisor_cow_talk = True
+        jump townhall

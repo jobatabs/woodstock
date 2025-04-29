@@ -61,7 +61,7 @@ label lookfield:
                         p "I mean, I've really got no beef with any of you. I mean-"
                         p "Ah, the hell with this."
                         "You ran away from the cows as fast as you can."
-                        jump lookfield
+                        jump field
             "Back":
                 jump actionsmenu
 
