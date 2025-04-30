@@ -3,8 +3,13 @@
 #
 
 label field:
-    scene bg field
-    with fade
+    if day_one_end == "money":
+        scene bg truck
+        with fade
+    elif day_one_end == "whisky":
+        scene bg field
+        with fade
+    
     if day_two_end == "happycows":
         jump farmer_and_cows
     if day_one_end == "whisky":
