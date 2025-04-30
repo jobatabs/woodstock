@@ -158,6 +158,9 @@ default mj_farmer_talk = False
 # Has Bessie the cow found the farmer?
 default farmer_found = False
 
+# Do you know Mary Jane's name?
+default girl_name = "the girl"
+
 #
 # IMAGES
 #

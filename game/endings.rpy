@@ -99,6 +99,8 @@ label death:
 
 
 label d2_bad:
+    scene bad_ending
+    with fade
     "The cows rough you up. Bad ending. Hendrix doesn't play. The festival is quickly forgotten from history."
     return
 
@@ -106,9 +108,13 @@ label d2_best:
     jump good_ending
 
 label d2_neutral_a:
+    scene neutral_ending
+    with fade
     "Hendrix plays, no documentary made."
     return
 
 label d2_neutral_b:
+    scene neutral_ending
+    with fade
     "Hendrix plays, Marty still in toilet so no film made."
     return

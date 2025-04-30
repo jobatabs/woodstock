@@ -395,7 +395,8 @@ label backstage_dialogue_d2a:
     with dissolve
     if truck_fixed == True:
         t "Hey, I managed to fix that truck in the field!"
-        t "You should be able to start it now."
+        t "There ain't nothing \"Ole Magic Hands Larry\" can't fix!"
+        t "So yeah, you should be able to start it now."
         p "Nice! Thanks Larry."
         t "No problemo!"
     t "How's it going with the toilet problem?"

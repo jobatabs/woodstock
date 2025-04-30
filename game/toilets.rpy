@@ -12,12 +12,12 @@ label toilets:
             k "Help! Is anyone there?"
             p "Is that Maddox?"
             k "My name is Marty!"
-            p "Right, Marty!"
+            p "Right!"
             p "Listen, I'm here to get you out!"
             k "Oh thank God! It's really hot in here and I have the film camera with me in here!"
             k "This film will get destroyed if I don't get out of here quick!"
             p "And then I won't get paid!"
-            k "Sorry, what was that? Say again?"
+            k "Sorry, what was that?"
             p "Nothing!"
             p "I'm gonna get you out of there! I just need to figure out how to do that!"
             k "Okay, but you need to hurry!"
@@ -30,6 +30,7 @@ label toilets:
 
 label talktoilets:
     k "Get me out of here!"
+    k "I think I'm going to pass out from the smell pretty soon!"
     jump actionsmenu
 
 label looktoilets:
@@ -45,9 +46,10 @@ label looktoilets:
             "Tell the girl to mind her own business":
                 p "Mind your own business!"
                 mj "Damn, you've gotta go that bad, huh?"
-                mj "Alright, I'll leave you to it."
+                mj "or maybe someone is stuck in a toilet, huh?"
+                mj "Well, I'll leave you to it."
                 mj "Have a nice festival!"
-                "The girl leaves you alone."
+                "The girl walks away."
                 jump toilets
             "Explain the situation":
                 p "No, it's not that. There's someone stuck in one of the toilets."
@@ -63,6 +65,8 @@ label looktoilets:
                     "Ask the girl who she is":
                         p "So what's your name?"
                         mj "My name's Mary Jane! Nice to meet you!"
+                        $ girl_name = "Mary Jane"
+                        $ mj = Character("Mary Jane", color="#6eff75")
                         p "Likewise. Are you here for the whole weekend?"
                         mj "Yeah, I actually live in this town!" 
                         mj "I spend the summers working on this farm actually."
@@ -97,7 +101,7 @@ label looktoilets:
                                 p "I've got to get this kid out. Hope you have a nice festival."
                                 mj "You too! Good luck!"
                                 jump toilets
-                            "Say bye to the girl":
+                            "Say bye to Mary Jane":
                                 p "I've gotta go find a way to get this kid out."
                                 p "Have a nice festival."
                                 mj "Good luck!"
@@ -113,25 +117,99 @@ label looktoilets:
             "The truck is in the toilet area, ready to be used."
         "Also, the girl you talked to before is still hanging around the toilet area."
         menu:
-            "Try to pull the door open":
+            "Try to pull the toilet door open":
                 "The door doesn't budge."
+                k "You need to find something to open the door with!"
                 jump looktoilets
             "Use the winch on the truck to open the toilet" if winch_here == True:
                 "You try to use the winch-system on the truck, but unfortunately you have no idea how to use it."
                 "Feeling quite frustrated by your lack of skills with machinery, you leave the winch alone."
-                jump actionsmenu
+                jump looktoilets
             "Use the axe to break the toilet door" if have_axe == True:
-                "You break down the door. The kid is free."
-                k "Thank you so much!"
-                k "But my camera broke..."
-                $ day_two_end = "axe"
-                jump day2_ending
-            "Talk to the girl":
+                p "I've found a solution to get you out of there!"
+                k "Great! What is it?"
+                p "I'm going to smash a hole in to the door with this fire axe I have here!"
+                k "Huh?!"
+                k "Are you crazy?!"
+                k "What if the axe goes through the door and hits me?!"
+                "The kid might have a point there."
+                menu:
+                    "Break down the door with the axe":
+                        p "You want to get out of there? This is the solution!"
+                        p "Now stand back!"
+                        "You start hammering on the door with the fire axe."
+                        "After a couple of hits, the axe starts to bite in to the tough plastic of the toilet door."
+                        k "Be careful! You're using quite a lot of force!"
+                        p "Shut up and let me do my job!"
+                        "You start using even more force to hit the door with."
+                        "Eventually a small crack starts forming on the door."
+                        "You decide to push on with even more force."
+                        k "Aaagh! I think you're going to punch through the door and hit me!"
+                        "The crack on the door has gotten bigger now."
+                        "You decide to use all your might for a final push."
+                        "Your fire axe flies towards the door, and a great big \"CRACK!\" is heard."
+                        "The fire axe has gone completely through the door, and is now stuck in something."
+                        p "Oh shit..."
+                        p "Hey kid! Are you okay?"
+                        k "Yes, I'm alive if that's what you're asking!"
+                        k "But the situation is not great I must say!"
+                        "You grab the edges of the crack you have made on the door, and rip away the kevlar-like plastic lining."
+                        "Inside the toilet, you see a young man who is holding a film camera."
+                        "Your fire axe has lodged itself firmly in to the body of the camera."
+                        show chara kid neutral
+                        with dissolve
+                        k "Holy moly! That was close!"
+                        k "If I wouldn't have been holding my camera, that axe would have surely hit me straight in the chest!"
+                        k "But oh how good it feels to breathe in some fresh air!"
+                        "You get the kid out of the toilets and assess the damage."
+                        p "Man... I'm stronger than I thought!"
+                        p "But that camera is not doing okay..."
+                        "The film camera seems to be beyond repair."
+                        "It would take an Arthurian effort to remove the axe from the camera."
+                        "The impact of the axe has also caused the film cartridge to open. Hundreds of feet of film are unfurled on the ground, exposed to the sun."
+                        k "I think making any sort of documentary is out of the question now."
+                        p "Damnit!!"
+                        k "Hey, don't worry about it! You get me out in one piece!"
+                        p "Yep..."
+                        k "I'm going to go rest for a bit. What a day..."
+                        hide chara kid neutral
+                        with dissolve
+                        "You see the kid walk away in a daze."
+                        "In the distance, you can see Larry walking towards you, waving."
+                        show chara technician happy
+                        with dissolve
+                        t "Hey [player_name]! You managed to get the kid out!"
+                        p "Yeah, but the camera got destroyed."
+                        t "Ah, bummer!"
+                        t "But at least now we didn't have to deal with a potential onset of a syncope caused by a gradual overload of the olfactory sensory neurons due to exposure to fecal matter!"
+                        p "Fucking, WHAT?!"
+                        t "Ha ha! Sorry, I'm babbling again!"
+                        t "I just dropped some acid. I think it's starting to hit."
+                        t "Hey, I think Hendrix is about to play soon!"
+                        t "Let's go check him out!"
+                        "There doesn't seem to be anything more left to do."
+                        "Your weekend as the producer of Woodstock Music Festival is coming to a close."
+                        "You start walking towards the main stage with Larry."
+                        t "Are you seeing what I'm seeing?"
+                        p "Probably not, since I haven't dropped any acid yet. What's up?"
+                        t "I just had this vision of a bunch of students making a game about this very festival!"
+                        p "That's great. Tell them to make it so that nothing goes wrong and every problem is easily fixed."
+                        t "But where's the fun in that?"
+                        $ day_two_end = "axe"
+                        jump day2_ending
+                    "Leave the door alone":
+                        p "Maybe I should think this through..."
+                        k "Yeah!!"
+                        "You take a step back from the door."
+                        jump looktoilets
+
+            "Talk to [girl_name]":
                 show chara girl neutral
+                with dissolve
                 mj "Ah, it's you!"
                 mj "How's it going?"
                 menu:
-                    "Ask the girl about using the winch" if winch_here == True:
+                    "Ask [girl_name] about using the winch" if winch_here == True:
                         p "You wouldn't know how to use a winch would you?"
                         mj "What's the problem?"
                         p "I have no idea how to use this thing."
@@ -139,21 +217,80 @@ label looktoilets:
                         p "Right..."
                         p "How come you know how to use this thing?"
                         mj "Like I said, it's not exactly rocket science."
-                        mj "But I spend summers working for Max Yasgur's farm."
-                        mj "Using a winch is pretty much the easiest thing when working on a farm."
-                        p "I bet. Let's get this winch started then!"
-                        mj "Sure thing!"
-                        "You connect the winch and use it. Marty gets out and the camera is OK."
-                        show chara kid neutral
-                        with dissolve
-                        k "Thanks!"
-                        jump day2_ending
-                    "Say bye to the girl":
-                        p "Good. I need to get some stuff done."
-                        mj "Right on! I'll see you around!"
+                        mj "But I spend summers working the farmer's fields."
+                        mj "Using a winch is pretty much the easiest thing when it comes to working on a farm."
+                        menu:
+                            "Ask [girl_name] to help you with the winch":
+                                p "Could you help me use the winch to get this kid out?"
+                                mj "Of course!"
+                                mj "Let's just connect the cable first..."
+                                "You watch as [girl_name] connects the winch cable to the toilet door."
+                                "Making sure the cable is fastened tightly, she walks over to the truck's winch system."
+                                "With a few presses of a button, [girl_name] starts the system."
+                                "You watch as the truck's tires dig in to the ground as the cable starts to pull on the toilet door."
+                                "Soon, a big loud \"POP\", like a bottle of soda being opened, is heard."
+                                "The door of the toilet has cleanly pulled off at the hinges."
+                                "Inside the toilet, you see a kid sitting down with a camera clutched in his arms."
+                                show chara kid neutral
+                                with dissolve
+                                k "Oh wow!"
+                                k "How'd you do that??"
+                                p "That's all her."
+                                show chara girl neutral
+                                with dissolve
+                                mj "Pleasure's all mine."
+                                show chara kid neutral
+                                with dissolve
+                                k "Thanks for getting me out in one piece!"
+                                k "It was getting really hot in there!"
+                                k "I've got to go cool off this camera so the film isn't destroyed!"
+                                k "But I'm sure we'll get the documentary made, no problem!"
+                                k "Thanks again!"
+                                hide chara kid neutral
+                                with dissolve
+                                "You see the kid running off with the camera towards the backstage area."
+                                "The kid and [girl_name] exchange quick looks and a smile as they pass each other by."
+                                show chara girl neutral
+                                with dissolve
+                                mj "Well, looks like my job here is done."
+                                p "Thanks for taking care of that for me! I couldn't have hoped for a better result."
+                                mj "No worries, it wasn't too difficult!"
+                                mj "Anyway, I think Hendrix is playing soon and I want to go see him!"
+                                mj "Hope there'll be no more problems for you to fix!"
+                                p "Yeah, me too."
+                                p "Hey, go and get free drinks and food at the stalls! Just mention that [player_name], the producer of the festival sent you."
+                                mj "Dude, all the stalls are closed!"
+                                mj "There's no more food left."
+                                mj "There's nothing to drink."
+                                mj "Everyone here is dirty, hungry and tired."
+                                mj "And it's the best weekend any of us will ever have in our lives."
+                                p "Oh... okay."
+                                p "Well... thanks for your help then."
+                                mj "Don't mention it!"
+                                mj "I'm gonna go see Hendrix light his guitar on fire now!"
+                                mj "Bye!"
+                                hide chara girl neutral
+                                with dissolve
+                                "You see [girl_name] head towards the main stage."
+                                "There doesn't seem to be anything more left to do."
+                                "Your weekend as the producer of Woodstock Music Festival is coming to a close."
+                                "As you walk towards the main stage, you hear Hendrix and his band setting up."
+                                "For some reason, walking amongst the crowd makes you think of the lyrics of some Bob Dylan song Hendrix covered on his latest album..."
+                                "\"No reason to get excited, the thief, he kindly spoke\"..."
+                                "\"There are many here among us, who feel that life is but a joke\"..."
+                                "\"But you and I, we've been through that, and this is not our fate\"..."
+                                "\"So let us stop talking falsely now, the hour's getting late\"."
+                                jump day2_ending
+                            "Try to use the winch yourself":
+                                p "I see. I think I'm going to try to use the winch myself then."
+                                mj "Suit yourself..."
+                                jump toilets
+                    "Say you're still trying to get the kid out":
+                        p "Good. I'm still trying to figure out this situation with the kid."
+                        mj "Good luck! I'll see you around!"
                         jump toilets
             "Leave":
-                jump map_screen
+                jump toilets
 
 label toilets_d2b:
     if farmer_found == False:
