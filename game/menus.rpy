@@ -4,6 +4,9 @@ label actionsmenu:
         "[playertip]"
 
         "Go to the town supervisor's office" if location == "townhall":
+            if supervisor_cow_talk == True:
+                "The door to the office is locked."
+                jump actionsmenu
             jump office
         "Talk to [talk_to]" if location in talkable:
             jump talkmenu
@@ -37,7 +40,6 @@ label lookmenu:
         jump looktrailer
 
     elif location == "townhall":
-
         jump looktownhall
 
     elif location == "toilets":

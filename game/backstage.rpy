@@ -379,9 +379,10 @@ label backstage_d2b:
     menu:
         "Ask Larry about the farmer" if supervisor_cow_talk == True:
             p "I need to find the farmer to get the cows out. Have you seen him?"
-            t "Yeah, I saw him by the toilets."
+            t "Yeah, I saw him earlier by the toilets!"
             $ toilet_area_open = True
-            p "Thanks, I'll go there now."
+            p "Thanks Larry, I'll go there now."
+            t "See you later!"
             "(The toilet area is now available in the map)"
             $ larry_farmer_talk = True
             jump map_screen

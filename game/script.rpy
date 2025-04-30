@@ -14,9 +14,11 @@ define mj = Character("Hippie Girl", color="#6eff75")
 
 define f = Character("Farmer", color="#6d594b")
 
-define c = Character("Bessie", color="#c774ca")
+define c = Character("Shelley", color="#c774ca")
 
 define j = Character("Monster", color="#62e489", what_color="#62e489")
+
+define h = Character("Jimi Hendrix", color="#804b8d")
 
 #
 # PARAMETERS
@@ -161,6 +163,9 @@ default farmer_found = False
 # Do you know Mary Jane's name?
 default girl_name = "the girl"
 
+# Is it your first visit to the toilet D2b area?
+default d2b_toilet_first_visit = True
+
 #
 # IMAGES
 #
@@ -181,6 +186,7 @@ image chara bessie neutral = "bessie neutral.png"
 
 image chara girl neutral = "girl neutral.png"
 image chara farmer neutral = "farmer neutral.png"
+image chara hendrix neutral = "hendrix neutral.png"
 
 image whisky = "whisky.png"
 image metal detector = "mine_detector.png"

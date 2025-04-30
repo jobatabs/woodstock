@@ -293,31 +293,93 @@ label looktoilets:
                 jump toilets
 
 label toilets_d2b:
+    if d2b_toilet_first_visit == True:
+        "As you enter the toilet area, you hear someone banging the door of a toilet from inside."
+        k "Help! I'm stuck here!"
+        p "Sorry, I've got more pressing matters to attend to."
+        k "No!!"
+        $ d2b_toilet_first_visit = False
     if farmer_found == False:
-        "Not much here except a girl."
+        "There doesn't seem to be much here except a young hippie girl."
         menu:
             "Talk to the girl":
                 show chara girl neutral
                 with dissolve
-                mj "What's up?"
+                mj "Hello. Can I help you?"
                 menu:
                     "Ask about the farmer" if larry_farmer_talk == True:
-                        "Talking with the hippy chick about the farmer."
-                        "She tells you that Bessie the cow can find the farmer from anywhere by smell."
-                        "(You can call for Bessie in the field now.)"
+                        p "I'm looking for the local farmer. Have you seen him by chance?"
+                        mj "Oh, you mean Max? Yeah I know Max! I spend the summers working on his fields."
+                        mj "I saw him walking around here a while back, but I haven't seen him in the last hour or so."
+                        mj "Although it should be noted that Max has a habit of falling asleep when he's... you know."
+                        p "Are you saying that the farmer has fallen asleep while on the toilet?"
+                        mj "It's possible."
+                        mj "He's a pretty heavy sleeper as well, so I don't think he'll wake up if we try to shout his name."
+                        mj "And he doesn't snore, so it might be difficult to find him among all these toilets..."
+                        mj "This happens quite often, actually."
+                        mj "Usually when I need to ask him about this or that relating to the fields, I can't find him most of the time!"
+                        p "Oh geez..."
+                        p "I really, really need to find him. Any ideas?"
+                        mj "We'll, there is this one cow that Max has..."
+                        p "Max has a lot of cows."
+                        mj "Yeah, I know but there's this calf named \"Shelley\" that has an amazing sense of smell!"
+                        mj "She's like a hound dog!"
+                        mj "She can find Max from miles away, just by smell!"
+                        p "Do you think Shelley could help me find Max in this field of toilets?"
+                        mj "Assuming Max is somewhere here, yeah, sure!"
+                        p "Even despite the... smell?"
+                        mj "Like I said, Shelley's like a hound dog!"
+                        p "Okay..."
+                        p "How do I find Shelley among all the other cows?"
+                        mj "Just call her name, and she'll come to you!"
+                        mj "She's really friendly!"
+                        p "Okay, that sounds easy enough. I'll go find Shelley in the field now."
+                        mj "Good luck!"
+                        "(You can call for Shelley in the field now.)"
+                        hide chara girl neutral
+                        with dissolve
+                        
                         $ mj_farmer_talk = True
                         jump toilets
-                    "Nothing":
-                        "You leave."
+                    "Leave":
+                        p "Actually, never mind. Sorry to bother you."
+                        mj "It's okay!"
                         jump toilets
             "Leave":
                 jump map_screen
     else:
-        "You find the farmer with Bessie."
+        "You run after Shelley as she makes her way around the festival area."
+        "Crowds of people move out of the way and cheer as Shelley heads towards the toilet area."
+        "You arrive at a toilet that is standing at the end of a long line of porta-potties."
+        show chara bessie neutral
+        with dissolve
+        c "Mmmoooo!!"
+        "Suddenly, you hear noises from inside the toilet in front of you."
+        $ f = Character("Voice from inside the toilet", color="#6d594b")
+        f "Shelley? Is that you, girl??"
+        "The door of the toilet bursts open, and a large man climbs out of it."
+        $ f = Character("Farmer Max", color="#6d594b")
         show chara farmer neutral
         with dissolve
-        "You ask the farmer to help."
-        f "Happy to help!"
-        "The cows leave."
+        f "Shelley! What are you doing here, girl?"
+        f "Did you come to fetch me for supper?"
+        "The farmer notices you standing close by."
+        f "Ah, hello! I don't believe we've met! My name is Max Yasgur, I'm the owner of this field!"
+        p "Hello, I'm [player_name]. I'm the producer in charge of this festival."
+        f "Ah, yes! I've heard about you!"
+        p "Hopefully only good things?"
+        f "Of course! Everyone is talking about this kid running around, fixing problems!"
+        f "I hope everything is alright?"
+        p "Yeah... Well, no."
+        p "I'm sorry, but the field we are using as a landing site for our helicopters is filled with your cows."
+        f "Really? I did lock them in their pen at the end of Thursday!"
+        p "Yeah, I know, I know. The cows were let out by someone."
+        f "Who let the cows out?"
+        p "(Hmm... that could be a song title...)"
+        p "It was the town supervisor. He got a little tipsy and decided to let the cows have their freedom."
+        f "Ah yes, Danny likes a bit of drink, he does..."
+        f "Well it's not the end of the world! I can come and move the cows back in to their pen if you want?"
+        p "That'd be excellent, thank you!"
+        f "Well alrighty then, let's get going!"
         $ day_two_end = "happycows"
-        jump day2_ending
+        jump field
