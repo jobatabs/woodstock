@@ -5,7 +5,7 @@
 # After the starting set-up, the game properly begins
 label trailerstart:
 
-    scene bg trailer
+    scene bg trailer1
     with fade
     "It is the morning of August 15th, 1969."
     "You wake up hungover in your trailer and look around a bit."
