@@ -18,32 +18,28 @@ label monster_battle:
     with dissolve
     "A large entity that cannot be described by words appears before you."
     "You feel your lifeforce being sapped away by this unimaginable being as you try to find the right words."
-    c "Y'ai 'ng'ngah, Yog-Sothoth h'ee - l'geb f'ai throdog uaaah."
+    j "Y'ai 'ng'ngah, Yog-Sothoth h'ee - l'geb f'ai throdog uaaah."
     menu:
         "You are my master, and I give my life to thee.":
             "Slowly, the creature feeds on your spirit. You slip in to an endless darkness."
-            "You are dead."
             jump death
-        "What are you, some kind of stupid man-squid?":
+        "What are you, some kind of stupid off-brand Jesus?":
             "You hear a voice that seems to be coming from inside your head."
-            c "Insolent fool. You wish to challenge my power? I have lived since the beginning, before your kind even had developed ears or eyes."
-            c "You will bow before my power. I shall feed on your kind for an eternity."
+            j "Insolent fool. You wish to challenge my power? I have lived since the beginning, before your kind even had developed ears or eyes."
+            j "You will bow before my power. I shall feed on your kind for an eternity."
             menu:
                 "Please don't kill me.":
                     "Slowly, the creature feeds on your spirit. You slip in to an endless darkness."
-                    "You are dead."
                     jump death
                 "I think you look kind of dumb.":
-                    c "How dare you. You are an insignificant speck of matter. I will never stop feasting on you. You will suffer for a thousand generations."
+                    j "How dare you. You are an insignificant speck of matter. I will never stop feasting on you. You will suffer for a thousand generations."
                     menu:
                         "I didn't mean it. Don't kill me. Please.":
                             "Slowly, the creature feeds on your spirit. You slip in to an endless darkness."
-                            "You are dead."
                             jump death
                         "You fight like a dairy farmer!":
-                            c "How appropriate. You fight like a cow!"
+                            j "How appropriate. You fight like a cow!"
                             "The creature's fierce comeback causes the flesh from your bones to evaporate instantly."
-                            "You are dead."
                             jump death
 
                         "u r dumb lol":

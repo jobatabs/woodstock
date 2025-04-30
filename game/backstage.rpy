@@ -88,7 +88,7 @@ label talklarry:
             t "So, do you want to start the festival then?"
             menu:
                 "Start the festival (End the day)":
-                    p "Yeah, let's get this show started! (End the day)"
+                    p "Yeah, let's get this show started!"
                     t "Alright! Rock'n'roll, man!"
                     jump ending
                 "Don't start the festival yet":
@@ -129,7 +129,7 @@ label backstage_dialogue_second:
             t "Hey [player_name]! Are you ready to start the festival?"
             menu:
                 "Start the festival (End the day)":
-                    p "Yeah, let's get this show started! (End the day)"
+                    p "Yeah, let's get this show started!"
                     t "Alright! Rock'n'roll, man!"
                     jump ending
                 "Don't start the festival yet":
@@ -156,12 +156,8 @@ label backstage_dialogue_second:
                     jump backstage
         "Offer Larry the bottle of whisky" if have_whisky==True:
             p "Hey Larry, you want this bottle of whisky?"
-            show chara technician angry
-            with dissolve
             t "I SAID I'M OUT OF *BEER* GODDAMNIT!!"
             "You have never seen Larry this angry before."
-            show chara technician happy
-            with dissolve
             "But just as quick, he returns to his usual relaxed self."
             t "Whisky's not really my thing, man!"
             jump actionsmenu

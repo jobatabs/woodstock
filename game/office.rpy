@@ -296,6 +296,7 @@ menu:
 
 label townhall_second_dialogue:
     show chara mayor neutral
+    with dissolve
     if mayor_wants_chest == True:
         m "Ah, it's you!"
         m "Do you have the money?"

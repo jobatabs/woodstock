@@ -170,13 +170,13 @@ label d2_neutral_a:
         "Mary Jane Blunt stays on to work with farmer Max and eventually inherits the farm. Groovy!"
         "She helps draft dodgers hide in the farm."
     else:
-        "Mary Jane Blunt dedicates her life to designing more secure port-a-potties. Heavy!"
+        "Mary Jane Blunt dedicates her life to designing port-a-potties that are are less prone to malfunctioning. Heavy!"
     show chara kid neutral
     with dissolve
     "Marty's crew never finishes the film because the camera is destroyed."
     "Your axe-wielding ways destroy the possibility of cementing Woodstock's place in history and contemporary culture."
     "Despite this failure, Marty moved on to make some pretty famous fictional films."
-    "With your violent antics you became an inspiration to his films Like a Raging Bull and Taxi Driver."
+    "Your violent antics become an inspiration for his films \"Raging Bull\" and \"Taxi Driver\"."
     show chara hendrix neutral
     with dissolve
     "The festival runs late and finally early Monday morning Jimi Hendrix plays his famous solo."
@@ -184,7 +184,7 @@ label d2_neutral_a:
     hide chara hendrix neutral
     with dissolve
     "You have some ability for the music business. Not too bad!"
-    "Unfortunately, you lose part of your pay because the documentary never gets made – and your employer was really looking forward to it."
+    "Unfortunately, you lose all of you wages because the documentary never gets made - and your employer was really looking forward to it."
     "Strapped for cash you turn to your second passion, real-estate and become a realtor of mid-range houses." 
     "You enjoy your work but every now and then the memory of Woodstock makes you wonder..."
     scene bg intro2
@@ -204,6 +204,7 @@ label d2_neutral_b:
     "The town supervisor Daniel Amatucci faced criticism from the conservatives in his constituency and lost his re-election bid later that year."
     "The local clergy played a hand at ousting him because of his pro hippie viewpoints."
     show chara girl neutral
+    with dissolve
     "Mary Jane Blunt stays on to work with farmer Max and eventually inherits the farm. Groovy!"
     "She helps draft dodgers hide in the farm."
     show chara bessie neutral
@@ -224,7 +225,7 @@ label d2_neutral_b:
     hide chara hendrix neutral
     with dissolve
     "You have some ability for the music business. Not too bad!"
-    "Unfortunately, you lose part of your pay because the documentary never gets made - and your employer was really looking forward to it."
+    "Unfortunately, you lose all of your wages because the documentary never gets made - and your employer was really looking forward to it."
     "Strapped for cash you turn to your second passion, real-estate and become a realtor of mid-range houses." 
     "You enjoy your work but every now and then the memory of Woodstock makes you wonder..."
     scene bg intro2

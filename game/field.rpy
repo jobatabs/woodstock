@@ -91,6 +91,7 @@ label lookfield:
                         "The cows form a ring around you, and you see a big cow make its way towards you."
                         "The rest of the herd starts mooing loudly, and you have hardly any time to react as the big bad cow launches its attack on you."
                         "The last thing you remember before waking up in the hospital is a massive hoof approaching your face."
+                        "Your weekend as the producer of Woodstock Music Festival has come to a close."
                         $ day_two_end = "cowfight"
                         jump day2_ending
                     "Leave the cows alone":
