@@ -3,6 +3,7 @@
 #
 
 label townhall:
+    play music "townhall.mp3" fadein 2.0 fadeout 2.0
     scene black with wiperight
 
     show text "Town Hall" at truecenter with dissolve

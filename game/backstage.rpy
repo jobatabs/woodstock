@@ -5,6 +5,7 @@
 label backstage:
     scene bg backstage
     with fade
+    play music "crowd1.mp3" fadein 2.0 fadeout 2.0
     if day > 1:
         if day_one_end == "money":
             jump backstage_d2a

@@ -3,6 +3,7 @@
 #
 
 label office:
+    play music "office.mp3" fadein 2.0 fadeout 2.0
     #scene black with wiperight
 
     #show text "Town supervisor's office" at truecenter with dissolve

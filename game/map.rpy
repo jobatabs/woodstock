@@ -4,8 +4,7 @@
 
 
 label map_screen:
-
-
+    play music "empty.mp3" fadein 2.0 fadeout 2.0
     scene bg map
     with fade
     menu:

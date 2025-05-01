@@ -4,7 +4,7 @@
 
 # After the starting set-up, the game properly begins
 label trailerstart:
-
+    play music "empty.mp3" fadein 2.0 fadeout 2.0
     scene bg trailer1
     with fade
     "It is the morning of August 15th, 1969."

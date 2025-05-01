@@ -4,7 +4,7 @@
 
 
 label ending:
-
+    play music "empty.mp3" fadein 2.0 fadeout 2.0
 
     if mayor_happy==False:
         jump bad_ending

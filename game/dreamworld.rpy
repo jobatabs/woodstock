@@ -8,7 +8,7 @@ define c = Character("Cosmic Being", color="#4a1ea2")
 default monster_dead = False
 
 label monster_battle:
-
+    play music "empty.mp3" fadein 2.0 fadeout 2.0
 
     scene bg monsterlair
     with fade

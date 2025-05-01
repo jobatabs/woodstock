@@ -6,9 +6,11 @@ label field:
     if day_one_end == "money":
         scene bg truck
         with fade
+        play music "truck.mp3" fadein 2.0 fadeout 2.0
     elif day_one_end == "whisky":
         scene bg field
         with fade
+        play music "cows1.mp3" fadein 2.0 fadeout 2.0
     
     if day_two_end == "happycows":
         jump farmer_and_cows
