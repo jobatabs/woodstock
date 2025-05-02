@@ -16,7 +16,7 @@ define f = Character("Farmer", color="#6d594b")
 
 define c = Character("Shelley", color="#c774ca")
 
-define j = Character("Monster", color="#62e489", what_color="#62e489")
+define j = Character("Cosmic Being", color="#4a1ea2", what_color="#4a1ea2")
 
 define h = Character("Jimi Hendrix", color="#804b8d")
 
