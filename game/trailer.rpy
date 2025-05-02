@@ -4,6 +4,7 @@
 
 # After the starting set-up, the game properly begins
 label trailerstart:
+    stop music fadeout 1.0
     play music "empty.mp3" fadein 2.0 fadeout 2.0
     scene bg trailer
     with fade
@@ -63,6 +64,8 @@ label trailerstart:
 
 
 label trailer:
+    stop music fadeout 1.0
+    play music "empty.mp3" fadein 2.0 fadeout 2.0
     scene bg trailer
     with fade
     if day == 1:
@@ -74,6 +77,8 @@ label trailer:
 
 
 label day2_trailer:
+    stop music fadeout 1.0
+    play music "empty.mp3" fadein 2.0 fadeout 2.0
     scene black with wiperight
 
     show text "Day 2" at truecenter with dissolve
@@ -89,6 +94,8 @@ label day2_trailer:
     jump day2_trailerstart
 
 label day2_trailerstart:
+    stop music fadeout 1.0
+    play music "empty.mp3" fadein 2.0 fadeout 2.0
     scene bg trailer
     with fade
     "You wake up with a renewed sense of focus."

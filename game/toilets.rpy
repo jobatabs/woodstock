@@ -5,7 +5,7 @@
 label toilets:
     scene bg toilets
     with fade
-    play music "crowd2.mp3" fadein 2.0 fadeout 2.0
+    play music "crowd2.mp3" fadein 2.0 fadeout 5.0 noloop
     if day_one_end == "money":
         if talked_to_kid == False:
             $ talked_to_kid = True

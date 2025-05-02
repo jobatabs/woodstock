@@ -4,7 +4,8 @@
 
 
 label ending:
-    play music "empty.mp3" fadein 2.0 fadeout 2.0
+    
+    
 
     if mayor_happy==False:
         jump bad_ending
@@ -18,6 +19,17 @@ label ending:
         jump d2a_start
 
 label day2_ending:
+    stop music fadeout 1.0
+    play music "hendrix.mp3" fadein 2.0 fadeout 2.0 noloop
+    scene black with wiperight
+
+    show text "Epilogue" at truecenter with fade
+
+    pause 1.0
+
+    hide text with dissolve
+
+    pause 0.3
     if day_two_end=="cowfight":
         jump d2_bad
     elif day_two_end=="happycows":

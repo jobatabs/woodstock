@@ -246,7 +246,9 @@ label start:
     "The following is inspired by their stories."
     "Welcome to..."
     scene bg intro3
+    
     with dissolve
+    play music "intro.mp3" fadein 2.0 fadeout 3.0 noloop
     pause 6.0
     
     jump title

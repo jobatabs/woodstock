@@ -4,7 +4,22 @@
 
 
 label map_screen:
-    play music "empty.mp3" fadein 2.0 fadeout 2.0
+    $ diceroll = renpy.random.randint(1, 6)
+    if diceroll == 1:
+        play music "band1.mp3" fadein 2.0 fadeout 2.0 noloop
+    elif diceroll == 2:
+        play music "band2.mp3" fadein 2.0 fadeout 2.0 noloop
+    elif diceroll == 3:
+        play music "band3.mp3" fadein 2.0 fadeout 2.0 noloop
+    elif diceroll == 4:
+        play music "band4.mp3" fadein 2.0 fadeout 2.0 noloop
+    elif diceroll == 5:
+        play music "band5.mp3" fadein 2.0 fadeout 2.0 noloop
+    elif diceroll == 6:
+        play music "band6.mp3" fadein 2.0 fadeout 2.0 noloop
+    else:
+        play music "empty.mp3" fadein 2.0 fadeout 2.0 noloop
+    
     scene bg map
     with fade
     menu:
