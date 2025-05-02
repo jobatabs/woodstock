@@ -2,7 +2,6 @@
 # DREAMWORLD MONSTER BATTLE
 #
 
-define c = Character("Cosmic Being", color="#4a1ea2")
 
 # Has the player killed the monster in the dreamworld? (Unlocks the best ending)
 default monster_dead = False
