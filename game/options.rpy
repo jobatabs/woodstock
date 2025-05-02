@@ -29,7 +29,7 @@ define config.version = "2.0"
 ## Text that is placed on the game's about screen. Place the text between the
 ## triple-quotes, and leave a blank line between paragraphs.
 
-define gui.about = _p("""Game by Jonatan Noponen, Eliza Schafar, Juha Töyrylä and Tuukka Vatanen. Made for Helsinki University course HISM-G514 Game Project: Mechanics and Designer Perspectives (spring 2025).
+define gui.about = _p("""Game by Jonatan Noponen, Eliza Schafar, Juha Töyrylä and Tuukka Vatanen. Made for Helsinki University course HISM-G514 Game Project: Mechanics and Designer Perspectives (spring 2025). Special thanks for Coireall Kent for help with the visuals.
 """)
 
 
