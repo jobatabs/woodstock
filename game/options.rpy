@@ -29,7 +29,55 @@ define config.version = "2.0"
 ## Text that is placed on the game's about screen. Place the text between the
 ## triple-quotes, and leave a blank line between paragraphs.
 
-define gui.about = _p("""Game by Jonatan Noponen, Eliza Schafar, Juha Töyrylä and Tuukka Vatanen. Made for Helsinki University course HISM-G514 Game Project: Mechanics and Designer Perspectives (spring 2025). Special thanks for Coireall Kent for help with the visuals.
+define gui.about = _p("""Game by Jonatan Noponen, Eliza Schafar, Juha Töyrylä and Tuukka Vatanen.\n
+Made for Helsinki University course HISM-G514 Game Project: Mechanics and Designer Perspectives (spring 2025).\n
+Special thanks for Coireall Kent for help with the visuals.\n
+Thank you to Ylva Grufstedt for game testing.\n
+Thank you to Miikka Junnila for feedback on design idea.\n
+Thank you to Derek Fewster for the whole Game Studies Module.\n
+\n
+Pictures used for the game:\n
+https://commons.wikimedia.org/wiki/File:Woodstock_redmond_crowd.JPG\n
+https://commons.wikimedia.org/wiki/File:Sunny_Saturday_afternoon_at_the_Woodstock_Music_and_Art_Fair.jpg\n
+https://commons.wikimedia.org/wiki/File:Woodstock_redmond_girl.JPG \n
+https://commons.wikimedia.org/wiki/File:Woodstock%27s_famous_towers.jpg\n
+https://commons.wikimedia.org/wiki/File:Unknown_reason_for_picture.jpg\n
+https://commons.wikimedia.org/wiki/File:Swami_opening.jpg\n
+https://commons.wikimedia.org/wiki/File:The_Who_then_the_Airplane.jpg\n
+https://commons.wikimedia.org/wiki/File:Movie_camera_%22Quartz%22_(6862765815).jpg\n
+https://commons.wikimedia.org/wiki/File:Reo_Speedwagon_D19XA_pickup_truck_(3661099261).jpg\n
+https://commons.wikimedia.org/wiki/File:Dilemma_at_the_portable_toilets_-_geograph.org.uk_-_1475934.jpg\n
+https://commons.wikimedia.org/wiki/File:Suitcase_(AM_2019.4.11-2).jpg\n
+https://commons.wikimedia.org/wiki/File:Jimi_Hendrix_beim_Festival_1970.jpg\n
+https://commons.wikimedia.org/wiki/File:Jimi_Hendrix_cropped.jpg\n
+https://commons.wikimedia.org/wiki/File:BEREC_NiCad_Battery_Size_C_(ii).jpg\n
+https://commons.wikimedia.org/wiki/File:BEREC_NiCad_Battery_Size_C_(iii).jpg\n
+https://commons.wikimedia.org/wiki/File:Glenlivet_Single_Malt_Scotch_Whisky_French_Oak_Reserve_15_years_old.jpg\n
+https://commons.wikimedia.org/wiki/File:Ohio_farmer_David_Brandt.jpg\n
+https://commons.wikimedia.org/wiki/File:Max_Yasgurs_Farm_2.JPG\n
+https://commons.wikimedia.org/wiki/File:AnzacDayTonyWilliams.jpg\n
+https://commons.wikimedia.org/wiki/File:2013_GAF_Mine_Detector_(1).jpg\n
+https://commons.wikimedia.org/wiki/File:Hippie_Jesus_(9189639976).jpg\n
+https://commons.wikimedia.org/wiki/File:RV_Thomas_G._Thompson_fire_axe.jpg\n
+https://commons.wikimedia.org/wiki/File:Aller340_innen_1.jpg\n
+https://commons.wikimedia.org/wiki/File:Isle_of_Wight_Festival_2010_backstage_set_up_3.JPG\n
+https://www.pexels.com/de-de/foto/leerer-flur-176162/\n
+https://www.pexels.com/de-de/foto/roter-und-weisser-coca-cola-verkaufsautomat-899786/\n
+https://www.pexels.com/de-de/foto/kuh-herde-2191432/\n
+https://www.pexels.com/de-de/foto/landschaft-natur-landwirtschaft-kuhe-19896210/\n
+https://www.pexels.com/de-de/foto/feld-landschaft-bauernhof-farm-20553176/\n
+https://www.pexels.com/de-de/foto/stapel-geld-silber-munzen-12920771/\n
+https://www.pexels.com/de-de/foto/fashion-mode-mann-kleidung-12317521/\n
+https://unsplash.com/de/fotos/ein-roter-feuerwehr-ausrustungskasten-an-der-seite-eines-gebaudes-YlgTXyN8SEs\n
+https://unsplash.com/de/fotos/brauner-esstisch-aus-holz-mit-stuhlen-W7v8EpJL668\n
+https://unsplash.com/de/fotos/ein-zimmer-mit-einer-uhr-einem-tisch-und-stuhlen-dcPXe297PjA\n
+https://unsplash.com/de/fotos/eine-person-mit-bart-die-eine-tasse-halt-u_W8M9Xn8Q4\n
+https://unsplash.com/de/fotos/das-gesicht-des-mannes-u_zmIdoJLmY\n
+https://unsplash.com/de/fotos/im-hintergrund-posiert-ein-junger-mann-mit-wasser-bETCcdVfD90\n
+https://unsplash.com/de/fotos/eine-gruppe-von-gepacktaschen-unter-einem-dach-VqdGXDJ8BUU\n
+\n
+Music ripped from a YouTube-video: https://www.youtube.com/watch?v=DqzB6pGC8Lw\n
+Background ambient audio from freesound.org\n
 """)
 
 
